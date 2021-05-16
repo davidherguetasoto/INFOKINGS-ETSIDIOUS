@@ -3,6 +3,7 @@ using namespace std;
 
 void main()
 {
-	cout << "Hola mundo de miada" << endl;
+	cout << "Hola mundo de miaDFJSFDJda" << endl;
 	cout << "ESto va de locos" << endl;
+	cout << "asdfa" << endl;
 }
