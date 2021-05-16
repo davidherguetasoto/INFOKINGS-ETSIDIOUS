@@ -143,11 +143,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\disparo.cpp" />
     <ClCompile Include="src\ETSIDIOUS.cpp" />
     <ClCompile Include="src\nave.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="personaje.h" />
+    <ClInclude Include="src\disparo.h" />
     <ClInclude Include="src\nave.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
