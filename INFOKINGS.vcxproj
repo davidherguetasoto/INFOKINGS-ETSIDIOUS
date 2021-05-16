@@ -147,6 +147,7 @@
     <ClCompile Include="src\nave.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="personaje.h" />
     <ClInclude Include="src\nave.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
