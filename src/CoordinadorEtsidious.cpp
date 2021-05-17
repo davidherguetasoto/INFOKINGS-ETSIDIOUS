@@ -44,12 +44,12 @@ void CoordinadorEtsidious::Tecla(unsigned char key)
 {
 	if (estado == Estado::INICIO)
 	{
-		if (key == 'e')
+		if (key == 'e'||key=='E')
 		{
 			mundo.Inicializa();
 			estado = Estado::JUEGO;
 		}
-		if (key == 's')
+		if (key == 's'||key=='S')
 			exit(0);
 	}
 	else if (estado == Estado::JUEGO)
