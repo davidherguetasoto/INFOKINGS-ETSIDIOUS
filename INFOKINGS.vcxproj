@@ -143,10 +143,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Mundo.cpp" />
     <ClCompile Include="src\Caja.cpp" />
     <ClCompile Include="src\CoordinadorEtsidious.cpp" />
     <ClCompile Include="src\ETSIDIOUS.cpp" />
+    <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\nave.cpp" />
     <ClCompile Include="src\Pared.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
