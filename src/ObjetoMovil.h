@@ -11,5 +11,6 @@ public:
 	void setVel(Vector2D vel) { velocidad = vel; }
 	void setVel(float vx, float vy) { velocidad.x = vx; velocidad.y = vy; }
 	Vector2D getPos() { return posicion; }
+	Vector2D getVel() { return velocidad; }
 };
 

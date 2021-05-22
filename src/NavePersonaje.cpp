@@ -1,11 +1,6 @@
 #include "NavePersonaje.h"
 #include "freeglut.h"
-NavePersonaje::NavePersonaje()
+NavePersonaje::NavePersonaje():Nave(100.0f,0,0,255)
 {
-
-}
-void NavePersonaje::Dibuja()
-{
-	glColor3f(color.r,color.g,color.b);
-	Nave::Dibuja();
+	
 }

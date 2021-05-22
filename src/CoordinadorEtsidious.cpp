@@ -54,7 +54,7 @@ void CoordinadorEtsidious::Tecla(unsigned char key)
 	}
 	else if (estado == Estado::JUEGO)
 	{
-
+		mundo.Tecla(key);
 	}
 	else if (estado == Estado::GAMEOVER)
 	{
@@ -75,7 +75,10 @@ void CoordinadorEtsidious::Tecla(unsigned char key)
 }
 void CoordinadorEtsidious::teclaEspecial(unsigned char key)
 {
-
+	if (estado == Estado::JUEGO)
+	{
+		mundo.teclaEspecial(key);
+	}
 }
 void CoordinadorEtsidious::Inicializa()
 {

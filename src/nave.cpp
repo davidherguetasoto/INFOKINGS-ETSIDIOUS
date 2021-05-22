@@ -11,12 +11,12 @@ Nave::Nave(float vida, unsigned char red, unsigned char green, unsigned char blu
 }
 void Nave::Dibuja()
 {
-	color.ponColor();
-	glRotatef(-90, 1, 0, 0);
 	glPushMatrix();
+	color.ponColor();
 	glTranslatef(posicion.x, posicion.y, 0);
+	glRotatef(-90, 1, 0, 0);
 	glutSolidCone(radio, altura, 20, 20);
 	glRotatef(90, 1, 0, 0);
-	glTranslatef(-posicion.x, -posicion.y, 0);
+	glTranslatef(-posicion.x, -posicion.y,0);
 	glPopMatrix();
 }

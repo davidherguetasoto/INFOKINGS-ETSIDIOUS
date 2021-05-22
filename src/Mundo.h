@@ -6,6 +6,7 @@ dependiendo de entradas del usuario por teclado*/
 #pragma once
 #include"Caja.h"
 #include"NavePersonaje.h"
+#include"Obstaculo.h"
 class Mundo
 {
 private:
@@ -13,9 +14,11 @@ private:
 	float y_ojo;
 	float z_ojo;
 public:
-
+	float x = 0, y = 8, z = 40;
 	Caja caja;
 	NavePersonaje personaje;
+	Obstaculo asteroide;
+
 	Mundo();
 	virtual ~Mundo();
 	void Tecla(unsigned char key);
