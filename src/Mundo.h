@@ -15,6 +15,7 @@ private:
 public:
 
 	Caja caja;
+	NavePersonaje personaje;
 	Mundo();
 	virtual ~Mundo();
 	void Tecla(unsigned char key);

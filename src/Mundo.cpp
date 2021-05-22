@@ -24,11 +24,11 @@ void Mundo::Dibuja()
 	
 	//DIBUJAR OBJETOS DE LA PANTALLA
 	caja.Dibuja();
-
+	personaje.Dibuja();
 }
 void Mundo::Mueve(float t)
 {
-
+	personaje.Mueve(t);
 }
 void Mundo::Tecla(unsigned char key)
 {
