@@ -39,19 +39,19 @@
     <ClCompile Include="src\Nave.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Obstaculo.cpp">
+    <ClCompile Include="src\NavePersonaje.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Bonus.cpp">
+    <ClCompile Include="src\Disparo.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Disparo.cpp">
+    <ClCompile Include="src\NaveEnemiga.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="NavePersonaje.cpp">
+    <ClCompile Include="src\Bonus.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="NaveEnemiga.cpp">
+    <ClCompile Include="src\Obstaculo.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,19 +80,19 @@
     <ClInclude Include="src\Nave.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Obstaculo.h">
+    <ClInclude Include="src\NavePersonaje.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Bonus.h">
+    <ClInclude Include="src\Disparo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Disparo.h">
+    <ClInclude Include="src\NaveEnemiga.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="NavePersonaje.h">
+    <ClInclude Include="src\Bonus.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="NaveEnemiga.h">
+    <ClInclude Include="src\Obstaculo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

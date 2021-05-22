@@ -8,6 +8,7 @@ protected:
 	float radio;
 	float altura;
 public:
+	Nave();
 	void Dibuja();
 	//añadir funcion para disparo
 };

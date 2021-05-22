@@ -5,6 +5,7 @@ dependiendo de entradas del usuario por teclado*/
 
 #pragma once
 #include"Caja.h"
+#include"NavePersonaje.h"
 class Mundo
 {
 private:

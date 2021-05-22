@@ -143,32 +143,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bonus.cpp" />
-    <ClCompile Include="Disparo.cpp" />
-    <ClCompile Include="NaveEnemiga.cpp" />
-    <ClCompile Include="NavePersonaje.cpp" />
-    <ClCompile Include="Obstaculo.cpp" />
+    <ClCompile Include="src\Bonus.cpp" />
     <ClCompile Include="src\Caja.cpp" />
     <ClCompile Include="src\CoordinadorEtsidious.cpp" />
+    <ClCompile Include="src\Disparo.cpp" />
     <ClCompile Include="src\ETSIDIOUS.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Nave.cpp" />
+    <ClCompile Include="src\NaveEnemiga.cpp" />
+    <ClCompile Include="src\NavePersonaje.cpp" />
     <ClCompile Include="src\ObjetoMovil.cpp" />
+    <ClCompile Include="src\Obstaculo.cpp" />
     <ClCompile Include="src\Pared.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bonus.h" />
-    <ClInclude Include="Disparo.h" />
-    <ClInclude Include="NaveEnemiga.h" />
-    <ClInclude Include="NavePersonaje.h" />
-    <ClInclude Include="Obstaculo.h" />
+    <ClInclude Include="src\Bonus.h" />
     <ClInclude Include="src\Caja.h" />
     <ClInclude Include="src\ColorRGB.h" />
     <ClInclude Include="src\CoordinadorEtsidious.h" />
+    <ClInclude Include="src\Disparo.h" />
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Nave.h" />
+    <ClInclude Include="src\NaveEnemiga.h" />
+    <ClInclude Include="src\NavePersonaje.h" />
     <ClInclude Include="src\ObjetoMovil.h" />
+    <ClInclude Include="src\Obstaculo.h" />
     <ClInclude Include="src\Pared.h" />
     <ClInclude Include="src\Vector2D.h" />
   </ItemGroup>
