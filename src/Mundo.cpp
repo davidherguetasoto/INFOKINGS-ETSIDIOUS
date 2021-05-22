@@ -34,6 +34,7 @@ void Mundo::Mueve(float t)
 }
 void Mundo::Tecla(unsigned char key)
 {
+	//TECLAS PARA CAMBIAR EL PUNTO DE VISTA DURANTE EL DESARROLLO
 	switch (key)
 	{
 	case'z':
