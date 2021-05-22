@@ -4,6 +4,7 @@ class ObjetoMovil
 {
 protected:
 	float orientacion; //Ángulo que el objeto se encuentra rotado alrededor del eje Z
+	float vel_modulo; //Módulo de la velocidad del cuerpo
 	Vector2D posicion, velocidad;
 public:
 	ObjetoMovil();
