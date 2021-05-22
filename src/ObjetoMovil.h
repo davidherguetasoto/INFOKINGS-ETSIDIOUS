@@ -3,13 +3,20 @@
 class ObjetoMovil
 {
 protected:
+	float orientacion; //Ángulo que el objeto se encuentra rotado alrededor del eje Z
+	float vel_modulo; //Módulo de la velocidad a la que transita el objeto
+	//Igual se puede hacer sin vel_modulo
 	Vector2D posicion, velocidad;
 public:
+	ObjetoMovil();
+	ObjetoMovil(float vel, float ori, float posx,float posy);
+	ObjetoMovil(float vel, float ori, Vector2D pos);
 	virtual void Mueve(float t);
-	Vector2D getPos() { return posicion; }
-	void setVel(Vector2D vel) { velocidad = vel; }
-	void setVel(float vx, float vy) { velocidad.x = vx; velocidad.y = vy; }
 	void setPos(Vector2D pos) { posicion = pos; }
 	void setPos(float ix, float iy) { posicion.x = ix; posicion.y = iy; }
+	void setVel(float vel);
+	void setVel(Vector2D vel) { velocidad = vel; }
+	void setOri(float ori) { orientacion = ori; }
+	Vector2D getPos() { return posicion; }
 };
 
