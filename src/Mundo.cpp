@@ -13,6 +13,7 @@ void Mundo::Inicializa()
 	x_ojo = 0;
 	y_ojo = 7.5f;
 	z_ojo = 35.0f;
+	
 }
 void Mundo::Dibuja()
 {
@@ -23,6 +24,7 @@ void Mundo::Dibuja()
 	
 	//DIBUJAR OBJETOS DE LA PANTALLA
 	caja.Dibuja();
+	nave.Dibuja();
 
 }
 void Mundo::Mueve(float t)
