@@ -148,6 +148,7 @@
     <ClCompile Include="src\ETSIDIOUS.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\nave.cpp" />
+    <ClCompile Include="src\ObjetoMovil.cpp" />
     <ClCompile Include="src\Pared.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
@@ -157,6 +158,7 @@
     <ClInclude Include="src\CoordinadorEtsidious.h" />
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\nave.h" />
+    <ClInclude Include="src\ObjetoMovil.h" />
     <ClInclude Include="src\Pared.h" />
     <ClInclude Include="src\Vector2D.h" />
   </ItemGroup>
