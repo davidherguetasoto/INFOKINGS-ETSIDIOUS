@@ -24,7 +24,6 @@ void Mundo::Dibuja()
 	
 	//DIBUJAR OBJETOS DE LA PANTALLA
 	caja.Dibuja();
-	nave.Dibuja();
 
 }
 void Mundo::Mueve(float t)

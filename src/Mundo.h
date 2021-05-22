@@ -5,7 +5,6 @@ dependiendo de entradas del usuario por teclado*/
 
 #pragma once
 #include"Caja.h"
-#include "nave.h"
 class Mundo
 {
 private:
@@ -15,7 +14,6 @@ private:
 public:
 
 	Caja caja;
-	Nave nave;
 	Mundo();
 	virtual ~Mundo();
 	void Tecla(unsigned char key);
