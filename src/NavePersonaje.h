@@ -3,6 +3,7 @@
 class NavePersonaje :public Nave
 {
 public:
+	NavePersonaje();
 	void Dibuja();
 };
 
