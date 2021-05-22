@@ -145,6 +145,8 @@
   <ItemGroup>
     <ClCompile Include="Bonus.cpp" />
     <ClCompile Include="Disparo.cpp" />
+    <ClCompile Include="NaveEnemiga.cpp" />
+    <ClCompile Include="NavePersonaje.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="src\Caja.cpp" />
     <ClCompile Include="src\CoordinadorEtsidious.cpp" />
@@ -158,6 +160,8 @@
   <ItemGroup>
     <ClInclude Include="Bonus.h" />
     <ClInclude Include="Disparo.h" />
+    <ClInclude Include="NaveEnemiga.h" />
+    <ClInclude Include="NavePersonaje.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="src\Caja.h" />
     <ClInclude Include="src\ColorRGB.h" />
