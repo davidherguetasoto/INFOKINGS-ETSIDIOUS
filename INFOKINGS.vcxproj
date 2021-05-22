@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="src\Caja.cpp" />
     <ClCompile Include="src\CoordinadorEtsidious.cpp" />
     <ClCompile Include="src\ETSIDIOUS.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="src\Caja.h" />
     <ClInclude Include="src\ColorRGB.h" />
     <ClInclude Include="src\CoordinadorEtsidious.h" />
