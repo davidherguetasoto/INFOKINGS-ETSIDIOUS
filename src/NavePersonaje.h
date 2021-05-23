@@ -4,5 +4,6 @@ class NavePersonaje :public Nave
 {
 public:
 	NavePersonaje();
+	friend class Interaccion;
 };
 

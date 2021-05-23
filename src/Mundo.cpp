@@ -1,5 +1,6 @@
 #include "Mundo.h"
 #include "freeglut.h"
+#include"Interaccion.h"
 Mundo::Mundo():x_ojo(0),y_ojo(0),z_ojo(0)
 {
 
@@ -31,6 +32,8 @@ void Mundo::Mueve(float t)
 {
 	personaje.Mueve(t);
 	asteroide.Mueve(t);
+	Interaccion::Rebote(personaje, caja);
+	//personaje.setVel(0.0, 0.0);
 }
 void Mundo::Tecla(unsigned char key)
 {
@@ -80,23 +83,27 @@ void Mundo::teclaEspecial(unsigned char key)
 	{
 	case GLUT_KEY_LEFT:
 	{
-		personaje.setVel(-5.0f, 0.0f);
+		if(!Interaccion::Rebote(personaje,caja.pared_izq))
+		personaje.setVel(-15.0f, 0.0f);
 		break;
 	}
 	case GLUT_KEY_RIGHT:
 	{
-		personaje.setVel(5.0f, 0.0f);
+		if (!Interaccion::Rebote(personaje, caja.pared_dcha))
+		personaje.setVel(15.0f, 0.0f);
 		break;
 	}
 	case GLUT_KEY_UP:
 	{
-		personaje.setVel(0.0f, 5.0f);
+		if (!Interaccion::Rebote(personaje, caja.techo))
+		personaje.setVel(0.0f, 15.0f);
 		break;
 	}
 	case GLUT_KEY_DOWN:
 	{
-		personaje.setVel(0.0f, -5.0f);
+		if (!Interaccion::Rebote(personaje, caja.suelo))
+		personaje.setVel(0.0f, -15.0f);
 		break;
+	}	
 	}
-}
 }
