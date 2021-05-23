@@ -23,8 +23,10 @@ void Interaccion::Rebote(NavePersonaje& nave, Caja caja)
 	flag_pared_dcha = Rebote(nave, caja.pared_dcha);
 	flag_techo = Rebote(nave, caja.techo);
 	if (flag_suelo)
-		nave.setPos(nave.posicion.x, caja.suelo.limite1.y+0.45);
+		//nave.setVel(0.0, 0.0);
+	nave.setPos(nave.posicion.x, caja.suelo.limite1.y+0.45);
 	else if (flag_pared_izq)
+		//nave.setVel(0.0, 0.0);
 		nave.setPos(caja.pared_izq.limite1.x+0.45, nave.posicion.y);
 	else if (flag_pared_dcha)
 		nave.setPos(caja.pared_dcha.limite1.x-0.45, nave.posicion.y);
