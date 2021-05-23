@@ -1,6 +1,6 @@
 #include "freeglut.h"
 #include"CoordinadorEtsidious.h"
-
+//hola
 CoordinadorEtsidious etsidious;
 
 //CALLBACKS LIBRERÍA FREEGLUT
