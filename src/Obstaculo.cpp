@@ -1,10 +1,14 @@
 #include "Obstaculo.h"
 #include "freeglut.h"
-Obstaculo::Obstaculo() :radio(0.2f)
+Obstaculo::Obstaculo()
 {
+	radio = 0.2f;
 	posicion.x = 5.0f;
-	velocidad.y = -2.0f;
+	posicion.y = 20.0f;
+	velocidad.y = -3.0f;
 }
+
+
 void Obstaculo::Dibuja()
 {
 	glPushMatrix();

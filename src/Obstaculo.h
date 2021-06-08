@@ -6,5 +6,8 @@ class Obstaculo : public ObjetoMovil
 public:
 	Obstaculo();
 	void Dibuja();
+	
+
+	friend class Interaccion;
 };
 
