@@ -78,12 +78,12 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\</OutDir>
+    <OutDir>.\bin</OutDir>
     <IntDir>tmp\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)bin\</OutDir>
+    <OutDir>.\bin</OutDir>
     <IntDir>tmp\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -153,6 +153,8 @@
     <ClCompile Include="src\Disparo.cpp" />
     <ClCompile Include="src\ETSIDIOUS.cpp" />
     <ClCompile Include="src\Interaccion.cpp" />
+    <ClCompile Include="src\ListaDisparos.cpp" />
+    <ClCompile Include="src\ListaObstaculos.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Nave.cpp" />
     <ClCompile Include="src\NaveEnemiga.cpp" />
@@ -169,6 +171,8 @@
     <ClInclude Include="src\CoordinadorEtsidious.h" />
     <ClInclude Include="src\Disparo.h" />
     <ClInclude Include="src\Interaccion.h" />
+    <ClInclude Include="src\ListaDisparos.h" />
+    <ClInclude Include="src\ListaObstaculos.h" />
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Nave.h" />
     <ClInclude Include="src\NaveEnemiga.h" />

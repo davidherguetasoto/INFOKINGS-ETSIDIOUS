@@ -7,6 +7,9 @@ dependiendo de entradas del usuario por teclado*/
 #include"Caja.h"
 #include"NavePersonaje.h"
 #include"Obstaculo.h"
+#include "ListaObstaculos.h"
+#include "ListaDisparos.h"
+
 class Mundo
 {
 private:
@@ -17,7 +20,8 @@ public:
 	float x = 0, y = 8, z = 40;
 	Caja caja;
 	NavePersonaje personaje;
-	Obstaculo asteroide;
+	ListaObstaculos asteroides;
+	ListaDisparos disparos;
 
 	Mundo();
 	virtual ~Mundo();
@@ -26,5 +30,6 @@ public:
 	void Mueve(float t);
 	void Dibuja();
 	void teclaEspecial(unsigned char key);
+	
 };
 
