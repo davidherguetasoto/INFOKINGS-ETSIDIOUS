@@ -11,6 +11,8 @@
 *.sln.docstates
 *.exe
 *.vcxproj.user
+*.vcxproj
+*.vcxproj.filters
 bin/INFOKINGS.ilk
 bin/INFOKINGS.pdb
 # User-specific files (MonoDevelop/Xamarin Studio)
