@@ -30,6 +30,7 @@ public:
 	void Mueve(float t);
 	void Dibuja();
 	void teclaEspecial(unsigned char key);
+	void teclaEspecialUp(unsigned char key);
 	
 };
 

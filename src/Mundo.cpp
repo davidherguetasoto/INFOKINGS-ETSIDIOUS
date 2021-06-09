@@ -121,4 +121,23 @@ void Mundo::teclaEspecial(unsigned char key)
 	}	
 	}
 }
+void Mundo::teclaEspecialUp(unsigned char key)
+{
+	switch (key)
+	{
+	case GLUT_KEY_LEFT:
+		personaje.setVel(0.0f, 0.0f);
+		break;
+	case GLUT_KEY_RIGHT:
+		personaje.setVel(0.0f, 0.0f);
+		break;
+	case GLUT_KEY_UP:
+		personaje.setVel(0.0f, 0.0f);
+		break;
+	case GLUT_KEY_DOWN:
+		personaje.setVel(0.0f, 0.0f);
+		break;
+	}
+}
+
 

@@ -80,6 +80,11 @@ void CoordinadorEtsidious::teclaEspecial(unsigned char key)
 		mundo.teclaEspecial(key);
 	}
 }
+void CoordinadorEtsidious::teclaEspecialUp(unsigned char key)
+{
+	if (estado == Estado::JUEGO)
+		mundo.teclaEspecialUp(key);
+}
 void CoordinadorEtsidious::Inicializa()
 {
 	mundo.Inicializa();
