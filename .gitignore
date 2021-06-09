@@ -9,7 +9,10 @@
 *.user
 *.userosscache
 *.sln.docstates
-
+*.exe
+*.vcxproj.user
+bin/INFOKINGS.ilk
+bin/INFOKINGS.pdb
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -23,7 +26,6 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
 [Oo]bj/
 [Ll]og/
 
