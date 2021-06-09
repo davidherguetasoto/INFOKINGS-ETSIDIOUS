@@ -1,5 +1,3 @@
-//Hola
-//Hey
 #include "Mundo.h"
 #include "freeglut.h"
 #include"Interaccion.h"
