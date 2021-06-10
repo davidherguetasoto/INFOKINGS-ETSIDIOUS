@@ -70,11 +70,6 @@ bool Interaccion::colision(Disparo d, Caja c)
 	return false;
 }
 
-bool Interaccion::colision(Disparo d, Obstaculo o)
-{
-	return false;
-}
-
 bool Interaccion::colision(Disparo d, NaveEnemiga ne)
 {
 	return false;
