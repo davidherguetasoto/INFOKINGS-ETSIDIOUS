@@ -26,16 +26,16 @@ void Caja::dibuja()
 
 	
 	//DIBUJO DEL FONDO
-	/*glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/fondo.png").id);
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/espacio.png").id);
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
 	glColor3f(1, 1, 1);
-	glTexCoord2d(0, 1); glVertex3f(-10, 0,-1);
-	glTexCoord2d(1, 1); glVertex3f(10, 0,-1);
-	glTexCoord2d(1, 0); glVertex3f(10, 15,-1);
-	glTexCoord2d(0, 0); glVertex3f(-10, 15,-1);
+	glTexCoord2d(0, 1); glVertex2f(-12, -5);
+	glTexCoord2d(1, 1); glVertex2f(12, -5);
+	glTexCoord2d(1, 0); glVertex2f(12, 20);
+	glTexCoord2d(0, 0); glVertex2f(-12, 20);
 	glEnd();
 	glEnable(GL_LIGHTING);
-	glDisable(GL_TEXTURE_2D);*/
+	glDisable(GL_TEXTURE_2D);
 }

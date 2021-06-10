@@ -116,6 +116,6 @@ void CoordinadorEtsidious::mueve(float t)
 {
 	if (estado == Estado::JUEGO)
 	{
-		mundo.mueve(t);
+		mundo.mueve();
 	}
 }

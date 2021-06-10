@@ -1,9 +1,10 @@
 #pragma once
 #include"Vector2D.h"
+#include "ETSIDI.h"
 class ObjetoMovil
 {
 protected:
-	Vector2D posicion, velocidad;
+	Vector2D posicion, velocidad, aceleracion;
 public:
 	virtual void mueve(float t);
 	void setPos(Vector2D pos) { posicion = pos; }

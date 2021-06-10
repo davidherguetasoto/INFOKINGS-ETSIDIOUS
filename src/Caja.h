@@ -4,12 +4,15 @@
 class Caja
 {
 public:
-	Caja();
-	virtual ~Caja();
 	Pared suelo;
 	Pared techo;
 	Pared pared_izq;
 	Pared pared_dcha;
+//public:
+	Caja();
+	virtual ~Caja();
+	
 	void dibuja();
+
 	friend class Interaccion;
 };

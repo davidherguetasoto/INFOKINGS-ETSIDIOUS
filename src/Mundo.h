@@ -61,7 +61,7 @@ public:
 	void teclaEspecial(unsigned char key);
 	void teclaEspecialUp(unsigned char key);
 	void inicializa();
-	void mueve(float t);
+	void mueve();
 	void dibuja();
 
 	bool getImpacto();

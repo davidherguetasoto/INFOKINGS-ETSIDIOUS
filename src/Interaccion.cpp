@@ -34,14 +34,53 @@ void Interaccion::rebote(NavePersonaje& nave, Caja caja)
 		nave.setPos(nave.posicion.x, caja.techo.limite1.y-0.45);
 }
 
+bool Interaccion::rebote(NaveEnemiga& n, Pared p)
+{
+	Vector2D dir;
+	float dif = p.distancia(n.posicion, &dir);
+	if (dif <= 0.0f)
+	{
+		Vector2D v_inicial = n.velocidad;
+		n.velocidad = v_inicial - dir * 2.0 * (v_inicial * dir);
+		n.posicion = n.posicion - dir * dif;
+		return true;
+	}
+	return false;
+}
+
+bool Interaccion::rebote(NaveEnemiga& n, Caja c)
+{
+	return false;
+}
+
+bool Interaccion::rebote(NaveEnemiga& n1, NaveEnemiga& n2)
+{
+	return false;
+}
+
 bool Interaccion::colision(Obstaculo e, Disparo d)
 {
-	//Pared aux; //Creamos una pared auxiliar 
-	//Vector2D p1 = d.getPos();
-	//Vector2D p2 = d.origen;
-	//aux.setPos(p1.x, p1.y, p2.x, p2.y); //Que coincida con el disparo.
-	//float dist = aux.distancia(e.posicion); //para calcular su distancia
-	//if (dist < e.radio)
-	//	return true;
+	Pared aux; //Creamos una pared auxiliar 
+	Vector2D p1 = d.getPos();
+	Vector2D p2 = d.getOrig();
+	aux.setPos(p1.x, p1.y, p2.x, p2.y); //Que coincida con el disparo.
+	float dist = aux.distancia(e.posicion); //para calcular su distancia
+	if (dist < e.radio)
+		return true;
+	return false;
+}
+
+bool Interaccion::colision(Disparo d, Caja c)
+{
+	return false;
+}
+
+bool Interaccion::colision(Disparo d, Obstaculo o)
+{
+	return false;
+}
+
+bool Interaccion::colision(Disparo d, NaveEnemiga ne)
+{
 	return false;
 }
