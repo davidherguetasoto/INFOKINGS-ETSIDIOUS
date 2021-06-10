@@ -24,11 +24,11 @@ void CoordinadorEtsidious::dibuja()
 		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR", -5, 7);
 		ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5, 6);
 		ETSIDI::printxy("Realizado por:", -2, 4);
-		ETSIDI::printxy("Adrián Bedmar Juanas", -3, 3);
+		ETSIDI::printxy("Adrian Bedmar Juanas", -3, 3);
 		ETSIDI::printxy("Luis Torres del Nuevo", -3, 2);
 		ETSIDI::printxy("Natalia Borlaf Nieto", -3, 1);
 		ETSIDI::printxy("David Hergueta Soto", -3, 0);
-		ETSIDI::printxy("Guillermo Úbeda Romero", -3, -1);
+		ETSIDI::printxy("Guillermo Ubeda Romero", -3, -1);
 	}
 	else if (estado == Estado::JUEGO)
 	{
