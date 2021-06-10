@@ -7,7 +7,7 @@ CoordinadorEtsidious::~CoordinadorEtsidious()
 {
 	mundo.~Mundo();
 }
-void CoordinadorEtsidious::Dibuja()
+void CoordinadorEtsidious::dibuja()
 {
 	if (estado == Estado::INICIO)
 	{
@@ -29,54 +29,67 @@ void CoordinadorEtsidious::Dibuja()
 		ETSIDI::printxy("David Hergueta Soto", -3, 0);
 		ETSIDI::printxy("Guillermo Úbeda Romero", -3, -1);
 	}
-	else if (estado == Estado::NIVEL1)
+	else if (estado == Estado::JUEGO)
 	{
-		mundo.Dibuja();
+		mundo.dibuja();
 	}
 	else if(estado==Estado::GAMEOVER)
 	{
-
+		mundo.dibuja();
+		ETSIDI::setTextColor(1, 1, 0);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+		ETSIDI::printxy("GAMEOVER: Has perdido", -5, 10);
+		ETSIDI::printxy("Pulsa -C- para continuar", -5, 3);
 	}
 	else if (estado == Estado::FIN)
 	{
-
+		mundo.dibuja();
+		ETSIDI::setTextColor(1, 1, 0);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+		ETSIDI::printxy("ENHORABUENA, has salvado el mundo", -5, 10);
+		ETSIDI::printxy("Pulsa -C- para continuar", -5, 9);
 	}
 	else if (estado == Estado::PAUSA)
 	{
-
+		mundo.dibuja();
+		ETSIDI::setTextColor(1, 1, 0);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+		ETSIDI::printxy("PAUSA", -5, 10);
+		ETSIDI::printxy("Pulsa -C- para continuar", -5, 5);
 	}
 	else if (estado == Estado::RANKING)
 	{
 
 	}
 }
-void CoordinadorEtsidious::Tecla(unsigned char key)
+void CoordinadorEtsidious::tecla(unsigned char key)
 {
 	if (estado == Estado::INICIO)
 	{
 		if (key == 'e'||key=='E')
 		{
-			mundo.Inicializa();
-			estado = Estado::NIVEL1;
+			mundo.inicializa();
+			estado = Estado::JUEGO;
 		}
 		if (key == 's'||key=='S')
 			exit(0);
 	}
-	else if (estado == Estado::NIVEL1)
+	else if (estado == Estado::JUEGO)
 	{
-		mundo.Tecla(key);
+		mundo.tecla(key);
+		if (key == 'p') {
+			estado = Estado::PAUSA;
+		}
 	}
-	else if (estado == Estado::GAMEOVER)
+	else if (estado == Estado::GAMEOVER || estado == Estado::FIN)
 	{
-
-	}
-	else if (estado == Estado::FIN)
-	{
-
+		if (key == 'c')
+			estado = Estado::INICIO;
 	}
 	else if (estado == Estado::PAUSA)
 	{
-
+		if (key == 'c')
+			estado = Estado::JUEGO;
 	}
 	else if (estado == Estado::RANKING)
 	{
@@ -85,24 +98,24 @@ void CoordinadorEtsidious::Tecla(unsigned char key)
 }
 void CoordinadorEtsidious::teclaEspecial(unsigned char key)
 {
-	if (estado == Estado::NIVEL1)
+	if (estado == Estado::JUEGO)
 	{
 		mundo.teclaEspecial(key);
 	}
 }
 void CoordinadorEtsidious::teclaEspecialUp(unsigned char key)
 {
-	if (estado == Estado::NIVEL1)
+	if (estado == Estado::JUEGO)
 		mundo.teclaEspecialUp(key);
 }
-void CoordinadorEtsidious::Inicializa()
+void CoordinadorEtsidious::inicializa()
 {
-	mundo.Inicializa();
+	mundo.inicializa();
 }
-void CoordinadorEtsidious::Mueve(float t)
+void CoordinadorEtsidious::mueve(float t)
 {
-	if (estado == Estado::NIVEL1)
+	if (estado == Estado::JUEGO)
 	{
-		mundo.Mueve(t);
+		mundo.mueve(t);
 	}
 }

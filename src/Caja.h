@@ -10,6 +10,6 @@ public:
 	Pared techo;
 	Pared pared_izq;
 	Pared pared_dcha;
-	void Dibuja();
+	void dibuja();
 	friend class Interaccion;
 };

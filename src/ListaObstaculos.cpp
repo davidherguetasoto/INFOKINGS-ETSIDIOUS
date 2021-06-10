@@ -49,14 +49,14 @@ bool ListaObstaculos::agregar(Obstaculo* e)
 	return true; //no se ha alcanzado la capacidad max
 }
 
-void ListaObstaculos::Dibuja()
+void ListaObstaculos::dibuja()
 {
 	for (int i = 0; i < num; i++)
-		lista[i]->Dibuja();
+		lista[i]->dibuja();
 }
 
-void ListaObstaculos::Mueve(float t)
+void ListaObstaculos::mueve(float t)
 {
 	for (int i = 0; i < num; i++)
-		lista[i]->Mueve(t);
+		lista[i]->mueve(t);
 }

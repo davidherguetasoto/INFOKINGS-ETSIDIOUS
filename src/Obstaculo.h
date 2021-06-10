@@ -5,7 +5,7 @@ class Obstaculo : public ObjetoMovil
 	float radio;
 public:
 	Obstaculo();
-	void Dibuja();
+	void dibuja();
 	
 
 	friend class Interaccion;

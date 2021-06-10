@@ -18,8 +18,8 @@ public:
 								// y 0 si no se ha podido crear
 
 	
-	void Mueve(float);
-	void Dibuja();
+	void mueve(float);
+	void dibuja();
 
 	int getNum() { return num; }
 };

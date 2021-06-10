@@ -9,7 +9,7 @@ Mundo::~Mundo()
 {
 	
 }
-void Mundo::Inicializa()
+void Mundo::inicializa()
 {
 	x_ojo = x;
 	y_ojo = y;
@@ -19,7 +19,7 @@ void Mundo::Inicializa()
 	asteroides.agregar(e1);
 	
 }
-void Mundo::Dibuja()
+void Mundo::dibuja()
 {
 	//PUNTO DE VISTA DE LA CÁMARA
 	gluLookAt(x, y, z, // posicion del ojo
@@ -27,17 +27,17 @@ void Mundo::Dibuja()
 		0.0, 1.0, 0.0); // definimos hacia arriba (eje Z)
 	
 	//DIBUJAR OBJETOS DE LA PANTALLA
-	caja.Dibuja();
-	personaje.Dibuja();
-	asteroides.Dibuja();
-	disparos.Dibuja();
+	caja.dibuja();
+	personaje.dibuja();
+	asteroides.dibuja();
+	disparos.dibuja();
 }
-void Mundo::Mueve(float t)
+void Mundo::mueve(float t)
 {
-	personaje.Mueve(t);
-	asteroides.Mueve(0.025f);
-	disparos.Mueve(0.025f);
-	Interaccion::Rebote(personaje, caja);
+	personaje.mueve(t);
+	asteroides.mueve(0.025f);
+	disparos.mueve(0.025f);
+	Interaccion::rebote(personaje, caja);
 	//personaje.setVel(0.0, 0.0);
 
 	/*for (int i = asteroides.getNum(); i > 0; i--) {
@@ -49,7 +49,7 @@ void Mundo::Mueve(float t)
 		}
 	}*/
 }
-void Mundo::Tecla(unsigned char key)
+void Mundo::tecla(unsigned char key)
 {
 	//TECLAS PARA CAMBIAR EL PUNTO DE VISTA DURANTE EL DESARROLLO
 	switch (key)
@@ -97,25 +97,25 @@ void Mundo::teclaEspecial(unsigned char key)
 	{
 	case GLUT_KEY_LEFT:
 	{
-		if(!Interaccion::Rebote(personaje,caja.pared_izq))
+		if(!Interaccion::rebote(personaje,caja.pared_izq))
 		personaje.setVel(-15.0f, 0.0f);
 		break;
 	}
 	case GLUT_KEY_RIGHT:
 	{
-		if (!Interaccion::Rebote(personaje, caja.pared_dcha))
+		if (!Interaccion::rebote(personaje, caja.pared_dcha))
 		personaje.setVel(15.0f, 0.0f);
 		break;
 	}
 	case GLUT_KEY_UP:
 	{
-		if (!Interaccion::Rebote(personaje, caja.techo))
+		if (!Interaccion::rebote(personaje, caja.techo))
 		personaje.setVel(0.0f, 15.0f);
 		break;
 	}
 	case GLUT_KEY_DOWN:
 	{
-		if (!Interaccion::Rebote(personaje, caja.suelo))
+		if (!Interaccion::rebote(personaje, caja.suelo))
 		personaje.setVel(0.0f, -15.0f);
 		break;
 	}	

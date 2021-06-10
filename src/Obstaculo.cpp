@@ -9,7 +9,7 @@ Obstaculo::Obstaculo()
 }
 
 
-void Obstaculo::Dibuja()
+void Obstaculo::dibuja()
 {
 	glPushMatrix();
 	glColor3f(0, 255, 0);

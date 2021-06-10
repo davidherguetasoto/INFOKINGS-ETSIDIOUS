@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 	glutSpecialFunc(onSpecialKeyboardDown); //gestion de los cursores
 	glutSpecialUpFunc(OnSpecialKeyboardUp); //flancos negativos de las teclas especiales
 
-	etsidious.Inicializa();
+	etsidious.inicializa();
 
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
@@ -51,7 +51,7 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	etsidious.Dibuja();
+	etsidious.dibuja();
 
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();
@@ -59,7 +59,7 @@ void OnDraw(void)
 
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
-	etsidious.Tecla(key);
+	etsidious.tecla(key);
 	glutPostRedisplay();
 }
 void onSpecialKeyboardDown(int key, int x, int y)
@@ -74,7 +74,7 @@ void OnSpecialKeyboardUp(int key, int x, int y)
 void OnTimer(int value)
 {
 	//poner aqui el código de animacion
-	etsidious.Mueve(0.025f);
+	etsidious.mueve(0.025f);
 
 	//no borrar estas lineas
 	glutTimerFunc(25, OnTimer, 0);

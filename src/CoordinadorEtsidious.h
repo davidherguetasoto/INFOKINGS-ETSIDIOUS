@@ -10,16 +10,16 @@ class CoordinadorEtsidious
 {
 protected:
 	Mundo mundo;
-	enum class Estado{INICIO, NIVEL1, NIVEL2, NIVEL3, GAMEOVER, FIN, PAUSA, RANKING};
+	enum class Estado{INICIO, JUEGO, GAMEOVER, FIN, PAUSA, RANKING};
 	Estado estado;
 public:
 	CoordinadorEtsidious();
 	virtual ~CoordinadorEtsidious();
 	void teclaEspecial(unsigned char key);
 	void teclaEspecialUp(unsigned char key);
-	void Tecla(unsigned char key);
-	void Mueve(float t);
-	void Dibuja();
-	void Inicializa();
+	void tecla(unsigned char key);
+	void mueve(float t);
+	void dibuja();
+	void inicializa();
 };
 

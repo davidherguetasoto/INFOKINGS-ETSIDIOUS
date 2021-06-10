@@ -9,7 +9,7 @@ Nave::Nave(float vida, unsigned char red, unsigned char green, unsigned char blu
 	altura = 2.0f;
 	radio = 0.5f;
 }
-void Nave::Dibuja()
+void Nave::dibuja()
 {
 	glPushMatrix();
 	color.ponColor();

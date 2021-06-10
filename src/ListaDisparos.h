@@ -8,8 +8,8 @@ public:
 	virtual ~ListaDisparos();
 	bool agregar(Disparo* d);
 	void destruirContenido();
-	void Mueve(float t);
-	void Dibuja();
+	void mueve(float t);
+	void dibuja();
 	
 
 	void eliminar(int index); //elimina disparo por su posición en la lista

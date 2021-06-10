@@ -7,8 +7,8 @@
 class Interaccion
 {
 public:
-	static bool Rebote(NavePersonaje& nave, Pared pared);
-	static void Rebote(NavePersonaje& nave, Caja caja);
+	static bool rebote(NavePersonaje& nave, Pared pared);
+	static void rebote(NavePersonaje& nave, Caja caja);
 	static bool colision(Obstaculo e, Disparo d);
 };
 

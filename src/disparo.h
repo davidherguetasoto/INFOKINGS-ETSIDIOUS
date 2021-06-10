@@ -8,7 +8,7 @@ private:
 public:
 	Disparo();
 	virtual ~Disparo();
-	virtual void Dibuja();
+	virtual void dibuja();
 	void setPos(Vector2D pos);
 	void setPos(float ix, float iy);
 };

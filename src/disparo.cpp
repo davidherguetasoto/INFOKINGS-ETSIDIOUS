@@ -7,7 +7,7 @@ Disparo::Disparo():daño(10.0f)
 Disparo::~Disparo()
 {
 }
-void Disparo::Dibuja()
+void Disparo::dibuja()
 {
 
 }

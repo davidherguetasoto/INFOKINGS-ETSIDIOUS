@@ -154,6 +154,7 @@
     <ClCompile Include="src\ETSIDIOUS.cpp" />
     <ClCompile Include="src\Interaccion.cpp" />
     <ClCompile Include="src\ListaDisparos.cpp" />
+    <ClCompile Include="src\ListaEnemigos.cpp" />
     <ClCompile Include="src\ListaObstaculos.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
     <ClCompile Include="src\Nave.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="src\Disparo.h" />
     <ClInclude Include="src\Interaccion.h" />
     <ClInclude Include="src\ListaDisparos.h" />
+    <ClInclude Include="src\ListaEnemigos.h" />
     <ClInclude Include="src\ListaObstaculos.h" />
     <ClInclude Include="src\Mundo.h" />
     <ClInclude Include="src\Nave.h" />

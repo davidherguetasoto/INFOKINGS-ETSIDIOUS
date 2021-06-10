@@ -4,33 +4,67 @@ de pedirles que se muevan, o tambiénde hacer otras acciones
 dependiendo de entradas del usuario por teclado*/
 
 #pragma once
-#include"Caja.h"
-#include"NavePersonaje.h"
-#include"Obstaculo.h"
+#include "Bonus.h"
+#include "Caja.h"
+#include "Interaccion.h"
 #include "ListaObstaculos.h"
 #include "ListaDisparos.h"
+#include "ListaEnemigos.h"
+#include "NavePersonaje.h"
+#include "Obstaculo.h" //se podría quitar?
+
+
+//class Mundo
+//{
+//private:
+//	float x_ojo;
+//	float y_ojo;
+//	float z_ojo;
+//public:
+//	float x = 0, y = 8, z = 40;
+//	Caja caja;
+//	NavePersonaje personaje;
+//	ListaObstaculos asteroides;
+//	ListaDisparos disparos;
+//
+//	Mundo();
+//	virtual ~Mundo();
+//	void Tecla(unsigned char key);
+//	void Inicializa();
+//	void Mueve(float t);
+//	void Dibuja();
+//	void teclaEspecial(unsigned char key);
+//	void teclaEspecialUp(unsigned char key);
+//	
+//};
 
 class Mundo
 {
-private:
 	float x_ojo;
 	float y_ojo;
 	float z_ojo;
-public:
-	float x = 0, y = 8, z = 40;
+
+	Bonus bonus;
 	Caja caja;
 	NavePersonaje personaje;
 	ListaObstaculos asteroides;
 	ListaDisparos disparos;
+	ListaEnemigos enemigos;
 
+	bool impacto;
+	float nivel;
+
+public:
 	Mundo();
 	virtual ~Mundo();
-	void Tecla(unsigned char key);
-	void Inicializa();
-	void Mueve(float t);
-	void Dibuja();
+	void tecla(unsigned char key);
 	void teclaEspecial(unsigned char key);
 	void teclaEspecialUp(unsigned char key);
-	
-};
+	void inicializa();
+	void mueve(float t);
+	void dibuja();
 
+	bool getImpacto();
+	int getNumEnemigos();
+	bool cargarNivel();
+};

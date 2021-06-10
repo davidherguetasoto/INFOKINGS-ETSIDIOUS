@@ -8,7 +8,7 @@ Pared::~Pared()
 {
 
 }
-void Pared::Dibuja()
+void Pared::dibuja()
 {
 	glDisable(GL_LIGHTING);
 	color.ponColor();

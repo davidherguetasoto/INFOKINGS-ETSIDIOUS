@@ -33,14 +33,14 @@ void ListaDisparos::destruirContenido() {
 	numero = 0; // inicializa lista
 }
 
-void ListaDisparos::Mueve(float t) {
+void ListaDisparos::mueve(float t) {
 	for (int i = 0; i < numero; i++)
 		lista[i]->Mueve(t);
 }
 
-void ListaDisparos::Dibuja() {
+void ListaDisparos::dibuja() {
 	for (int i = 0; i < numero; i++)
-		lista[i]->Dibuja();
+		lista[i]->dibuja();
 }
 
 void ListaDisparos::eliminar(int index)

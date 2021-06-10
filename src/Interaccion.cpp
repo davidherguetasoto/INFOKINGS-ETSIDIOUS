@@ -1,6 +1,6 @@
 #include "Interaccion.h"
 #include<math.h>
-bool Interaccion::Rebote(NavePersonaje& nave, Pared pared)
+bool Interaccion::rebote(NavePersonaje& nave, Pared pared)
 {
 	Vector2D vpared(pared.limite2 - pared.limite1);
 	Vector2D pos = nave.getPos() - pared.limite2; //Posición de la nave respecto un extremo de la pared
@@ -15,13 +15,13 @@ bool Interaccion::Rebote(NavePersonaje& nave, Pared pared)
 		return true;
 	else return false;
 }
-void Interaccion::Rebote(NavePersonaje& nave, Caja caja)
+void Interaccion::rebote(NavePersonaje& nave, Caja caja)
 {
 	bool flag_pared_izq, flag_pared_dcha, flag_techo, flag_suelo;
-	flag_suelo = Rebote(nave, caja.suelo);
-	flag_pared_izq = Rebote(nave, caja.pared_izq);
-	flag_pared_dcha = Rebote(nave, caja.pared_dcha);
-	flag_techo = Rebote(nave, caja.techo);
+	flag_suelo = rebote(nave, caja.suelo);
+	flag_pared_izq = rebote(nave, caja.pared_izq);
+	flag_pared_dcha = rebote(nave, caja.pared_dcha);
+	flag_techo = rebote(nave, caja.techo);
 	if (flag_suelo)
 		//nave.setVel(0.0, 0.0);
 	nave.setPos(nave.posicion.x, caja.suelo.limite1.y+0.45);

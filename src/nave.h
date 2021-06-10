@@ -12,7 +12,7 @@ protected:
 public:
 	Nave();
 	Nave(float vida, unsigned char red, unsigned char green, unsigned char blue);
-	void Dibuja();
+	void dibuja();
 	//añadir funcion para disparo
 };
 

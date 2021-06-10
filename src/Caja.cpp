@@ -17,12 +17,12 @@ Caja::Caja()
 Caja::~Caja()
 {
 }
-void Caja::Dibuja()
+void Caja::dibuja()
 {
-	suelo.Dibuja();
-	techo.Dibuja();
-	pared_izq.Dibuja();
-	pared_dcha.Dibuja();
+	suelo.dibuja();
+	techo.dibuja();
+	pared_izq.dibuja();
+	pared_dcha.dibuja();
 
 	
 	//DIBUJO DEL FONDO
