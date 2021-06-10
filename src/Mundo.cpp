@@ -15,8 +15,8 @@ void Mundo::inicializa()
 	y_ojo = 7.5;
 	z_ojo = 40;
 
-	Obstaculo* e1 = new Obstaculo();
-	asteroides.agregar(e1);
+	Obstaculo* o1 = new Obstaculo();
+	asteroides.agregar(o1);
 	
 }
 void Mundo::dibuja()

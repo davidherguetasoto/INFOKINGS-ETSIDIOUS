@@ -12,7 +12,7 @@ public:
 	static void rebote(NavePersonaje& nave, Caja caja);
 	static bool rebote(NaveEnemiga& n, Pared p);
 	static bool rebote(NaveEnemiga& n, Caja c);
-	static bool rebote(NaveEnemiga& n1, NaveEnemiga& n2);
+	static bool rebote(NaveEnemiga& n1, NaveEnemiga& n2); //pueden chocar entre ellas?
 	static bool colision(Obstaculo e, Disparo d);
 	static bool colision(Disparo d, Caja c);
 	static bool colision(Disparo d, Obstaculo o);
