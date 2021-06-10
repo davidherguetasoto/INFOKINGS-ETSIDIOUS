@@ -1,6 +1,7 @@
 #include "CoordinadorEtsidious.h"
 CoordinadorEtsidious::CoordinadorEtsidious()
 {
+	moviendo = false;
 	estado = Estado::INICIO;
 }
 CoordinadorEtsidious::~CoordinadorEtsidious()
@@ -100,13 +101,13 @@ void CoordinadorEtsidious::teclaEspecial(unsigned char key)
 {
 	if (estado == Estado::JUEGO)
 	{
-		mundo.teclaEspecial(key);
+		mundo.teclaEspecial(key,moviendo);
 	}
 }
 void CoordinadorEtsidious::teclaEspecialUp(unsigned char key)
 {
 	if (estado == Estado::JUEGO)
-		mundo.teclaEspecialUp(key);
+		mundo.teclaEspecialUp(key,moviendo);
 }
 void CoordinadorEtsidious::inicializa()
 {

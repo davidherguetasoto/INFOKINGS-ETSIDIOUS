@@ -8,6 +8,8 @@ el juego*/
 #include"ETSIDI.h"
 class CoordinadorEtsidious
 {
+private:
+	bool moviendo;
 protected:
 	Mundo mundo;
 	enum class Estado{INICIO, JUEGO, GAMEOVER, FIN, PAUSA, RANKING};

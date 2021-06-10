@@ -103,52 +103,76 @@ void Mundo::tecla(unsigned char key)
 	}
 	}
 }
-void Mundo::teclaEspecial(unsigned char key)
+void Mundo::teclaEspecial(unsigned char key, bool& b)
 {
 	switch (key)
 	{
 	case GLUT_KEY_LEFT:
 	{
-		if(!Interaccion::rebote(personaje,caja.pared_izq))
-		personaje.setVel(-15.0f, 0.0f);
+		if (!Interaccion::rebote(personaje, caja.pared_izq))
+		{
+			b = true;
+			personaje.setVel(-15.0f, 0.0f);
+		}
 		break;
 	}
 	case GLUT_KEY_RIGHT:
 	{
 		if (!Interaccion::rebote(personaje, caja.pared_dcha))
-		personaje.setVel(15.0f, 0.0f);
+		{
+			b = true;
+			personaje.setVel(15.0f, 0.0f);
+		}
 		break;
 	}
 	case GLUT_KEY_UP:
 	{
 		if (!Interaccion::rebote(personaje, caja.techo))
-		personaje.setVel(0.0f, 15.0f);
+		{
+			b = true;
+			personaje.setVel(0.0f, 15.0f);
+		}
 		break;
 	}
 	case GLUT_KEY_DOWN:
 	{
 		if (!Interaccion::rebote(personaje, caja.suelo))
-		personaje.setVel(0.0f, -15.0f);
+		{
+			b = true;
+			personaje.setVel(0.0f, -15.0f);
+		}
 		break;
 	}	
 	}
 }
-void Mundo::teclaEspecialUp(unsigned char key)
+void Mundo::teclaEspecialUp(unsigned char key, bool& b)
 {
 	switch (key)
 	{
 	case GLUT_KEY_LEFT:
-		personaje.setVel(0.0f, 0.0f);
+	{
+		if (!b)
+			personaje.setVel(0.0f, 0.0f);
 		break;
+	}
 	case GLUT_KEY_RIGHT:
-		personaje.setVel(0.0f, 0.0f);
+	{
+		if(!b)
+			personaje.setVel(0.0f, 0.0f);
 		break;
+	}
 	case GLUT_KEY_UP:
-		personaje.setVel(0.0f, 0.0f);
+	{
+		if(!b)
+			personaje.setVel(0.0f, 0.0f);
 		break;
+	}
 	case GLUT_KEY_DOWN:
-		personaje.setVel(0.0f, 0.0f);
+	{
+		if(!b)
+			personaje.setVel(0.0f, 0.0f);
 		break;
+	}
 	}
 }
 
