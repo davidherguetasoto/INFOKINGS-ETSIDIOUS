@@ -57,7 +57,6 @@ void Mundo::mueve()
 		for (int j = 0; j < disparos.getNumero(); j++) {
 			if (Interaccion::colision(*asteroides[i], *disparos[j])) {
 				disparos.eliminar(disparos[j]);
-				asteroides.eliminar(asteroides[i]);
 			}
 		}
 	}*/
