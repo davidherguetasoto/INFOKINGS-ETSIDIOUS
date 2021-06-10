@@ -65,7 +65,7 @@ bool Interaccion::colision(Obstaculo e, DisparoAliado d)
 	return false;
 }
 
-bool Interaccion::colision(DisparoAliado d, Caja c)
+bool Interaccion::colision(Disparo d, Caja c)
 {
 	return false;
 }
