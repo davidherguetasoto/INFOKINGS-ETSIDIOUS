@@ -53,11 +53,6 @@ bool Interaccion::rebote(NaveEnemiga& n, Caja c)
 	return false;
 }
 
-bool Interaccion::rebote(NaveEnemiga& n1, NaveEnemiga& n2)
-{
-	return false;
-}
-
 bool Interaccion::colision(Obstaculo e, Disparo d)
 {
 	Pared aux; //Creamos una pared auxiliar 

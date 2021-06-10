@@ -1,11 +1,11 @@
 #pragma once
 #include "disparo.h"
 #define MAX_DISPAROS 50
-class ListaDisparos
+class ListaDisparosAliados
 {
 public:
-	ListaDisparos();
-	virtual ~ListaDisparos();
+	ListaDisparosAliados();
+	virtual ~ListaDisparosAliados();
 	bool agregar(Disparo* d);
 	void destruirContenido();
 	void mueve(float t);

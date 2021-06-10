@@ -21,7 +21,7 @@ void CoordinadorEtsidious::dibuja()
 		ETSIDI::printxy("ETSIDIUOS", -2.2, 10);
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
-		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR", -5, 7);
+		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR LA AVENTURA", -5, 7);
 		ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5, 6);
 		ETSIDI::printxy("Realizado por:", -2, 4);
 		ETSIDI::printxy("Adrian Bedmar Juanas", -3, 3);
@@ -78,18 +78,18 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 	else if (estado == Estado::JUEGO)
 	{
 		mundo.tecla(key);
-		if (key == 'p') {
+		if (key == 'p' || key=='P') {
 			estado = Estado::PAUSA;
 		}
 	}
 	else if (estado == Estado::GAMEOVER || estado == Estado::FIN)
 	{
-		if (key == 'c')
+		if (key == 'c' || key == 'C')
 			estado = Estado::INICIO;
 	}
 	else if (estado == Estado::PAUSA)
 	{
-		if (key == 'c')
+		if (key == 'c' || key == 'C')
 			estado = Estado::JUEGO;
 	}
 	else if (estado == Estado::RANKING)

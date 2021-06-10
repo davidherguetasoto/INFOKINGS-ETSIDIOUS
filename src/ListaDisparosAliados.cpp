@@ -1,19 +1,19 @@
-#include "ListaDisparos.h"
+#include "ListaDisparosAliados.h"
 #include "Interaccion.h"
 
-ListaDisparos::ListaDisparos()
+ListaDisparosAliados::ListaDisparosAliados()
 {
 	numero = 0;
 	for (int i = 0; i < MAX_DISPAROS; i++)
 		lista[i] = 0;
 }
 
-ListaDisparos::~ListaDisparos()
+ListaDisparosAliados::~ListaDisparosAliados()
 {
 
 }
 
-bool ListaDisparos::agregar(Disparo* d) {
+bool ListaDisparosAliados::agregar(Disparo* d) {
 	if (numero < MAX_DISPAROS) {
 		for (int i = 0; i < numero; i++) {
 			if (lista[i] == d)
@@ -27,23 +27,23 @@ bool ListaDisparos::agregar(Disparo* d) {
 	return true; //no se ha alcanzado la capacidad max
 }
 
-void ListaDisparos::destruirContenido() {
+void ListaDisparosAliados::destruirContenido() {
 	for (int i = 0; i < numero; i++) // destrucción de disparos contenidos
 		delete lista[i];
 	numero = 0; // inicializa lista
 }
 
-void ListaDisparos::mueve(float t) {
+void ListaDisparosAliados::mueve(float t) {
 	for (int i = 0; i < numero; i++)
 		lista[i]->mueve(t);
 }
 
-void ListaDisparos::dibuja() {
+void ListaDisparosAliados::dibuja() {
 	for (int i = 0; i < numero; i++)
 		lista[i]->dibuja();
 }
 
-void ListaDisparos::eliminar(int index)
+void ListaDisparosAliados::eliminar(int index)
 {
 	if ((index < 0) || (index >= numero))
 		return;
@@ -53,7 +53,7 @@ void ListaDisparos::eliminar(int index)
 		lista[i] = lista[i + 1];
 }
 
-void ListaDisparos::eliminar(Disparo* d)
+void ListaDisparosAliados::eliminar(Disparo* d)
 {
 	for (int i = 0; i < numero; i++)
 		if (lista[i] == d)
@@ -63,7 +63,7 @@ void ListaDisparos::eliminar(Disparo* d)
 		}
 }
 
-Disparo* ListaDisparos::operator[](int i)
+Disparo* ListaDisparosAliados::operator[](int i)
 {
 	if (i >= numero)//si me paso, devuelvo la ultima
 		i = numero - 1;
