@@ -53,7 +53,7 @@ bool Interaccion::rebote(NaveEnemiga& n, Caja c)
 	return false;
 }
 
-bool Interaccion::colision(Obstaculo e, Disparo d)
+bool Interaccion::colision(Obstaculo e, DisparoAliado d)
 {
 	Pared aux; //Creamos una pared auxiliar 
 	Vector2D p1 = d.getPos();
@@ -65,12 +65,12 @@ bool Interaccion::colision(Obstaculo e, Disparo d)
 	return false;
 }
 
-bool Interaccion::colision(Disparo d, Caja c)
+bool Interaccion::colision(DisparoAliado d, Caja c)
 {
 	return false;
 }
 
-bool Interaccion::colision(Disparo d, NaveEnemiga ne)
+bool Interaccion::colision(DisparoAliado d, NaveEnemiga ne)
 {
 	return false;
 }
