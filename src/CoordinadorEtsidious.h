@@ -10,7 +10,7 @@ class CoordinadorEtsidious
 {
 protected:
 	Mundo mundo;
-	enum class Estado{INICIO, JUEGO, GAMEOVER, FIN, PAUSA, RANKING};
+	enum class Estado{INICIO, NIVEL1, NIVEL2, NIVEL3, GAMEOVER, FIN, PAUSA, RANKING};
 	Estado estado;
 public:
 	CoordinadorEtsidious();
