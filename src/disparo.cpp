@@ -5,6 +5,7 @@ Disparo::Disparo():daño(10.0f), radio (0.25f)
 	color.set(255, 0, 0);
 	//velocidad.y = 5.0f;
 	// se pondrá en las clases derivadas la velocidad de los disparos
+	// como me gustan los disparos
 }
 
 Disparo::~Disparo()
