@@ -19,7 +19,8 @@ public:
 	static bool rebote(NaveEnemiga& n, Caja c);
 	static bool colision(Obstaculo o, DisparoAliado d); //se destruye disparo si impacta con obstaculo
 	static bool colision(Obstaculo o, Misil m); //se destruyen ambos al impactar
-	static bool colision(Obstaculo o, Caja c); //obstáculo desaparece al alcanzar límites
+	//static bool colision(Obstaculo o, Caja c); //obstáculo desaparece al alcanzar límites
+	static bool colision(Obstaculo o, Pared p);
 	static bool colision(Obstaculo o, NavePersonaje n); //obstáculo merma salud de jugador
 	static bool colision(Disparo d, Caja c); //disparo desaparece al llegar al límite de la caja
 	static bool colision(DisparoAliado d, NaveEnemiga ne); //daño a enemigos

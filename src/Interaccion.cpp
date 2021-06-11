@@ -65,6 +65,21 @@ bool Interaccion::colision(Obstaculo e, DisparoAliado d)
 	return false;
 }
 
+//bool Interaccion::colision(Obstaculo o, Caja c)
+//{
+//	if (Interaccion::colision(o, c.pared_dcha)) return true;
+//	else if (Interaccion::colision(o, c.pared_izq)) return true;
+//	else if (Interaccion::colision(o, c.suelo)) return true;
+//	else if (Interaccion::colision(o, c.techo)) return true;
+//	else return false;
+//}
+
+bool Interaccion::colision(Obstaculo o, Pared p)
+{
+	if (o.getPos().y < p.getLim1().y) { return true; }
+	return false;
+}
+
 bool Interaccion::colision(Disparo d, Caja c)
 {
 	return false;

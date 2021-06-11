@@ -60,3 +60,12 @@ void ListaObstaculos::mueve(float t)
 	for (int i = 0; i < num; i++)
 		lista[i]->mueve(t);
 }
+
+Obstaculo* ListaObstaculos::operator[](int i)
+{
+	if (i >= num)//si me paso, devuelvo la ultima
+		i = num - 1;
+	if (i < 0) //si el indice es negativo, devuelvo la primera
+		i = 0;
+	return lista[i];
+}
