@@ -3,6 +3,7 @@
 
 Nave::Nave(float vida) : vida(vida)
 {
+	
 }
 float Nave::getVida()
 {
@@ -12,3 +13,4 @@ void Nave::setVida(float vida)
 {
 	this->vida = vida;
 }
+
