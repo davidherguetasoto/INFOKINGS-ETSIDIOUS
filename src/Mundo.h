@@ -9,7 +9,6 @@ dependiendo de entradas del usuario por teclado*/
 #include "Interaccion.h"
 #include "ListaObstaculos.h"
 #include "ListaEnemigos.h"
-#include "ListaMisiles.h"
 #include "NavePersonaje.h"
 #include "Obstaculo.h" //se podría quitar?
 
@@ -49,7 +48,6 @@ class Mundo
 	NavePersonaje personaje;
 	ListaObstaculos asteroides;
 	ListaEnemigos enemigos;
-	ListaMisiles misiles;
 
 	bool impacto;
 	float nivel;
