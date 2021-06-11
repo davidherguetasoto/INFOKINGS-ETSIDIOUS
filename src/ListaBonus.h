@@ -13,22 +13,19 @@ class ListaBonus
 {
 	friend class Bonus;
 private:
-	Bonus* bonus[MAX_BONUS];
+	Bonus *lista[MAX_BONUS];
 	int numero;
 public:
-	ListaBonus();
+	ListaBonus(); 
 	bool agregar(Bonus* b);
 	int GetNumero();
 	void Dibuja();
 	void Mueve(float t);
 	void eliminar(int index);
 	void eliminar(Bonus* b);
-	Bonus* colision(Bonus &b);
+	Bonus* colision(NavePersonaje &n);
 	void destruirContenido();
 	Bonus* operator[](int i);
-	int getNumero()
-	{
-		return numero;
-	}
+	int getNumero();
 };
 
