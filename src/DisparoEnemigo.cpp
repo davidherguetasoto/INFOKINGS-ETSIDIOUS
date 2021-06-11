@@ -5,7 +5,7 @@ DisparoEnemigo::DisparoEnemigo() :Disparo(20, DISPARO_ENEMIGO)
 	radio = 0.5f;
 	velocidad.y = -30.0f;
 }
-DisparoEnemigo::DisparoEnemigo(float daño, int tipo = DISPARO_ENEMIGO) : Disparo(daño, tipo)
+DisparoEnemigo::DisparoEnemigo(float daño, int tipo) : Disparo(daño, tipo)
 {
 	radio = 0.5f;
 	velocidad.y = -30.0f;
