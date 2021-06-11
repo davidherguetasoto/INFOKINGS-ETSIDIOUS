@@ -1,15 +1,13 @@
 #include "DisparoAliado.h"
 //Por defecto tendrá 35 puntos de daño
-DisparoAliado::DisparoAliado() :Disparo(35)
+DisparoAliado::DisparoAliado() :Disparo(35,DISPARO_ALIADO)
 {
 	radio = 0.5f;
 }
-/*
-DisparoAliado::DisparoAliado(float daño) : Disparo(daño)
+DisparoAliado::DisparoAliado(float daño, int tipo) : Disparo(daño, tipo)
 {
-	radio = 0.5f;
+	radio=0.5f;
 }
-*/
 void DisparoAliado::dibuja()
 {
 	//PROVISIONAL

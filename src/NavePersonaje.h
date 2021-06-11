@@ -1,7 +1,7 @@
 #pragma once
 #include "Nave.h"
 #include "ColorRGB.h"
-
+#define VELOCIDAD_PERSONAJE 15.0f //Macro para decidir el valor de la velocidad a la que irá el personaje
 class NavePersonaje :public Nave
 {
 public:
