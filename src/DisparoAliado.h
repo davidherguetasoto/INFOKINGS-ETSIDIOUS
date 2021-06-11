@@ -7,7 +7,9 @@ protected:
 public:
 	friend class Interaccion;
 	DisparoAliado();
-	DisparoAliado(float daño,int tipo); //Constructor sobrecargado para crear los dsparos derivados con otro daño
+	//Constructor sobrecargado para especificar el daño y tipo de los derivados.
+	//Si no se especifica el tipo, será disparo aliado estándar
+	DisparoAliado(float daño,int tipo=DISPARO_ALIADO);
 	void dibuja();
 	float getRadio() { return radio; }
 };

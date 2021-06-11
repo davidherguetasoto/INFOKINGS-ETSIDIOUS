@@ -194,8 +194,7 @@ bool Mundo::cargarNivel()
 	//disparos.destruirContenido();
 
 	if (nivel == 1) {
-										//meter constructor adecuado
-		NaveEnemiga* n1 = new NaveEnemiga(/*xd*/);
+		NaveEnemiga* n1 = new NaveEnemiga();
 		enemigos.agregar(n1);
 	}
 	if (nivel == 2) {
