@@ -8,7 +8,6 @@ dependiendo de entradas del usuario por teclado*/
 #include "Caja.h"
 #include "Interaccion.h"
 #include "ListaObstaculos.h"
-#include "ListaDisparosAliados.h"
 #include "ListaEnemigos.h"
 #include "NavePersonaje.h"
 #include "Obstaculo.h" //se podría quitar?
@@ -48,7 +47,6 @@ class Mundo
 	Caja caja;
 	NavePersonaje personaje;
 	ListaObstaculos asteroides;
-	ListaDisparosAliados disparos;
 	ListaEnemigos enemigos;
 
 	bool impacto;

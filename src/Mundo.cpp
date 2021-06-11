@@ -31,7 +31,6 @@ void Mundo::dibuja()
 	caja.dibuja();
 	personaje.dibuja();
 	asteroides.dibuja();
-	disparos.dibuja();
 	enemigos.dibuja();
 
 	ETSIDI::setTextColor(1, 1, 0);
@@ -47,7 +46,6 @@ void Mundo::mueve()
 	personaje.mueve(0.025f);
 	asteroides.mueve(0.025f);
 	enemigos.mueve(0.025f);
-	disparos.mueve(0.025f);
 	Interaccion::rebote(personaje, caja);
 
 	//personaje.setVel(0.0, 0.0);
