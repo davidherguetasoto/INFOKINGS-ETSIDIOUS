@@ -9,7 +9,7 @@
 #define DISPARO_ALIADO 0
 #define DISPARO_ENEMIGO 1
 #define MISIL 2
-#define DISPARO_TRIPLE 3
+#define DISPARO_DOBLE 3
 
 
 class Disparo:public ObjetoMovil

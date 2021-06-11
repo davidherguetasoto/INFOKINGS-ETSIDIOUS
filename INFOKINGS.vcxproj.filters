@@ -78,9 +78,6 @@
     <ClCompile Include="src\Misil.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="src\DisparoTriple.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="src\DisparoEnemigo.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -88,6 +85,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="src\Factoria.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DisparoDoble.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -155,9 +155,6 @@
     <ClInclude Include="src\Misil.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="src\DisparoTriple.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="src\DisparoEnemigo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -165,6 +162,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="src\Factoria.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DisparoDoble.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

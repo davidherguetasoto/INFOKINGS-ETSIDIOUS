@@ -153,7 +153,7 @@
     <ClCompile Include="src\Disparo.cpp" />
     <ClCompile Include="src\DisparoAliado.cpp" />
     <ClCompile Include="src\DisparoEnemigo.cpp" />
-    <ClCompile Include="src\DisparoTriple.cpp" />
+    <ClCompile Include="src\DisparoDoble.cpp" />
     <ClCompile Include="src\EnemigoLento.cpp" />
     <ClCompile Include="src\EnemigoRapido.cpp" />
     <ClCompile Include="src\ETSIDIOUS.cpp" />
@@ -181,7 +181,7 @@
     <ClInclude Include="src\Disparo.h" />
     <ClInclude Include="src\DisparoAliado.h" />
     <ClInclude Include="src\DisparoEnemigo.h" />
-    <ClInclude Include="src\DisparoTriple.h" />
+    <ClInclude Include="src\DisparoDoble.h" />
     <ClInclude Include="src\EnemigoLento.h" />
     <ClInclude Include="src\EnemigoRapido.h" />
     <ClInclude Include="src\Factoria.h" />

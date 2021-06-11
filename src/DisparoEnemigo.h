@@ -12,5 +12,6 @@ public:
 	DisparoEnemigo(float daño, int tipo=DISPARO_ENEMIGO); 
 	void dibuja();
 	float getRadio() { return radio; }
+	friend class Interaccion;
 };
 
