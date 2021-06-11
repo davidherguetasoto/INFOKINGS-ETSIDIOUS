@@ -23,7 +23,7 @@ void Mundo::inicializa()
 }
 void Mundo::dibuja()
 {
-	//PUNTO DE VISTA DE LA C¡MARA
+	//PUNTO DE VISTA DE LA C√ÅMARA
 	gluLookAt(/*x, y, z,*/
 		x_ojo, y_ojo, z_ojo, // posicion del ojo
 		0.0, y_ojo, 0.0, // hacia que punto mira
@@ -112,7 +112,34 @@ void Mundo::tecla(unsigned char key)
 	}
 	}
 }
-void Mundo::teclaEspecial(unsigned char key, bool& b)
+void Mundo::teclaEspecialUp(unsigned char key)
+{
+	switch (key)
+	{
+	case GLUT_KEY_LEFT:
+	{
+		personaje.setVel(0.0f, 0.0f);
+		break;
+	}
+	case GLUT_KEY_RIGHT:
+	{
+		personaje.setVel(0.0f, 0.0f);
+		break;
+	}
+	case GLUT_KEY_UP:
+	{
+		personaje.setVel(0.0f, 0.0f);
+		break;
+	}
+	case GLUT_KEY_DOWN:
+	{
+		personaje.setVel(0.0f, 0.0f);
+		break;
+	}
+	}
+}
+
+void Mundo::teclaEspecial(unsigned char key)
 {
 	switch (key)
 	{
@@ -120,7 +147,6 @@ void Mundo::teclaEspecial(unsigned char key, bool& b)
 	{
 		if (!Interaccion::rebote(personaje, caja.pared_izq))
 		{
-			b = true;
 			personaje.setVel(-15.0f, 0.0f);
 		}
 		break;
@@ -129,7 +155,6 @@ void Mundo::teclaEspecial(unsigned char key, bool& b)
 	{
 		if (!Interaccion::rebote(personaje, caja.pared_dcha))
 		{
-			b = true;
 			personaje.setVel(15.0f, 0.0f);
 		}
 		break;
@@ -138,7 +163,6 @@ void Mundo::teclaEspecial(unsigned char key, bool& b)
 	{
 		if (!Interaccion::rebote(personaje, caja.techo))
 		{
-			b = true;
 			personaje.setVel(0.0f, 15.0f);
 		}
 		break;
@@ -147,41 +171,10 @@ void Mundo::teclaEspecial(unsigned char key, bool& b)
 	{
 		if (!Interaccion::rebote(personaje, caja.suelo))
 		{
-			b = true;
 			personaje.setVel(0.0f, -15.0f);
 		}
 		break;
 	}	
-	}
-}
-void Mundo::teclaEspecialUp(unsigned char key, bool& b)
-{
-	switch (key)
-	{
-	case GLUT_KEY_LEFT:
-	{
-		if (!b)
-			personaje.setVel(0.0f, 0.0f);
-		break;
-	}
-	case GLUT_KEY_RIGHT:
-	{
-		if(!b)
-			personaje.setVel(0.0f, 0.0f);
-		break;
-	}
-	case GLUT_KEY_UP:
-	{
-		if(!b)
-			personaje.setVel(0.0f, 0.0f);
-		break;
-	}
-	case GLUT_KEY_DOWN:
-	{
-		if(!b)
-			personaje.setVel(0.0f, 0.0f);
-		break;
-	}
 	}
 }
 
@@ -214,5 +207,3 @@ bool Mundo::cargarNivel()
 		return true;
 	return false;
 }
-
-
