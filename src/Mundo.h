@@ -24,7 +24,7 @@ class Mundo
 	ListaObstaculos asteroides;
 	ListaEnemigos enemigos;
 
-	float nivel;
+	int nivel;
 
 public:
 	Mundo();

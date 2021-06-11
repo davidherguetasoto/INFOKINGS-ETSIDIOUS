@@ -1,7 +1,7 @@
 #include "Mundo.h"
 #include "freeglut.h"
 #include"Interaccion.h"
-Mundo::Mundo():x_ojo(0),y_ojo(0),z_ojo(0)
+Mundo::Mundo():x_ojo(0),y_ojo(0),z_ojo(0),nivel(1)
 {
 
 }
