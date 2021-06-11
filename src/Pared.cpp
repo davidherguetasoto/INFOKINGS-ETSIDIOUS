@@ -1,5 +1,6 @@
 #include "Pared.h"
 #include"freeglut.h"
+#include<math.h>
 Pared::Pared()
 {
 	
@@ -33,26 +34,28 @@ void Pared::setPos(float x1, float y1, float x2, float y2)
 	limite2.x = x2;
 	limite2.y = y2;
 }
-//Calculo de distancia de una pared a un punto, adicionalmente
-//se modifica el valor de un vector direccion opcional que contendrá
-//el vector unitario saliente que indica la direccion de la
-//recta más corta entre el punto y la pared.
-float Pared::distancia(Vector2D punto, Vector2D* direccion)
+//Calculo de distancia de una pared a un punto
+Vector2D Pared::distancia(Vector2D punto)
 {
-	Vector2D u = (punto - limite1);
-	Vector2D v = (limite2 - limite1).unitario();
-	float longitud = (limite1 - limite2).modulo();
-	Vector2D dir;
-	float valor = u * v;
-	float distancia = 0;
-	if (valor < 0)
-		dir = u;
-	else if (valor > longitud)
-		dir = (punto - limite2);
+	Vector2D vpared(limite2 - limite1);
+	Vector2D pos = punto - limite2; //Posición de la nave respecto un extremo de la pared
+	Vector2D pos2 = punto - limite1;
+	Vector2D distancia, proyeccion;
+	float angulo; //angulo entre los vectores
+	angulo = acos((pos * vpared) / (pos.modulo() * vpared.modulo()));
+	proyeccion = vpared.unitario() * pos.modulo() * cos(angulo);
+	distancia = proyeccion - pos; //Vector distancia entre la pared y la nave
+
+	//Solo mide la distancia perpendicular a la pared
+	if (pos.modulo() < vpared.modulo() && pos2.modulo() < vpared.modulo())
+		return distancia;
+
+	//Si el punto está fuera del plano prependicular a la pared, devuelve valor erróneo
 	else
-		dir = u - v * valor;
-	distancia = dir.modulo();
-	if (direccion != 0) //si nos dan un vector…
-		*direccion = dir.unitario();
-	return distancia;
+	{
+		distancia.x = 1000;
+		distancia.y = 1000;
+		return(distancia);
+	}
+
 }
