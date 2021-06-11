@@ -17,6 +17,7 @@ protected:
 	ColorRGB color;
 	//prueba bonus
 	int num_bonus;
+	int num_misiles; //Contador de los misiles que podemos disparar
 public:
 	NavePersonaje();
 	void dibuja(); //Define cómo se dibuja el personaje

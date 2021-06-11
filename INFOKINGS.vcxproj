@@ -161,6 +161,7 @@
     <ClCompile Include="src\Interaccion.cpp" />
     <ClCompile Include="src\JefeEnemigo.cpp" />
     <ClCompile Include="src\ListaBonus.cpp" />
+    <ClCompile Include="src\ListaDisparos.cpp" />
     <ClCompile Include="src\ListaEnemigos.cpp" />
     <ClCompile Include="src\ListaObstaculos.cpp" />
     <ClCompile Include="src\Misil.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="src\Interaccion.h" />
     <ClInclude Include="src\JefeEnemigo.h" />
     <ClInclude Include="src\ListaBonus.h" />
+    <ClInclude Include="src\ListaDisparos.h" />
     <ClInclude Include="src\ListaEnemigos.h" />
     <ClInclude Include="src\ListaObstaculos.h" />
     <ClInclude Include="src\Misil.h" />

@@ -9,6 +9,7 @@ NavePersonaje::NavePersonaje():Nave(100.0f)
 	color.set(0, 0, 255);
 	num_bonus = 0;//num_bonus para inicializarlo a 0 prueba
 	vida = 100;
+	num_misiles = 0;
 }
 void NavePersonaje::dibuja()
 {
