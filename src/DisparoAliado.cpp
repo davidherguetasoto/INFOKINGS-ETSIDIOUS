@@ -2,9 +2,10 @@
 //Por defecto tendrá 35 puntos de daño
 DisparoAliado::DisparoAliado() :Disparo(35,DISPARO_ALIADO)
 {
+	velocidad.y = 30.0f;
 	radio = 0.5f;
 }
-DisparoAliado::DisparoAliado(float daño, int tipo) : Disparo(daño, tipo)
+DisparoAliado::DisparoAliado(float daño, int tipo=DISPARO_ALIADO) : Disparo(daño, tipo)
 {
 	radio=0.5f;
 }
