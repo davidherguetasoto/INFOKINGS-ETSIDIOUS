@@ -8,6 +8,8 @@ public:
 	Nave();
 	Nave(float vida);
 	virtual void dibuja()=0;
+	float getVida();
+	void setVida(float vida);
 	//añadir funcion para disparo (?)
 };
 
