@@ -84,10 +84,11 @@ bool Interaccion::colision(Obstaculo o, Pared p)
 	return false;
 }
 
-bool Interaccion::colision(Disparo d, Caja c)
+/*bool Interaccion::colision(Disparo d, Caja c)
 {
 	return false;
 }
+*/
 
 //COLISIÓN DE UN DISPARO DE ALIADO CONTRA ENEMIGO
 /*bool Interaccion::colision(DisparoAliado d, NaveEnemiga ne)
