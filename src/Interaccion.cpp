@@ -70,7 +70,8 @@ bool Interaccion::colision(Disparo d, Caja c)
 	return false;
 }
 
-bool Interaccion::colision(DisparoAliado d, NaveEnemiga ne)
+//COLISIÓN DE UN DISPARO DE ALIADO CONTRA ENEMIGO
+/*bool Interaccion::colision(DisparoAliado d, NaveEnemiga ne)
 {
 	return false;
-}
+}*/

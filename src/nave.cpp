@@ -9,14 +9,3 @@ Nave::Nave(float vida, unsigned char red, unsigned char green, unsigned char blu
 	altura = 2.0f;
 	radio = 0.5f;
 }
-void Nave::dibuja()
-{
-	glPushMatrix();
-	color.ponColor();
-	glTranslatef(posicion.x, posicion.y, 0);
-	glRotatef(-90, 1, 0, 0);
-	glutSolidCone(radio, altura, 20, 20);
-	glRotatef(90, 1, 0, 0);
-	glTranslatef(-posicion.x, -posicion.y,0);
-	glPopMatrix();
-}
