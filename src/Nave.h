@@ -5,8 +5,7 @@ class Nave : public ObjetoMovil
 protected:
 	float vida; //Vida de las naves
 public:
-	Nave();
-	Nave(float vida);
+	Nave(float vida); //Hay que pasarle la vida para construir una nave
 	virtual void dibuja()=0;
 	float getVida();
 	void setVida(float vida);
