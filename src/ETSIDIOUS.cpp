@@ -31,8 +31,9 @@ int main(int argc, char* argv[])
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25, OnTimer, 0);//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
 	glutKeyboardFunc(OnKeyboardDown);
-	glutSpecialFunc(onSpecialKeyboardDown); //gestion de los cursores
 	glutSpecialUpFunc(OnSpecialKeyboardUp); //flancos negativos de las teclas especiales
+	glutSpecialFunc(onSpecialKeyboardDown); //gestion de los cursores
+	
 
 	etsidious.inicializa();
 
