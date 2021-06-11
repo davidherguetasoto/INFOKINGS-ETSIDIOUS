@@ -7,7 +7,7 @@ protected:
 public:
 	friend class Interaccion;
 	DisparoAliado();
-	//DisparoAliado(float daño);
 	void dibuja();
+	float getRadio() { return radio; }
 };
 
