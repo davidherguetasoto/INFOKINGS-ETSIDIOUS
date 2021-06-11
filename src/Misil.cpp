@@ -1,6 +1,6 @@
 #include"Misil.h"
 
-//Se crea un disparo de tipo MISIL con 70 de daño
+//Se crea un disparo de tipo MISIL con 100 de daño
 Misil::Misil():DisparoAliado(100,MISIL)
 {
 
