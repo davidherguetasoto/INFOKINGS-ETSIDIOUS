@@ -10,7 +10,7 @@ dependiendo de entradas del usuario por teclado*/
 #include "ListaObstaculos.h"
 #include "ListaEnemigos.h"
 #include "NavePersonaje.h"
-#include "Obstaculo.h" //se podría quitar?
+#include "Obstaculo.h"
 
 class Mundo
 {
