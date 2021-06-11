@@ -7,17 +7,15 @@ class Disparo:public ObjetoMovil
 {
 private:
 	float daño; //Daño que produce el disparo
-	float radio;
 	Vector2D origen;
-	ColorRGB color;
 public:
 	Disparo();
+	Disparo(float daño);
 	virtual ~Disparo();
-
-	virtual void dibuja();
-	void setPos(Vector2D pos);
-	void setPos(float ix, float iy);
-	float getRadio();
-	Vector2D getOrig();
+	virtual void dibuja()=0;
+	Vector2D getOrigen();
+	void setOrigen(Vector2D ori);
+	void setOrigen(float ix, float iy);
+	float getDaño();
 };
 
