@@ -17,7 +17,9 @@ void Mundo::inicializa()
 
 	Obstaculo* o1 = new Obstaculo();
 	asteroides.agregar(o1);
-	
+
+	nivel = 0;
+	cargarNivel();
 }
 void Mundo::dibuja()
 {
@@ -41,6 +43,7 @@ void Mundo::dibuja()
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
 	ETSIDI::printxy("Infokings", 3.5, 21);
 }
+
 void Mundo::mueve()
 {
 	personaje.mueve(0.025f);
@@ -180,6 +183,36 @@ void Mundo::teclaEspecialUp(unsigned char key, bool& b)
 		break;
 	}
 	}
+}
+
+int Mundo::getNumEnemigos()
+{
+	return enemigos.getNumero();
+}
+
+bool Mundo::cargarNivel()
+{
+	nivel++;
+	personaje.setPos(0, 0);
+	enemigos.destruirContenido();
+	//disparos.destruirContenido();
+
+	if (nivel == 1) {
+		//meter constructor adecuado
+		NaveEnemiga* n1 = new NaveEnemiga(/*xd*/);
+		enemigos.agregar(n1);
+	}
+	if (nivel == 2) {
+		for (int i = 0; i < 5; i++) {
+			//agregar muchos enemigos
+		}
+	}
+	if (nivel == 3) {
+			//agregar el jefe
+	}
+	if (nivel <= 3)
+		return true;
+	return false;
 }
 
 
