@@ -5,14 +5,15 @@ class Nave : public ObjetoMovil
 {
 protected:
 	float vida; //Vida de las naves
-	//provisional
+
+	//Provisional para dibujar
 	float radio;
 	float altura;
 	ColorRGB color;
 public:
 	Nave();
 	Nave(float vida, unsigned char red, unsigned char green, unsigned char blue);
-	void dibuja();
+	virtual void dibuja()=0;
 	//añadir funcion para disparo
 };
 
