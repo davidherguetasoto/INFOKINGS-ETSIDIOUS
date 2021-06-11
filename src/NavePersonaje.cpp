@@ -34,5 +34,5 @@ void NavePersonaje::SetNumBonuns(int num)
 
 int NavePersonaje::GetNumBonus()
 {
-
+	return num_bonus;
 }

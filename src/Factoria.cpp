@@ -15,4 +15,8 @@ Disparo* Factoria::CrearDisparo(NavePersonaje h)
 		d = new DisparoTriple;//esta mal faltan cosas de la calse disparo
 	else
 		d = new Misil;//esta mal faltan cosas de la clase disparo
+
+	Vector2D pos = h.getPos();
+	d->setPos(pos.x, pos.y);
+	return d;
 }
