@@ -157,6 +157,7 @@
     <ClCompile Include="src\EnemigoLento.cpp" />
     <ClCompile Include="src\EnemigoRapido.cpp" />
     <ClCompile Include="src\ETSIDIOUS.cpp" />
+    <ClCompile Include="src\Factoria.cpp" />
     <ClCompile Include="src\Interaccion.cpp" />
     <ClCompile Include="src\JefeEnemigo.cpp" />
     <ClCompile Include="src\ListaBonus.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="src\DisparoTriple.h" />
     <ClInclude Include="src\EnemigoLento.h" />
     <ClInclude Include="src\EnemigoRapido.h" />
+    <ClInclude Include="src\Factoria.h" />
     <ClInclude Include="src\Interaccion.h" />
     <ClInclude Include="src\JefeEnemigo.h" />
     <ClInclude Include="src\ListaBonus.h" />
