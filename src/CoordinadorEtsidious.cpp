@@ -20,14 +20,14 @@ void CoordinadorEtsidious::dibuja()
 		ETSIDI::printxy("ETSIDIUOS", -2.2, 10);
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
-		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR LA AVENTURA", -5, 7);
+		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR LA AVENTURA", -8, 7);
 		ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5, 6);
-		ETSIDI::printxy("Realizado por:", -2, 4);
-		ETSIDI::printxy("Adrian Bedmar Juanas", -3, 3);
-		ETSIDI::printxy("Luis Torres del Nuevo", -3, 2);
-		ETSIDI::printxy("Natalia Borlaf Nieto", -3, 1);
-		ETSIDI::printxy("David Hergueta Soto", -3, 0);
-		ETSIDI::printxy("Guillermo Ubeda Romero", -3, -1);
+		ETSIDI::printxy("Realizado por:", -1, 4);
+		ETSIDI::printxy("Adrian Bedmar Juanas", -2, 3);
+		ETSIDI::printxy("Luis Torres del Nuevo", -2, 2);
+		ETSIDI::printxy("Natalia Borlaf Nieto", -2, 1);
+		ETSIDI::printxy("David Hergueta Soto", -2, 0);
+		ETSIDI::printxy("Guillermo Ubeda Romero", -2, -1);
 	}
 	else if (estado == Estado::JUEGO)
 	{

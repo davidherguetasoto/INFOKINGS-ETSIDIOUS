@@ -2,7 +2,7 @@
 
 /*Se construye a partir de la clase nave, pasándole el valor de
 la vida que quieres que tengan los enemigos*/
-NaveEnemiga::NaveEnemiga():Nave(100)
+NaveEnemiga::NaveEnemiga():Nave(100.0F)
 {
 	altura = 2.0f;
 	radio = 0.5f;
