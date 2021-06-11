@@ -1,5 +1,5 @@
 #include "Disparo.h"
-Disparo::Disparo(float daño) : daño(daño)
+Disparo::Disparo(float daño,int tipo) : daño(daño), tipo(tipo)
 {
 }
 Disparo::~Disparo()
@@ -22,9 +22,7 @@ float Disparo::getDaño()
 {
 	return daño;
 }
-/*
 int Disparo::getTipo()
 {
 	return tipo;
 }
-*/
