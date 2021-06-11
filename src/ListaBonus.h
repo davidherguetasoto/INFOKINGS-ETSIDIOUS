@@ -23,9 +23,9 @@ public:
 	void Mueve(float t);
 	void eliminar(int index);
 	void eliminar(Bonus* b);
-	Bonus* colision(NavePersonaje &n);
+	//Bonus* colision(NavePersonaje &n);
 	void destruirContenido();
-	Bonus* operator[](int i);
+	//Bonus* operator[](int i);
 	int getNumero();
 };
 

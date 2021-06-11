@@ -45,7 +45,7 @@ void ListaBonus::eliminar(Bonus* b)
 
 }
 
-Bonus* ListaBonus::colision(NavePersonaje& n)
+/*Bonus* ListaBonus::colision(NavePersonaje& n)
 {
 	for (int i = 0; i < numero; i++)
 	{
@@ -53,7 +53,7 @@ Bonus* ListaBonus::colision(NavePersonaje& n)
 			return lista[i];
 	}
 	return 0;
-}
+}*/
 
 
 void ListaBonus::destruirContenido()
@@ -63,10 +63,11 @@ void ListaBonus::destruirContenido()
 	numero = 0;
 }
 
-Bonus* ListaBonus::operator[](int i)
+/*Bonus* ListaBonus::operator[](int i)
 {
 
-}
+}*/
+
 
 int ListaBonus::getNumero()
 {
