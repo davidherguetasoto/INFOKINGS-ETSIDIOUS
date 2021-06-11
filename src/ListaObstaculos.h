@@ -18,6 +18,8 @@ public:
 								// y 0 si no se ha podido crear
 
 	
+	Obstaculo* operator[](int i);
+	
 	void mueve(float);
 	void dibuja();
 

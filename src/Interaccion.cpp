@@ -53,15 +53,34 @@ bool Interaccion::rebote(NaveEnemiga& n, Caja c)
 	return false;
 }
 
-bool Interaccion::colision(Obstaculo e, DisparoAliado d)
+bool Interaccion::colision(Obstaculo o, DisparoAliado d)
 {
-	Pared aux; //Creamos una pared auxiliar 
-	Vector2D p1 = d.getPos();
-	Vector2D p2 = d.getOrig();
-	aux.setPos(p1.x, p1.y, p2.x, p2.y); //Que coincida con el disparo.
-	float dist = aux.distancia(e.posicion); //para calcular su distancia
-	if (dist < e.radio)
+	if (o.getPos() == d.getPos()) {
 		return true;
+	}
+	return false;
+}
+
+bool Interaccion::colision(Obstaculo o, Misil m)
+{
+	if (o.getPos() == m.getPos()) {
+		return true;
+	}
+	return false;
+}
+
+//bool Interaccion::colision(Obstaculo o, Caja c)
+//{
+//	if (Interaccion::colision(o, c.pared_dcha)) return true;
+//	else if (Interaccion::colision(o, c.pared_izq)) return true;
+//	else if (Interaccion::colision(o, c.suelo)) return true;
+//	else if (Interaccion::colision(o, c.techo)) return true;
+//	else return false;
+//}
+
+bool Interaccion::colision(Obstaculo o, Pared p)
+{
+	if (o.getPos().y < p.getLim1().y) { return true; }
 	return false;
 }
 

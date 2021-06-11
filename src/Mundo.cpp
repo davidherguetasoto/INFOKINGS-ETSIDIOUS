@@ -50,14 +50,22 @@ void Mundo::mueve()
 
 	//personaje.setVel(0.0, 0.0);
 
-
-	/*for (int i = asteroides.getNum(); i > 0; i--) {
-		for (int j = 0; j < disparos.getNumero(); j++) {
+	
+	for (int i = asteroides.getNum(); i > 0; i--) {
+		if (Interaccion::colision(*asteroides[i], caja.suelo)) {
+			asteroides.eliminar(asteroides[i]);
+		}
+		/*for (int j = 0; j < disparos.getNumero(); j++) {
 			if (Interaccion::colision(*asteroides[i], *disparos[j])) {
 				disparos.eliminar(disparos[j]);
 			}
-		}
-	}*/
+		}*/
+		/*for (int k = 0; k < misiles.getNumero(); k++) {
+			if (Interaccion::colision(*asteroides[i], *misiles[k])) {
+				misiles.eliminar(misiles[k]);
+			}
+		}*/
+	}
 }
 void Mundo::tecla(unsigned char key)
 {

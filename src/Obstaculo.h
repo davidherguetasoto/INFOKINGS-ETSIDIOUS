@@ -7,6 +7,7 @@ public:
 	Obstaculo();
 	void dibuja();
 	
+	
 
 	friend class Interaccion;
 };
