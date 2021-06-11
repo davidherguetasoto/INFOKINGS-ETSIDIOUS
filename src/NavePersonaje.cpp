@@ -1,8 +1,10 @@
 #include "NavePersonaje.h"
 #include "freeglut.h"
-NavePersonaje::NavePersonaje():Nave(100.0f,0,0,255)
+NavePersonaje::NavePersonaje():Nave(100.0f)
 {
-	
+	altura = 2.0f;
+	radio = 0.5f;
+	color.set(0, 0, 255);
 }
 void NavePersonaje::dibuja()
 {
