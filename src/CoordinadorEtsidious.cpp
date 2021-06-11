@@ -117,5 +117,12 @@ void CoordinadorEtsidious::mueve(float t)
 	if (estado == Estado::JUEGO)
 	{
 		mundo.mueve();
+		if (mundo.getNumEnemigos() == 0) {	//si los enemigos se reducen a 0
+			if (!mundo.cargarNivel())		//se carga nivel
+				estado = Estado::FIN;		//si nivel>3, WIN!
+		}
+		if (mundo.personaje.getVida() == 0) {
+			estado = Estado::GAMEOVER;
+		}
 	}
 }

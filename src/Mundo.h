@@ -24,7 +24,6 @@ class Mundo
 	ListaObstaculos asteroides;
 	ListaEnemigos enemigos;
 
-	bool impacto;
 	float nivel;
 
 public:
@@ -37,7 +36,8 @@ public:
 	void mueve();
 	void dibuja();
 
-	bool getImpacto();
 	int getNumEnemigos();
 	bool cargarNivel();
+
+	friend class CoordinadorEtsidious;
 };
