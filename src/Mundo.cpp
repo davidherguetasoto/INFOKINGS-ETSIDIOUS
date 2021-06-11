@@ -62,6 +62,11 @@ void Mundo::mueve()
 				disparos.eliminar(disparos[j]);
 			}
 		}*/
+		/*for (int k = 0; k < misiles.getNumero(); k++) {
+			if (Interaccion::colision(*asteroides[i], *misiles[k])) {
+				misiles.eliminar(misiles[k]);
+			}
+		}*/
 	}
 }
 void Mundo::tecla(unsigned char key)

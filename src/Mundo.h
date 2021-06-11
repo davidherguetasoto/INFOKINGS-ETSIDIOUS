@@ -10,6 +10,7 @@ dependiendo de entradas del usuario por teclado*/
 #include "ListaObstaculos.h"
 #include "ListaDisparosAliados.h"
 #include "ListaEnemigos.h"
+#include "ListaMisiles.h"
 #include "NavePersonaje.h"
 #include "Obstaculo.h" //se podría quitar?
 
@@ -50,6 +51,7 @@ class Mundo
 	ListaObstaculos asteroides;
 	ListaDisparosAliados disparos;
 	ListaEnemigos enemigos;
+	ListaMisiles misiles;
 
 	bool impacto;
 	float nivel;
