@@ -31,8 +31,8 @@ public:
 	Mundo();
 	virtual ~Mundo();
 	void tecla(unsigned char key);
-	void teclaEspecial(unsigned char key, bool& b);
-	void teclaEspecialUp(unsigned char key, bool& b);
+	void teclaEspecial(unsigned char key);
+	void teclaEspecialUp(unsigned char key);
 	void inicializa();
 	void mueve();
 	void dibuja();
