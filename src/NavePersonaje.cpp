@@ -1,10 +1,13 @@
 #include "NavePersonaje.h"
 #include "freeglut.h"
+
+
 NavePersonaje::NavePersonaje():Nave(100.0f)
 {
 	altura = 2.0f;
 	radio = 0.5f;
 	color.set(0, 0, 255);
+	num_bonus = 0;//num_bonus para inicializarlo a 0 prueba
 }
 void NavePersonaje::dibuja()
 {
@@ -16,4 +19,20 @@ void NavePersonaje::dibuja()
 	glRotatef(90, 1, 0, 0);
 	glTranslatef(-posicion.x, -posicion.y, 0);
 	glPopMatrix();
+}
+
+//prueba
+void NavePersonaje::IncrementaNumBonus()
+{
+
+}
+
+void NavePersonaje::SetNumBonuns(int num)
+{
+
+}
+
+int NavePersonaje::GetNumBonus()
+{
+	return num_bonus;
 }

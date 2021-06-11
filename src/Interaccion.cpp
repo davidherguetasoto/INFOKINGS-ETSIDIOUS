@@ -3,7 +3,7 @@
 bool Interaccion::rebote(NavePersonaje& nave, Pared pared)
 {
 	Vector2D vpared(pared.limite2 - pared.limite1);
-	Vector2D pos = nave.getPos() - pared.limite2; //Posición de la nave respecto un extremo de la pared
+	Vector2D pos = nave.getPos() - pared.limite2; //PosiciÃ³n de la nave respecto un extremo de la pared
 	Vector2D pos2 = nave.getPos() - pared.limite1;
 	Vector2D distancia,proyeccion;
 	float angulo; //angulo entre los vectores
@@ -83,14 +83,7 @@ bool Interaccion::colision(Obstaculo o, Pared p)
 	if (o.getPos().y < p.getLim1().y) { return true; }
 	return false;
 }
-
-/*bool Interaccion::colision(Disparo d, Caja c)
-{
-	return false;
-}
-*/
-
-//COLISIÓN DE UN DISPARO DE ALIADO CONTRA ENEMIGO
+//COLISIÃ“N DE UN DISPARO DE ALIADO CONTRA ENEMIGO
 /*bool Interaccion::colision(DisparoAliado d, NaveEnemiga ne)
 {
 	return false;

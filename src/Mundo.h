@@ -12,31 +12,6 @@ dependiendo de entradas del usuario por teclado*/
 #include "NavePersonaje.h"
 #include "Obstaculo.h" //se podría quitar?
 
-
-//class Mundo
-//{
-//private:
-//	float x_ojo;
-//	float y_ojo;
-//	float z_ojo;
-//public:
-//	float x = 0, y = 8, z = 40;
-//	Caja caja;
-//	NavePersonaje personaje;
-//	ListaObstaculos asteroides;
-//	ListaDisparos disparos;
-//
-//	Mundo();
-//	virtual ~Mundo();
-//	void Tecla(unsigned char key);
-//	void Inicializa();
-//	void Mueve(float t);
-//	void Dibuja();
-//	void teclaEspecial(unsigned char key);
-//	void teclaEspecialUp(unsigned char key);
-//	
-//};
-
 class Mundo
 {
 	float x_ojo;
