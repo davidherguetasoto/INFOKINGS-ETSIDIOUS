@@ -153,13 +153,7 @@ void Mundo::tecla(unsigned char key)
 	{
 		if (disparos.getNumero() < MAX_DISPAROS)
 		{
-			if (!personaje.getModoDisparo())
-			{
-				Disparo* d = new DisparoAliado;
-				d->setPos(personaje.getPos());
-				disparos.agregar(d);
-			}
-			else if (personaje.getModoDisparo())
+			 if (personaje.getModoMisiles())
 			{
 				int misiles = 0;
 				for (int i = 0; i < disparos.getNumero(); i++)
@@ -177,19 +171,25 @@ void Mundo::tecla(unsigned char key)
 				}
 				if (personaje.getNumMisiles() <= 0)personaje.setDisparoMisiles(false);
 			}
+			 else if (!personaje.getModoMisiles())
+			 {
+				 Disparo* d = new DisparoAliado;
+				 d->setPos(personaje.getPos());
+				 disparos.agregar(d);
+			 }
 		}
 		break;
 	}
 	//MODO DISPARO
 	case'd':
 	{
-		if (personaje.getModoDisparo())personaje.setDisparoMisiles(false);
+		if (personaje.getModoMisiles())personaje.setDisparoMisiles(false);
 		else if (personaje.getNumMisiles() > 0)personaje.setDisparoMisiles(true);
 		break;
 	}
 	case'D':
 	{
-		if (personaje.getModoDisparo())personaje.setDisparoMisiles(false);
+		if (personaje.getModoMisiles())personaje.setDisparoMisiles(false);
 		else if (personaje.getNumMisiles() > 0)personaje.setDisparoMisiles(true);
 		break;
 	}
