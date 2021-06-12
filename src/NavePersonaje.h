@@ -24,4 +24,6 @@ public:
 	friend class Interaccion;
 	float getRadio() { return radio; }
 	float getAltura() { return altura; }
+	int getNumMisiles() { return num_misiles; }
+	void setNumMisiles(int misiles);
 };
