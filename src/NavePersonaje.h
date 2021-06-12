@@ -5,12 +5,6 @@
 #define MISILES_MAX 10 //Número máximo de misiles que puede llevar la nave
 class NavePersonaje :public Nave
 {
-public:
-	//prueba bonus
-	void IncrementaNumBonus();
-	void SetNumBonuns(int num);
-	int GetNumBonus();
-	//prueba bonus
 protected:
 	//PROVISIONAL PARA HACER DIBUJOS DE PRUEBA
 	float altura;
@@ -32,4 +26,10 @@ public:
 	//TRUE:= La nave dispara misil, FALSE:=Disparo normal
 	void setDisparoMisiles(bool modo) { disparo_misiles = modo; }
 	bool getModoDisparo() { return disparo_misiles; }
+
+	//prueba bonus
+	void IncrementaNumBonus();
+	void SetNumBonuns(int num);
+	int GetNumBonus();
+	//prueba bonus
 };
