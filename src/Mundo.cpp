@@ -8,6 +8,9 @@ Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1)
 Mundo::~Mundo()
 {
 	enemigos.destruirContenido();
+	asteroides.destruirContenido();
+	disparos.destruirContenido();
+	bonus.destruirContenido();
 }
 void Mundo::inicializa()
 {
