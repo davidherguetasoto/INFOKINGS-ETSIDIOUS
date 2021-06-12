@@ -7,9 +7,9 @@
 //TIPOS DE DISPAROS DEL JUEGO
 #define NINGUNO -1
 #define DISPARO_ALIADO 0
-#define DISPARO_ENEMIGO 1
-#define MISIL 2
-#define DISPARO_DOBLE 3
+#define DISPARO_ENEMIGO 3
+#define MISIL 1
+#define DISPARO_DOBLE 2
 
 
 class Disparo:public ObjetoMovil
