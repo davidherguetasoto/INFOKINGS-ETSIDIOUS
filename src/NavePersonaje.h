@@ -2,7 +2,7 @@
 #include "Nave.h"
 #include "ColorRGB.h"
 #define VELOCIDAD_PERSONAJE 15.0f //Macro para decidir el valor de la velocidad a la que irá el personaje
-#define MISILES_MAX 7 //Número máximo de misiles que puede llevar la nave
+#define MISILES_MAX 10 //Número máximo de misiles que puede llevar la nave
 class NavePersonaje :public Nave
 {
 public:
