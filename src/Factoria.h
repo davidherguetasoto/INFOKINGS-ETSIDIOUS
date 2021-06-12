@@ -10,9 +10,6 @@ class Factoria
 public:
 	Factoria();
 	virtual ~Factoria();
-
 	static Disparo* CrearDisparo(NavePersonaje h);
-
-
 };
 
