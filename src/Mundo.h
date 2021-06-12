@@ -11,6 +11,7 @@ dependiendo de entradas del usuario por teclado*/
 #include "ListaEnemigos.h"
 #include "NavePersonaje.h"
 #include "Obstaculo.h"
+#include "ListaDisparos.h"
 
 class Mundo
 {
@@ -23,6 +24,7 @@ class Mundo
 	NavePersonaje personaje;
 	ListaObstaculos asteroides;
 	ListaEnemigos enemigos;
+	ListaDisparos disparos;
 
 	int nivel;
 

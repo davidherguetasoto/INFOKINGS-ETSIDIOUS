@@ -22,4 +22,6 @@ public:
 	NavePersonaje();
 	void dibuja(); //Define cómo se dibuja el personaje
 	friend class Interaccion;
+	float getRadio() { return radio; }
+	float getAltura() { return altura; }
 };

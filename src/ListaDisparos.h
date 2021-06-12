@@ -14,13 +14,13 @@ public:
 	ListaDisparos();
 	//virtual ~ListaDisparos();
 
-	bool Agregar(Disparo* d);
+	bool agregar(Disparo* d);
 	void destruirContenido();
-	void Eliminar(int index);
-	void Eliminar(Disparo* d);
+	void eliminar(int index);
+	void eliminar(Disparo* d);
 
-	void Mueve(float t);
-	void Dibuja();
+	void mueve(float t);
+	void dibuja();
 
 	//INTERACCIONES DE LOS DISPAROS
 	void colision(Caja c);

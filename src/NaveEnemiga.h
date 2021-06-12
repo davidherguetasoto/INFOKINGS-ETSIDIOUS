@@ -5,6 +5,7 @@
 class NaveEnemiga :public Nave
 {
 protected:
+	float daño; //Daño que harán cuando colisionen con la nave del personaje
 	//PROVISIONAL PARA HACER DIBUJOS DE PRUEBA
 	float altura;
 	float radio;
@@ -12,6 +13,9 @@ protected:
 public:
 	NaveEnemiga();
 	void dibuja(); //Se debe definir cómo se dibuja el enemigo estándar
+	float getRadio() { return radio; }
+	float getAltura() { return altura; }
+	float getDaño() { return daño; }
 	friend class Interaccion;
 };
 

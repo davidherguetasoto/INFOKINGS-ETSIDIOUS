@@ -6,7 +6,7 @@ class Obstaculo : public ObjetoMovil
 public:
 	Obstaculo();
 	void dibuja();
-	
+	float getRadio() { return radio; }
 	
 
 	friend class Interaccion;

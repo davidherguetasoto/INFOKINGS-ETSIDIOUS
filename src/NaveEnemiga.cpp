@@ -4,6 +4,7 @@
 la vida que quieres que tengan los enemigos*/
 NaveEnemiga::NaveEnemiga():Nave(100.0F)
 {
+	daño = 20.0f;
 	altura = 2.0f;
 	radio = 0.5f;
 	color.set(255, 0, 0);
