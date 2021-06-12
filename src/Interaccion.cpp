@@ -116,11 +116,13 @@ bool Interaccion::colision(DisparoEnemigo d, NavePersonaje n)
 	return false;
 }
 
-void Interaccion::colision(NaveEnemiga b, NavePersonaje& n)
+bool Interaccion::colision(NaveEnemiga b, NavePersonaje& n)
 {
 	Vector2D distancia = b.getPos() - n.getPos();
 	if (distancia.modulo() < (b.getRadio() + n.getRadio()))
 	{
 		n.setVida(n.getVida() - b.getDaño());
+		return true;
 	}
+	return false;
 }
