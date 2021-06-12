@@ -172,6 +172,7 @@ void Mundo::tecla(unsigned char key)
 					personaje.setNumMisiles(personaje.getNumMisiles() - 1);
 					int p = personaje.getNumMisiles();
 				}
+				if (personaje.getNumMisiles() <= 0)personaje.setDisparoMisiles(false);
 			}
 			}
 		break;

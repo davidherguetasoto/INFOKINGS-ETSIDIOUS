@@ -24,7 +24,7 @@ public:
 	void setNumMisiles(int misiles);
 
 	//TRUE:= La nave dispara misil, FALSE:=Disparo normal
-	void setDisparoMisiles(bool modo) { disparo_misiles = modo; }
+	void setDisparoMisiles(bool modo) {disparo_misiles = modo; }
 	bool getModoDisparo() { return disparo_misiles; }
 
 	//prueba bonus
