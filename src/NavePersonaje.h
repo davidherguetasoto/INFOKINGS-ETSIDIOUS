@@ -15,6 +15,7 @@ protected:
 	ColorRGB color;
 	//prueba bonus
 	int num_bonus;
+	bool disparo_doble; //Modo de disparo doble
 	bool disparo_misiles; //Modo de disparo con misiles
 	int num_misiles; //Contador de los misiles que podemos disparar
 public:
@@ -29,6 +30,10 @@ public:
 	//TRUE:= La nave dispara misil, FALSE:=Disparo normal
 	void setDisparoMisiles(bool modo) { disparo_misiles = modo; }
 	bool getModoMisiles() { return disparo_misiles; }
+
+	//TRUE:=La nave dispara doble (si misil false), FALSE:=Disparo normal
+	void setDisparoDoble(bool modo) { disparo_doble = modo; }
+	bool getModoDoble() { return disparo_doble; }
 
 	//prueba bonus
 	void IncrementaNumBonus();

@@ -1,7 +1,6 @@
 #include "NavePersonaje.h"
 #include "freeglut.h"
 
-
 NavePersonaje::NavePersonaje():Nave(VIDA_MAX)
 {
 	altura = 2.0f;
@@ -10,6 +9,7 @@ NavePersonaje::NavePersonaje():Nave(VIDA_MAX)
 	num_bonus = 0;//num_bonus para inicializarlo a 0 prueba
 	num_misiles = 5;
 	disparo_misiles = false;
+	disparo_doble = true;
 }
 void NavePersonaje::dibuja()
 {

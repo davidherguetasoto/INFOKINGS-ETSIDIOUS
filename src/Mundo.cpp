@@ -148,7 +148,7 @@ void Mundo::tecla(unsigned char key)
 		z_ojo--;
 		break;
 	}
-	//DISPARO ESTÁNDAR
+	//DISPARAR
 	case' ':
 	{
 		if (disparos.getNumero() < MAX_DISPAROS)
@@ -171,7 +171,16 @@ void Mundo::tecla(unsigned char key)
 				}
 				if (personaje.getNumMisiles() <= 0)personaje.setDisparoMisiles(false);
 			}
-			 else if (!personaje.getModoMisiles())
+			 else if (personaje.getModoDoble())
+			 {
+				 Disparo* d = new DisparoDoble;
+				 d->setPos(personaje.getPos().x+0.3f,personaje.getPos().y);
+				 disparos.agregar(d);
+				 Disparo* d2 = new DisparoDoble;
+				 d2->setPos(personaje.getPos().x - 0.3f, personaje.getPos().y);
+				 disparos.agregar(d2);
+			 }
+			 else
 			 {
 				 Disparo* d = new DisparoAliado;
 				 d->setPos(personaje.getPos());

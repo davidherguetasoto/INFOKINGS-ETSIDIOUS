@@ -9,6 +9,7 @@
 #include "DisparoAliado.h"
 #include "DisparoEnemigo.h"
 #include "Misil.h"
+#include "DisparoDoble.h"
 #include "BonusDisparoDoble.h"
 #include "BonusMisiles.h"
 #include"BonusPuntExtras.h"
