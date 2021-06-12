@@ -22,8 +22,8 @@ public:
 	void Mueve(float t);
 	void Dibuja();
 
-	//void colision(Pared p);
-	//void colision(Caja c);
+	//INTERACCIONES DE LOS DISPAROS
+	void colision(Caja c);
 
 	int getNumero() { return numero; }
 	Disparo* operator [](int i);

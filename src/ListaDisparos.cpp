@@ -60,3 +60,7 @@ Disparo* ListaDisparos::operator [](int i)
 		i = 0;
 	return lista[i];
 }
+void ListaDisparos::colision(Caja c)
+{
+
+}
