@@ -196,6 +196,7 @@ bool Mundo::cargarNivel()
 	if (nivel == 1) {
 		NaveEnemiga* n1 = new NaveEnemiga();
 		enemigos.agregar(n1);
+		enemigos[0]->setPos(0.0f, 16.0f);
 	}
 	if (nivel == 2) {
 		for (int i = 0; i < 5; i++) {
