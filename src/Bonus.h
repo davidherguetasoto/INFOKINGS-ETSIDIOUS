@@ -1,6 +1,10 @@
 #pragma once
 #include "ObjetoMovil.h"
 #include"ColorRGB.h"
+#define BONUS_DISPARO_DOBLE 0
+#define BONUS_MISILES 1
+#define BONUS_PUNT_EXTRAS 2
+#define BONUS_VIDAS 3
 
 class Bonus:public ObjetoMovil
 {
@@ -12,18 +16,15 @@ protected:
 
 public:
 	//Tipos de Bonus
-	const int BONUS_DISPARO_DOBLE = 0;
-	const int BONUS_MISILES = 1;
-	const int BONUS_PUNT_EXTRAS = 2;
-	const int BONUS_VIDAS = 3;
 	Bonus();
 	Bonus(float daño, int tipo);
 	void mueve(float t);
 	virtual ~Bonus();
-	void dibuja();
+	virtual void dibuja()=0;
 	Vector2D getOrigen();
 	void setOrigen(float ix, float iy);
 	float getExtra();
 	int getTipo();
+	float getLado() { return lado; }
 };
 

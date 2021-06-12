@@ -121,6 +121,106 @@ bool Interaccion::colision(DisparoEnemigo d, NavePersonaje n)
 	return false;
 }
 
+
+//interacciones para que desaparezca el bonus sino lo coge la nave personaje
+bool Interaccion::colision(BonusDisparoDoble b, Pared p)
+{
+	if (b.getPos().y < p.getLim1().y)
+	{
+		return true;
+	}
+	return false;
+}
+bool Interaccion::colision(BonusMisiles b, Pared p)
+{
+	if (b.getPos().y < p.getLim1().y)
+	{
+		return true;
+	}
+	return false;
+}
+bool Interaccion::colision(BonusPuntExtras b, Pared p)
+{
+	if (b.getPos().y < p.getLim1().y)
+	{
+		return true;
+	}
+	return false;
+}
+bool Interaccion::colision(BonusVidas b, Pared p)
+{
+	if (b.getPos().y < p.getLim1().y)
+	{
+		return true;
+	}
+	return false;
+}
+
+
+/*bool Interaccion::colision(Bonus &b, Pared p)
+{
+	Vector2D dir;
+	float dif = p.distancia(b.getPos(),&dir) - b.getLado();
+	if (dif <= 0.0f)
+	{
+		Vector2D v_inicial = b.getVel();
+		b.getVel() = v_inicial - dir.unitario() * 2.0 * (v_inicial * dir);
+		b.getPos() = b.getPos() - dir.unitario() * dif;
+		return true;
+	}
+	return false;
+}*/
+/*bool Interaccion::colision(Bonus b, NavePersonaje n)
+{
+	Vector2D distancia = n.getPos() - b.getPos();
+	if (distancia.modulo() < (b.getLado()))
+	{
+		return true;
+	}
+	return false;
+}*/
+
+//Interacción  para que la nave coja el bonus que sale
+bool Interaccion::colision(BonusDisparoDoble b, NavePersonaje n)
+{
+	Vector2D distancia = n.getPos() - b.getPos();
+	if (distancia.modulo() < (b.getLado()))
+	{
+		return true;
+	}
+	return false;
+}
+bool Interaccion::colision(BonusMisiles b, NavePersonaje n)
+{
+	Vector2D distancia = n.getPos() - b.getPos();
+	if (distancia.modulo() < (b.getLado()))
+	{
+		return true;
+	}
+	return false;
+}
+bool Interaccion::colision(BonusPuntExtras b, NavePersonaje n)
+{
+	Vector2D distancia = n.getPos() - b.getPos();
+	if (distancia.modulo() < (b.getLado()))
+	{
+		return true;
+	}
+	return false;
+}
+bool Interaccion::colision(BonusVidas b, NavePersonaje n)
+{
+	Vector2D distancia = n.getPos() - b.getPos();
+	if (distancia.modulo() < (b.getLado()))
+	{
+		return true;
+	}
+	return false;
+}
+
+
+
+//CHOQUE PERSONAJE CON NAVE ENEMIGA
 bool Interaccion::colision(NaveEnemiga b, NavePersonaje& n)
 {
 	Vector2D distancia = b.getPos() - n.getPos();

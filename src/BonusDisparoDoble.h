@@ -8,6 +8,7 @@ protected:
 
 public:
 	friend class Interaccion;
+	void dibuja();
 	BonusDisparoDoble();
 	//BonusDisparoDoble(float extra, int tipo);
 };

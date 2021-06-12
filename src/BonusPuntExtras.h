@@ -7,6 +7,7 @@ protected:
 
 public:
 	friend class Interaccion;
+	void dibuja();
 	BonusPuntExtras();
 };
 
