@@ -8,7 +8,7 @@ public:
 	Nave(float vida); //Hay que pasarle la vida para construir una nave
 	virtual void dibuja()=0;
 	float getVida();
-	void setVida(float vida);
+	virtual	void setVida(float vida);
 	//añadir funcion para disparo (?)
 };
 

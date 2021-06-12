@@ -2,7 +2,7 @@
 #include "freeglut.h"
 
 
-NavePersonaje::NavePersonaje():Nave(100.0f)
+NavePersonaje::NavePersonaje():Nave(VIDA_MAX)
 {
 	altura = 2.0f;
 	radio = 0.5f;
@@ -65,4 +65,10 @@ void NavePersonaje::setNumMisiles(int misiles)
 	if (misiles <= 0)misiles = 0;
 	else if (misiles >= MISILES_MAX)misiles = MISILES_MAX;
 	num_misiles = misiles;
+}
+void NavePersonaje::setVida(float vida)
+{
+	Nave::setVida(vida);
+	if ((this->vida) > VIDA_MAX)
+		this->vida = VIDA_MAX;
 }

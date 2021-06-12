@@ -177,14 +177,20 @@ void Mundo::tecla(unsigned char key)
 				}
 				if (personaje.getNumMisiles() <= 0)personaje.setDisparoMisiles(false);
 			}
-			}
+		}
 		break;
 	}
 	//MODO DISPARO
 	case'd':
 	{
 		if (personaje.getModoDisparo())personaje.setDisparoMisiles(false);
-		else if(personaje.getNumMisiles()>0)personaje.setDisparoMisiles(true);
+		else if (personaje.getNumMisiles() > 0)personaje.setDisparoMisiles(true);
+		break;
+	}
+	case'D':
+	{
+		if (personaje.getModoDisparo())personaje.setDisparoMisiles(false);
+		else if (personaje.getNumMisiles() > 0)personaje.setDisparoMisiles(true);
 		break;
 	}
 	}
