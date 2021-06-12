@@ -32,6 +32,7 @@ void Mundo::dibuja()
 	asteroides.dibuja();
 	enemigos.dibuja();
 	disparos.dibuja();
+	bonus.Dibuja();
 
 	ETSIDI::setTextColor(1, 1, 0);
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
@@ -52,6 +53,7 @@ void Mundo::mueve()
 
 	disparos.mueve(0.025f);
 	disparos.colision(caja);
+
 	//Colision de los disparos con naves
 	for (int i = 0; i < disparos.getNumero(); i++)
 	{
@@ -80,6 +82,7 @@ void Mundo::mueve()
 			}
 		}
 	}
+
 	//INTERACCIÓN DE LOS DISPAROS CON LOS ASTEROIDES
 	for (int i = 0; i < disparos.getNumero(); i++)
 	{
@@ -105,7 +108,6 @@ void Mundo::mueve()
 			}
 		}
 	}
-
 
 }
 void Mundo::tecla(unsigned char key)

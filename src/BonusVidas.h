@@ -1,5 +1,12 @@
 #pragma once
-class BonusVidas
+#include"Bonus.h"
+
+class BonusVidas:public Bonus
 {
+protected:
+
+public:
+	friend class interaccion;
+	BonusVidas();
 };
 

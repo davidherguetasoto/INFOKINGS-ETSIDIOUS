@@ -4,7 +4,7 @@ de pedirles que se muevan, o tambiénde hacer otras acciones
 dependiendo de entradas del usuario por teclado*/
 
 #pragma once
-#include "Bonus.h"
+//#include "Bonus.h"
 #include "Caja.h"
 #include "Interaccion.h"
 #include "ListaObstaculos.h"
@@ -12,6 +12,7 @@ dependiendo de entradas del usuario por teclado*/
 #include "NavePersonaje.h"
 #include "Obstaculo.h"
 #include "ListaDisparos.h"
+#include"ListaBonus.h"
 
 class Mundo
 {
@@ -19,12 +20,13 @@ class Mundo
 	float y_ojo;
 	float z_ojo;
 
-	Bonus bonus;
+	//Bonus bonus;
 	Caja caja;
 	NavePersonaje personaje;
 	ListaObstaculos asteroides;
 	ListaEnemigos enemigos;
 	ListaDisparos disparos;
+	ListaBonus bonus;
 
 	int nivel;
 

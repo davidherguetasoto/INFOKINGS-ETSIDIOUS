@@ -17,6 +17,7 @@ public:
 	const int BONUS_PUNT_EXTRAS = 2;
 	const int BONUS_VIDAS = 3;
 	Bonus();
+	Bonus(float daño, int tipo);
 	void mueve(float t);
 	virtual ~Bonus();
 	void dibuja();
