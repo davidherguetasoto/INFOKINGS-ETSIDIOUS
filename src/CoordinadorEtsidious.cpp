@@ -112,6 +112,13 @@ void CoordinadorEtsidious::inicializa()
 {
 	mundo.inicializa();
 }
+void CoordinadorEtsidious::aleatorio()
+{
+	if (estado == Estado::JUEGO)
+	{
+		mundo.aleatorio();
+	}
+}
 void CoordinadorEtsidious::mueve(float t)
 {
 	if (estado == Estado::JUEGO)
@@ -126,3 +133,4 @@ void CoordinadorEtsidious::mueve(float t)
 		}
 	}
 }
+

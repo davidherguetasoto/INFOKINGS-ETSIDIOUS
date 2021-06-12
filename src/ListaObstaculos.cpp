@@ -24,24 +24,24 @@ void ListaObstaculos::eliminar(int index)
 		lista[i] = lista[i + 1];
 }
 
-void ListaObstaculos::eliminar(Obstaculo* e)
+void ListaObstaculos::eliminar(Obstaculo* o)
 {
 	for (int i = 0; i < num; i++)
-		if (lista[i] == e)
+		if (lista[i] == o)
 		{
 			eliminar(i); //reutilización del código anterior
 			return;
 		}
 }
 
-bool ListaObstaculos::agregar(Obstaculo* e)
+bool ListaObstaculos::agregar(Obstaculo* o)
 {
 	if (num < MAX) {
 		for (int i = 0; i < num; i++) {
-			if (lista[i] == e)
+			if (lista[i] == o)
 				return true; //no se ha alcanzado la capacidad max
 		}
-		lista[num++] = e; // último puesto sin rellenar
+		lista[num++] = o; // último puesto sin rellenar
 							 // Después de añadir la esfera, incrementa numero
 	}
 	else
@@ -54,6 +54,8 @@ void ListaObstaculos::dibuja()
 	for (int i = 0; i < num; i++)
 		lista[i]->dibuja();
 }
+
+
 
 void ListaObstaculos::mueve(float t)
 {

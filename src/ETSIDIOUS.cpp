@@ -8,6 +8,7 @@ void OnTimer(int value); //esta funcion sera llamada cuando transcurra una tempo
 void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla	
 void onSpecialKeyboardDown(int key, int x, int y); //Declaración funciones teclas especiales
 void OnSpecialKeyboardUp(int key, int x, int y); //Detección flanco negativo teclas especiales
+int i = 0;
 
 int main(int argc, char* argv[])
 {
@@ -76,10 +77,10 @@ void OnTimer(int value)
 {
 	//poner aqui el código de animacion
 	etsidious.mueve(0.025f);
+	etsidious.aleatorio();
 
 	//no borrar estas lineas
 	glutTimerFunc(25, OnTimer, 0);
 	glutPostRedisplay();
 }
-
 
