@@ -2,10 +2,11 @@
 #include "freeglut.h"
 Obstaculo::Obstaculo()
 {
-	radio = 0.2f;
+	radio = 0.5f;
 	posicion.x = 5.0f;
 	posicion.y = 20.0f;
-	velocidad.y = -3.0f;
+	velocidad.y = -15.0f;
+	daño = 20.0f;
 }
 
 
