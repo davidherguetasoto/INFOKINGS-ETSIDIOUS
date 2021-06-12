@@ -70,8 +70,35 @@ bool Interaccion::colision(DisparoAliado d, Pared p)
 	return false;
 
 }
+bool Interaccion::colision(DisparoEnemigo d, Pared p)
+{
+	Vector2D distancia = p.distancia(d.getPos());
+	if (distancia.modulo() <= d.getRadio())
+		return true;
+	return false;
 
+}
 bool Interaccion::colision(DisparoAliado d, Caja c)
 {
+	bool flag_pared_izq, flag_pared_dcha, flag_techo, flag_suelo;
+	flag_suelo = colision(d, c.suelo);
+	flag_pared_izq = colision(d, c.pared_izq);
+	flag_pared_dcha = colision(d, c.pared_dcha);
+	flag_techo = colision(d, c.techo);
+	
+	if (flag_suelo || flag_techo || flag_pared_izq || flag_pared_dcha)
+		return true;
+	return false;
+}
+bool Interaccion::colision(DisparoEnemigo d, Caja c)
+{
+	bool flag_pared_izq, flag_pared_dcha, flag_techo, flag_suelo;
+	flag_suelo = colision(d, c.suelo);
+	flag_pared_izq = colision(d, c.pared_izq);
+	flag_pared_dcha = colision(d, c.pared_dcha);
+	flag_techo = colision(d, c.techo);
 
+	if (flag_suelo || flag_techo || flag_pared_izq || flag_pared_dcha)
+		return true;
+	return false;
 }
