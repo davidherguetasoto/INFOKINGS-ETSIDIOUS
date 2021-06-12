@@ -62,6 +62,6 @@ int NavePersonaje::GetNumBonus()
 void NavePersonaje::setNumMisiles(int misiles)
 {
 	if (misiles <= 0)misiles = 0;
-	else if (misiles >= 7)misiles = 7;
+	else if (misiles >= MISILES_MAX)misiles = MISILES_MAX;
 	num_misiles = misiles;
 }
