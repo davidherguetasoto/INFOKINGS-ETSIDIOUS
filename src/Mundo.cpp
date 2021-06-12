@@ -8,6 +8,9 @@ Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1)
 Mundo::~Mundo()
 {
 	enemigos.destruirContenido();
+	asteroides.destruirContenido();
+	disparos.destruirContenido();
+	bonus.destruirContenido();
 }
 void Mundo::inicializa()
 {
@@ -223,34 +226,38 @@ void Mundo::teclaEspecial(unsigned char key)
 	{
 	case GLUT_KEY_LEFT:
 	{
-		if (!Interaccion::rebote(personaje, caja.pared_izq))
+		if (personaje.getPos().x>(caja.pared_izq.getLim1().x+0.05))
 		{
 			personaje.setVel(-VELOCIDAD_PERSONAJE, 0.0f);
 		}
+		else personaje.setVel(0.0f, 0.0f);
 		break;
 	}
 	case GLUT_KEY_RIGHT:
 	{
-		if (!Interaccion::rebote(personaje, caja.pared_dcha))
+		if (personaje.getPos().x < (caja.pared_dcha.getLim1().x - 0.05))
 		{
 			personaje.setVel(VELOCIDAD_PERSONAJE, 0.0f);
 		}
+		else personaje.setVel(0.0f, 0.0f);
 		break;
 	}
 	case GLUT_KEY_UP:
 	{
-		if (!Interaccion::rebote(personaje, caja.techo))
+		if (personaje.getPos().y < (caja.techo.getLim1().y - 0.05))
 		{
 			personaje.setVel(0.0f, VELOCIDAD_PERSONAJE);
 		}
+		else personaje.setVel(0.0f, 0.0f);
 		break;
 	}
 	case GLUT_KEY_DOWN:
 	{
-		if (!Interaccion::rebote(personaje, caja.suelo))
+		if (personaje.getPos().y > (caja.suelo.getLim1().y + 0.05))
 		{
 			personaje.setVel(0.0f, -VELOCIDAD_PERSONAJE);
 		}
+		else personaje.setVel(0.0f, 0.0f);
 		break;
 	}	
 	}
