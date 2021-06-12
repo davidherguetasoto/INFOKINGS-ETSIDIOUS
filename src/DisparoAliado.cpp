@@ -3,11 +3,12 @@
 DisparoAliado::DisparoAliado() :Disparo(35,DISPARO_ALIADO)
 {
 	velocidad.y = 30.0f;
-	radio = 0.5f;
+	radio = 0.25f;
 }
 DisparoAliado::DisparoAliado(float daño, int tipo) : Disparo(daño, tipo)
 {
-	radio=0.5f;
+	velocidad.y = 30.0f;
+	radio=0.25f;
 }
 void DisparoAliado::dibuja()
 {

@@ -34,6 +34,7 @@ void Mundo::dibuja()
 	personaje.dibuja();
 	asteroides.dibuja();
 	enemigos.dibuja();
+	disparos.dibuja();
 
 	ETSIDI::setTextColor(1, 1, 0);
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
@@ -49,6 +50,8 @@ void Mundo::mueve()
 	personaje.mueve(0.025f);
 	asteroides.mueve(0.025f);
 	enemigos.mueve(0.025f);
+	disparos.mueve(0.025f);
+	disparos.colision(caja);
 	Interaccion::rebote(personaje, caja);
 
 	//personaje.setVel(0.0, 0.0);
@@ -75,38 +78,44 @@ void Mundo::tecla(unsigned char key)
 	//TECLAS PARA CAMBIAR EL PUNTO DE VISTA DURANTE EL DESARROLLO
 	switch (key)
 	{
-	//case'z':
-	//{
-	//	x++;
-	//	break;
-	//}
-	//case'x':
-	//{
-	//	x--;
-	//	break;
-	//}
-	//case'c':
-	//{
-	//	y++;
-	//	break;
-	//}
-	//case'v':
-	//{
-	//	y--;
-	//	break;
-	//}
-	//case'b':
-	//{
-	//	z++;
-	//	break;
-	//}
-	//case'n':
-	//{
-	//	z--;
-	//	break;
-	//}
+	case'z':
+	{
+		x_ojo++;
+		break;
+	}
+	case'x':
+	{
+		x_ojo--;
+		break;
+	}
+	case'c':
+	{
+		y_ojo++;
+		break;
+	}
+	case'v':
+	{
+		y_ojo--;
+		break;
+	}
+	case'b':
+	{
+		z_ojo++;
+		break;
+	}
+	case'n':
+	{
+		z_ojo--;
+		break;
+	}
 	case' ':
 	{
+		if (disparos.getNumero() < MAX_DISPAROS)
+		{
+			Disparo* d = new DisparoAliado;
+			d->setPos(personaje.getPos());
+			disparos.agregar(d);
+		}
 		break;
 	}
 	}
