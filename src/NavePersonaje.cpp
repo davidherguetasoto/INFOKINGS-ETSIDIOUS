@@ -20,6 +20,28 @@ void NavePersonaje::dibuja()
 	glRotatef(90, 1, 0, 0);
 	glTranslatef(-posicion.x, -posicion.y, 0);
 	glPopMatrix();
+
+	ETSIDI::setTextColor(1, 0, 0);
+	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+	ETSIDI::printxy("vida:", -10, -6);
+
+	for (int i = 0; i < 5; i++) {
+		if (vida > 20*i) {
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/corazonbueno.png").id);
+			glDisable(GL_LIGHTING);
+			glBegin(GL_POLYGON);
+			glColor3f(1, 1, 1);
+			glTexCoord2d(0, 1); glVertex2f(-7 +  i, -6);
+			glTexCoord2d(1, 1); glVertex2f(-6 +  i, -6);
+			glTexCoord2d(1, 0); glVertex2f(-6 +  i, -5);
+			glTexCoord2d(0, 0); glVertex2f(-7 +  i, -5);
+			glEnd();
+			glEnable(GL_LIGHTING);
+			glDisable(GL_TEXTURE_2D);
+		}
+
+	}
 }
 
 //prueba
