@@ -15,7 +15,7 @@ public:
 	void dibuja(); //Se debe definir cómo se dibuja el enemigo estándar
 	float getRadio() { return radio; }
 	float getAltura() { return altura; }
-	float getDaño() { return daño; }
+	float getDano() { return daño; }
 	friend class Interaccion;
 };
 

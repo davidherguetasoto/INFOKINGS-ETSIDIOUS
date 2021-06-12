@@ -25,7 +25,7 @@ public:
 	Vector2D getOrigen();
 	void setOrigen(Vector2D ori);
 	void setOrigen(float ix, float iy);
-	float getDaño();
+	float getDano();
 	int getTipo();
 };
 
