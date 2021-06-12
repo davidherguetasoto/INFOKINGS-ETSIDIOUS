@@ -8,7 +8,8 @@ NavePersonaje::NavePersonaje():Nave(100.0f)
 	radio = 0.5f;
 	color.set(0, 0, 255);
 	num_bonus = 0;//num_bonus para inicializarlo a 0 prueba
-	num_misiles = 0;
+	num_misiles = 5;
+	disparo_misiles = false;
 }
 void NavePersonaje::dibuja()
 {

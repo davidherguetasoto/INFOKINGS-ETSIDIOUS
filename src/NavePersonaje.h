@@ -18,6 +18,7 @@ protected:
 	ColorRGB color;
 	//prueba bonus
 	int num_bonus;
+	bool disparo_misiles; //Modo de disparo
 	int num_misiles; //Contador de los misiles que podemos disparar
 public:
 	NavePersonaje();
@@ -27,4 +28,8 @@ public:
 	float getAltura() { return altura; }
 	int getNumMisiles() { return num_misiles; }
 	void setNumMisiles(int misiles);
+
+	//TRUE:= La nave dispara misil, FALSE:=Disparo normal
+	void setDisparoMisiles(bool modo) { disparo_misiles = modo; }
+	bool getModoDisparo() { return disparo_misiles; }
 };

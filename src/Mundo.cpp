@@ -56,7 +56,7 @@ void Mundo::mueve()
 	for (int i = 0; i < disparos.getNumero(); i++)
 	{
 		int tipo = disparos[i]->getTipo();
-		if (tipo == DISPARO_ALIADO)
+		if (tipo == DISPARO_ALIADO||tipo==DISPARO_DOBLE||tipo==MISIL)
 		{
 			for (int n = 0; n < enemigos.getNumero(); n++)
 			{
@@ -80,30 +80,39 @@ void Mundo::mueve()
 			}
 		}
 	}
-
-
-
-	for (int i = asteroides.getNum(); i > 0; i--) {
-		if (Interaccion::colision(*asteroides[i], caja.suelo)) {
-			asteroides.eliminar(asteroides[i]);
+	//INTERACCIÓN DE LOS DISPAROS CON LOS ASTEROIDES
+	for (int i = 0; i < disparos.getNumero(); i++)
+	{
+		for (int n = 0; n < asteroides.getNum(); n++)
+		{
+			int tipo = disparos[i]->getTipo();
+			if (tipo == DISPARO_ALIADO || tipo == DISPARO_DOBLE)
+			{
+				DisparoAliado* d = (DisparoAliado*)disparos[i];
+				if (Interaccion::colision(*asteroides[n], *d))
+				{
+					disparos.eliminar(disparos[i]);
+				}
+			}
+			if (tipo == MISIL)
+			{
+				Misil* m = (Misil*)disparos[i];
+				if (Interaccion::colision(*asteroides[n], *m))
+				{
+					asteroides.eliminar(asteroides[n]);
+					disparos.eliminar(disparos[i]);
+				}
+			}
 		}
-		/*for (int j = 0; j < disparos.getNumero(); j++) {
-			if (Interaccion::colision(*asteroides[i], *disparos[j])) {
-				disparos.eliminar(disparos[j]);
-			}
-		}*/
-		/*for (int k = 0; k < misiles.getNumero(); k++) {
-			if (Interaccion::colision(*asteroides[i], *misiles[k])) {
-				misiles.eliminar(misiles[k]);
-			}
-		}*/
 	}
+
+
 }
 void Mundo::tecla(unsigned char key)
 {
-	//TECLAS PARA CAMBIAR EL PUNTO DE VISTA DURANTE EL DESARROLLO
 	switch (key)
 	{
+	//TECLAS PARA CAMBIAR EL PUNTO DE VISTA DURANTE EL DESARROLLO
 	case'z':
 	{
 		x_ojo++;
@@ -134,14 +143,42 @@ void Mundo::tecla(unsigned char key)
 		z_ojo--;
 		break;
 	}
+	//DISPARO ESTÁNDAR
 	case' ':
 	{
 		if (disparos.getNumero() < MAX_DISPAROS)
 		{
-			Disparo* d = new DisparoAliado;
-			d->setPos(personaje.getPos());
-			disparos.agregar(d);
-		}
+			if (!personaje.getModoDisparo())
+			{
+				Disparo* d = new DisparoAliado;
+				d->setPos(personaje.getPos());
+				disparos.agregar(d);
+			}
+			else if (personaje.getModoDisparo())
+			{
+				int misiles = 0;
+				for (int i = 0; i < disparos.getNumero(); i++)
+				{
+					int tipo = disparos[i]->getTipo();
+					if (tipo == MISIL)misiles++;
+				}
+				if (misiles < personaje.getNumMisiles() && personaje.getNumMisiles()>0)
+				{
+					Disparo* d = new Misil;
+					d->setPos(personaje.getPos());
+					disparos.agregar(d);
+					personaje.setNumMisiles(personaje.getNumMisiles() - 1);
+					int p = personaje.getNumMisiles();
+				}
+			}
+			}
+		break;
+	}
+	//MODO DISPARO
+	case'd':
+	{
+		if (personaje.getModoDisparo())personaje.setDisparoMisiles(false);
+		else if(personaje.getNumMisiles()>0)personaje.setDisparoMisiles(true);
 		break;
 	}
 	}

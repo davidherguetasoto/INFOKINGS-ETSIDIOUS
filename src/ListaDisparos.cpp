@@ -65,7 +65,7 @@ void ListaDisparos::colision(Caja c)
 	for (int i = 0; i < numero; i++)
 	{
 		int tipo = lista[i]->getTipo();
-		if (tipo == DISPARO_ALIADO)
+		if (tipo == DISPARO_ALIADO||tipo==MISIL||tipo==DISPARO_DOBLE)
 		{
 			DisparoAliado* d = (DisparoAliado*)lista[i];
 			if (Interaccion::colision(*d, c))eliminar(d);
