@@ -5,7 +5,7 @@ ListaDisparos::ListaDisparos() :numero(0)
 {
 	for (int i = 0; i < MAX_DISPAROS; i++)lista[i] = 0;
 }
-bool ListaDisparos::Agregar(Disparo* d)
+bool ListaDisparos::agregar(Disparo* d)
 {
 	if (numero < MAX_DISPAROS && lista[numero] != d) {
 		lista[numero++] = d;
@@ -22,17 +22,17 @@ void ListaDisparos::destruirContenido()
 	for (int i = 0; i < numero; i++)delete lista[i];
 	numero = 0;
 }
-void ListaDisparos::Mueve(float t)
+void ListaDisparos::mueve(float t)
 {
 	for (int i = 0; i < numero; i++)lista[i]->mueve(t);
 }
-void ListaDisparos::Dibuja()
+void ListaDisparos::dibuja()
 {
 	for (int i = 0; i < numero; i++)lista[i]->dibuja();
 }
 
 //DESTRUCCIÓN DE UN DISPARO DE LA LISTA
-void ListaDisparos::Eliminar(int index)
+void ListaDisparos::eliminar(int index)
 {
 	if ((index < 0) || (index >= numero))
 		return;
@@ -42,12 +42,12 @@ void ListaDisparos::Eliminar(int index)
 	for (int i = index; i < numero; i++)
 		lista[i] = lista[i + 1];
 }
-void ListaDisparos::Eliminar(Disparo* d)
+void ListaDisparos::eliminar(Disparo* d)
 {
 	for (int i = 0; i < numero; i++)
 		if (lista[i] == d)
 		{
-			Eliminar(i);
+			eliminar(i);
 			return;
 		}
 }
@@ -62,5 +62,18 @@ Disparo* ListaDisparos::operator [](int i)
 }
 void ListaDisparos::colision(Caja c)
 {
-
+	for (int i = 0; i < numero; i++)
+	{
+		int tipo = lista[i]->getTipo();
+		if (tipo == DISPARO_ALIADO)
+		{
+			DisparoAliado* d = (DisparoAliado*)lista[i];
+			if (Interaccion::colision(*d, c))eliminar(d);
+		}
+		if (tipo == DISPARO_ENEMIGO)
+		{
+			DisparoEnemigo* d = (DisparoEnemigo*)lista[i];
+			if (Interaccion::colision(*d, c))eliminar(d);
+		}
+	}
 }

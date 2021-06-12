@@ -57,6 +57,7 @@ bool Interaccion::colision(Obstaculo o, Pared p)
 
 bool Interaccion::colision(Obstaculo o, NavePersonaje n)
 {
+	//...
 	return false;
 }
 
