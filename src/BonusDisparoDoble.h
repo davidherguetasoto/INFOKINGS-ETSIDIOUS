@@ -1,5 +1,8 @@
 #pragma once
-class BonusDisparoDoble
+#include"Bonus.h"
+
+
+class BonusDisparoDoble :public Bonus
 {
 };
 
