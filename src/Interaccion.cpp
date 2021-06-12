@@ -28,20 +28,24 @@ void Interaccion::rebote(NavePersonaje& nave, Caja caja)
 
 bool Interaccion::colision(Obstaculo o, DisparoAliado d)
 {
-	if (o.getPos() == d.getPos()) {
+	Vector2D distancia = d.getPos() - o.getPos();
+	if (distancia.modulo() < (d.getRadio()+o.getRadio()))
 		return true;
-	}
 	return false;
 }
-
 bool Interaccion::colision(Obstaculo o, Misil m)
 {
-	if (o.getPos() == m.getPos()) {
+	Vector2D distancia = m.getPos() - o.getPos();
+	if (distancia.modulo() < (m.getRadio() + o.getRadio()))
 		return true;
-	}
 	return false;
 }
 
+bool Interaccion::colision(Obstaculo o, Pared p)
+{
+	if (o.getPos().y < p.getLim1().y) { return true; }
+	return false;
+}
 //bool Interaccion::colision(Obstaculo o, Caja c)
 //{
 //	if (Interaccion::colision(o, c.pared_dcha)) return true;
@@ -51,16 +55,10 @@ bool Interaccion::colision(Obstaculo o, Misil m)
 //	else return false;
 //}
 
-bool Interaccion::colision(Obstaculo o, Pared p)
+bool Interaccion::colision(Obstaculo o, NavePersonaje n)
 {
-	if (o.getPos().y < p.getLim1().y) { return true; }
 	return false;
 }
-//COLISIÓN DE UN DISPARO DE ALIADO CONTRA ENEMIGO
-/*bool Interaccion::colision(DisparoAliado d, NaveEnemiga ne)
-{
-	return false;
-}*/
 
 bool Interaccion::colision(DisparoAliado d, Pared p)
 {
@@ -101,4 +99,28 @@ bool Interaccion::colision(DisparoEnemigo d, Caja c)
 	if (flag_suelo || flag_techo || flag_pared_izq || flag_pared_dcha)
 		return true;
 	return false;
+}
+
+bool Interaccion::colision(DisparoAliado d, NaveEnemiga n)
+{
+	Vector2D distancia = n.getPos() - d.getPos();
+	if(distancia.modulo()<(d.getRadio()))
+		return true;
+	return false;
+}
+bool Interaccion::colision(DisparoEnemigo d, NavePersonaje n)
+{
+	Vector2D distancia = n.getPos() - d.getPos();
+	if (distancia.modulo() < (d.getRadio()))
+		return true;
+	return false;
+}
+
+void Interaccion::colision(NaveEnemiga b, NavePersonaje& n)
+{
+	Vector2D distancia = b.getPos() - n.getPos();
+	if (distancia.modulo() < (b.getRadio() + n.getRadio()))
+	{
+		n.setVida(n.getVida() - b.getDaño());
+	}
 }

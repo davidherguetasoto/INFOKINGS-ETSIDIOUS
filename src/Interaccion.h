@@ -18,7 +18,7 @@ public:
 	static void rebote(NavePersonaje& nave, Caja caja);
 
 	//CHOQUE DE LOS DISPAROS CON LOS OBSTÁCULOS
-	static bool colision(Obstaculo o, DisparoAliado d); //se destruye disparo si impacta con obstaculo
+	static bool colision(Obstaculo o, DisparoAliado d); //se destruye solo el disparo
 	static bool colision(Obstaculo o, Misil m); //se destruyen ambos al impactar
 	
 	//COLISIÓN DEL OBSTÁCULO CON EL SUELO
@@ -34,7 +34,7 @@ public:
 	static bool colision(DisparoEnemigo d, Caja c);
 	
 	//COLISIÓN DE LOS DISPAROS DE LA NAVE DEL PERSONAJE CON LOS ENEMIGOS
-	static bool colision(DisparoAliado d, NaveEnemiga ne); //daño a enemigos
+	static bool colision(DisparoAliado d, NaveEnemiga n); //daño a enemigos
 
 	//COLISIÓN DE LOS DISPAROS ENEMIGOS CON LA NAVE DEL PERSONAJE
 	static bool colision(DisparoEnemigo d, NavePersonaje n); //daño a jugador
@@ -46,6 +46,6 @@ public:
 	static bool colision(Bonus b, NavePersonaje n); //recogida del bonus
 
 	//CHOQUE DEL PESONAJE CON UNA NAVE ENEMIGA
-	static bool colision(NaveEnemiga b, NavePersonaje n); //merma salud de personaje al tocarlo
+	static void colision(NaveEnemiga b, NavePersonaje& n); //merma salud de personaje al tocarlo
 };
 
