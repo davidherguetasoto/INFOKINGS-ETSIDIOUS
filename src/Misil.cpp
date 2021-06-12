@@ -3,7 +3,8 @@
 //Se crea un disparo de tipo MISIL con 100 de daño
 Misil::Misil():DisparoAliado(100,MISIL)
 {
-	radio = 0.75f;
+	radio = 0.3f;
+	velocidad.y = 40.0f;
 }
 Misil::~Misil()
 {
