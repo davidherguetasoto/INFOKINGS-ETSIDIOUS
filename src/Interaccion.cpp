@@ -11,19 +11,29 @@ bool Interaccion::rebote(NavePersonaje& nave, Pared pared)
 }
 void Interaccion::rebote(NavePersonaje& nave, Caja caja)
 {
-	bool flag_pared_izq, flag_pared_dcha, flag_techo, flag_suelo;
-	flag_suelo = rebote(nave, caja.suelo);
-	flag_pared_izq = rebote(nave, caja.pared_izq);
-	flag_pared_dcha = rebote(nave, caja.pared_dcha);
-	flag_techo = rebote(nave, caja.techo);
+	bool flag_pared_izq = false, flag_pared_dcha = false, flag_techo = false, flag_suelo = 0;
+	Vector2D pos = nave.getPos();
+
+	if (pos.x <= caja.pared_izq.getLim1().x)flag_pared_izq = true;
+	else flag_pared_izq = false;
+
+	if (pos.x >= caja.pared_dcha.getLim1().x)flag_pared_dcha = true;
+	else flag_pared_dcha = false;
+
+	if (pos.y <= caja.suelo.getLim1().y)flag_suelo = true;
+	else flag_suelo = false;
+
+	if (pos.y >= caja.techo.getLim1().y)flag_techo = true;
+	else flag_techo = false;
+
 	if (flag_suelo)
-	nave.setPos(nave.posicion.x, caja.suelo.limite1.y+0.45);
+	nave.setPos(nave.posicion.x, caja.suelo.limite1.y+0.05);
 	else if (flag_pared_izq)
-		nave.setPos(caja.pared_izq.limite1.x+0.45, nave.posicion.y);
+		nave.setPos(caja.pared_izq.limite1.x+0.05, nave.posicion.y);
 	else if (flag_pared_dcha)
-		nave.setPos(caja.pared_dcha.limite1.x-0.45, nave.posicion.y);
+		nave.setPos(caja.pared_dcha.limite1.x-0.05, nave.posicion.y);
 	else if (flag_techo)
-		nave.setPos(nave.posicion.x, caja.techo.limite1.y-0.45);
+		nave.setPos(nave.posicion.x, caja.techo.limite1.y-0.05);
 }
 
 bool Interaccion::colision(Obstaculo o, DisparoAliado d)
@@ -64,7 +74,7 @@ bool Interaccion::colision(Obstaculo o, NavePersonaje n)
 bool Interaccion::colision(DisparoAliado d, Pared p)
 {
 	Vector2D distancia=p.distancia(d.getPos());
-	if (distancia.modulo() <= d.getRadio())
+	if (distancia.modulo() <= (d.getRadio() + 0.05f))
 		return true;
 	return false;
 
@@ -72,30 +82,48 @@ bool Interaccion::colision(DisparoAliado d, Pared p)
 bool Interaccion::colision(DisparoEnemigo d, Pared p)
 {
 	Vector2D distancia = p.distancia(d.getPos());
-	if (distancia.modulo() <= d.getRadio())
+	if (distancia.modulo() <= (d.getRadio()+0.05f))
 		return true;
 	return false;
 
 }
 bool Interaccion::colision(DisparoAliado d, Caja c)
 {
-	bool flag_pared_izq, flag_pared_dcha, flag_techo, flag_suelo;
-	flag_suelo = colision(d, c.suelo);
-	flag_pared_izq = colision(d, c.pared_izq);
-	flag_pared_dcha = colision(d, c.pared_dcha);
-	flag_techo = colision(d, c.techo);
+	bool flag_pared_izq=false, flag_pared_dcha=false, flag_techo=false, flag_suelo=0;
+	Vector2D pos = d.getPos();
 	
+	if (pos.x <= c.pared_izq.getLim1().x)flag_pared_izq = true;
+	else flag_pared_izq = false;
+
+	if (pos.x >= c.pared_dcha.getLim1().x)flag_pared_dcha = true;
+	else flag_pared_dcha = false;
+
+	if (pos.y <= c.suelo.getLim1().y)flag_suelo = true;
+	else flag_suelo = false;
+
+	if (pos.y >= c.techo.getLim1().y)flag_techo = true;
+	else flag_techo = false;
+
 	if (flag_suelo || flag_techo || flag_pared_izq || flag_pared_dcha)
 		return true;
 	return false;
 }
 bool Interaccion::colision(DisparoEnemigo d, Caja c)
 {
-	bool flag_pared_izq, flag_pared_dcha, flag_techo, flag_suelo;
-	flag_suelo = colision(d, c.suelo);
-	flag_pared_izq = colision(d, c.pared_izq);
-	flag_pared_dcha = colision(d, c.pared_dcha);
-	flag_techo = colision(d, c.techo);
+	bool flag_pared_izq = false, flag_pared_dcha = false, flag_techo = false, flag_suelo = 0;
+	Vector2D pos = d.getPos();
+
+	if (pos.x <= c.pared_izq.getLim1().x)flag_pared_izq = true;
+	else flag_pared_izq = false;
+
+	if (pos.x >= c.pared_dcha.getLim1().x)flag_pared_dcha = true;
+	else flag_pared_dcha = false;
+
+	if (pos.y <= c.suelo.getLim1().y)flag_suelo = true;
+	else flag_suelo = false;
+
+	if (pos.y >= c.techo.getLim1().y)flag_techo = true;
+	else flag_techo = false;
 
 	if (flag_suelo || flag_techo || flag_pared_izq || flag_pared_dcha)
 		return true;
@@ -105,7 +133,7 @@ bool Interaccion::colision(DisparoEnemigo d, Caja c)
 bool Interaccion::colision(DisparoAliado d, NaveEnemiga n)
 {
 	Vector2D distancia = n.getPos() - d.getPos();
-	if (distancia.modulo() <= (d.getRadio()+0.05f))
+	if (distancia.modulo() <= (d.getRadio()+0.07f))
 	{
 		return true;
 	}
@@ -114,7 +142,7 @@ bool Interaccion::colision(DisparoAliado d, NaveEnemiga n)
 bool Interaccion::colision(DisparoEnemigo d, NavePersonaje n)
 {
 	Vector2D distancia = n.getPos() - d.getPos();
-	if (distancia.modulo() < (d.getRadio() + 0.05f))
+	if (distancia.modulo() < (d.getRadio()+0.07f))
 	{
 		return true;
 	}
