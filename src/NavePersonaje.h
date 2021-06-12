@@ -15,7 +15,7 @@ protected:
 	ColorRGB color;
 	//prueba bonus
 	int num_bonus;
-	bool disparo_misiles; //Modo de disparo
+	bool disparo_misiles; //Modo de disparo con misiles
 	int num_misiles; //Contador de los misiles que podemos disparar
 public:
 	NavePersonaje();
