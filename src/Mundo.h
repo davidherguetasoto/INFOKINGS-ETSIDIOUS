@@ -35,6 +35,7 @@ public:
 	void inicializa();
 	void mueve();
 	void dibuja();
+	void aleatorio();
 
 	int getNumEnemigos();
 	bool cargarNivel();

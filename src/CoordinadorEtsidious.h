@@ -21,5 +21,6 @@ public:
 	void mueve(float t);
 	void dibuja();
 	void inicializa();
+	void aleatorio();
 };
 

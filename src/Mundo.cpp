@@ -15,9 +15,6 @@ void Mundo::inicializa()
 	y_ojo = 7.5;
 	z_ojo = 40;
 
-	Obstaculo* o1 = new Obstaculo();
-	asteroides.agregar(o1);
-
 	nivel = 0;
 	cargarNivel();
 }
@@ -53,7 +50,7 @@ void Mundo::mueve()
 
 	//personaje.setVel(0.0, 0.0);
 
-	
+
 	for (int i = asteroides.getNum(); i > 0; i--) {
 		if (Interaccion::colision(*asteroides[i], caja.suelo)) {
 			asteroides.eliminar(asteroides[i]);
@@ -209,4 +206,14 @@ bool Mundo::cargarNivel()
 	if (nivel <= 3)
 		return true;
 	return false;
+}
+
+void Mundo::aleatorio()
+{
+	float lim1 = caja.pared_izq.getLim1().x;
+	float lim2 = caja.pared_dcha.getLim1().x;
+	float x = lim1 + rand() % (int)(lim2 - lim1);
+	Obstaculo* o2 = new Obstaculo();
+	o2->setPos(x, caja.techo.getLim1().y);
+	asteroides.agregar(o2);
 }

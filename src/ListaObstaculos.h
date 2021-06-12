@@ -1,6 +1,6 @@
 #pragma once
 #include "Obstaculo.h"
-#define MAX 50
+#define MAX 20
 
 class ListaObstaculos
 {
@@ -12,9 +12,9 @@ public:
 
 	void destruirContenido();
 	void eliminar(int index); //elimina esfera por su posición en la lista
-	void eliminar(Obstaculo* e); //elimina la esfera indica explícitamente
+	void eliminar(Obstaculo* o); //elimina la esfera indica explícitamente
 
-	bool agregar(Obstaculo* e);	//devuelve 1 si no se ha alcanzado max
+	bool agregar(Obstaculo* o);	//devuelve 1 si no se ha alcanzado max
 								// y 0 si no se ha podido crear
 
 	
