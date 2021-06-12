@@ -18,7 +18,7 @@ void Disparo::setOrigen(float ix,float iy)
 	origen.x = ix;
 	origen.y = iy;
 }
-float Disparo::getDaño()
+float Disparo::getDano()
 {
 	return daño;
 }

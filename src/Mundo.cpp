@@ -1,7 +1,7 @@
 #include "Mundo.h"
 #include "freeglut.h"
 #include"Interaccion.h"
-Mundo::Mundo():x_ojo(0),y_ojo(0),z_ojo(0),nivel(1)
+Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1)
 {
 
 }
@@ -25,7 +25,7 @@ void Mundo::dibuja()
 		x_ojo, y_ojo, z_ojo, // posicion del ojo
 		0.0, y_ojo, 0.0, // hacia que punto mira
 		0.0, 1.0, 0.0); // definimos hacia arriba (eje Z)
-	
+
 	//DIBUJAR OBJETOS DE LA PANTALLA
 	caja.dibuja();
 	personaje.dibuja();
@@ -45,13 +45,42 @@ void Mundo::dibuja()
 void Mundo::mueve()
 {
 	personaje.mueve(0.025f);
-	asteroides.mueve(0.025f);
-	enemigos.mueve(0.025f);
-	disparos.mueve(0.025f);
-	disparos.colision(caja);
 	Interaccion::rebote(personaje, caja);
 
-	//personaje.setVel(0.0, 0.0);
+	asteroides.mueve(0.025f);
+	enemigos.mueve(0.025f);
+
+	disparos.mueve(0.025f);
+	disparos.colision(caja);
+	//Colision de los disparos con naves
+	for (int i = 0; i < disparos.getNumero(); i++)
+	{
+		int tipo = disparos[i]->getTipo();
+		if (tipo == DISPARO_ALIADO)
+		{
+			for (int n = 0; n < enemigos.getNumero(); n++)
+			{
+				DisparoAliado* d = (DisparoAliado*)disparos[i];
+				if (Interaccion::colision(*d, *enemigos[n]))
+				{
+					enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
+					if (enemigos[n]->getVida() <= 0.0f)
+						enemigos.eliminar(enemigos[n]);
+					disparos.eliminar(disparos[i]);
+				}
+			}
+		}
+		if (tipo == DISPARO_ENEMIGO)
+		{
+			DisparoEnemigo* d = (DisparoEnemigo*)disparos[i];
+			if (Interaccion::colision(*d, personaje))
+			{
+				personaje.setVida(personaje.getVida() - disparos[i]->getDano());
+				disparos.eliminar(disparos[i]);
+			}
+		}
+	}
+
 
 
 	for (int i = asteroides.getNum(); i > 0; i--) {

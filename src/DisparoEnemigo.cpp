@@ -2,12 +2,12 @@
 
 DisparoEnemigo::DisparoEnemigo() :Disparo(20, DISPARO_ENEMIGO)
 {
-	radio = 0.5f;
+	radio = 0.25f;
 	velocidad.y = -30.0f;
 }
 DisparoEnemigo::DisparoEnemigo(float daño, int tipo) : Disparo(daño, tipo)
 {
-	radio = 0.5f;
+	radio = 0.25f;
 	velocidad.y = -30.0f;
 }
 void DisparoEnemigo::dibuja()
