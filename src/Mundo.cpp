@@ -46,15 +46,15 @@ void Mundo::dibuja()
 	ETSIDI::printxy("Infokings", 3.5, 21);
 }
 
-void Mundo::mueve()
+void Mundo::mueve(float t)
 {
-	personaje.mueve(0.025f);
+	personaje.mueve(t);
 	Interaccion::rebote(personaje, caja);
 
-	asteroides.mueve(0.025f);
-	enemigos.mueve(0.025f);
+	asteroides.mueve(t);
+	enemigos.mueve(t);
 
-	disparos.mueve(0.025f);
+	disparos.mueve(t);
 	disparos.colision(caja);
 
 	//Colision de los disparos con naves

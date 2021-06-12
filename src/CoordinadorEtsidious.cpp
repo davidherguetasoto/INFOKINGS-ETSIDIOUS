@@ -128,7 +128,7 @@ void CoordinadorEtsidious::mueve(float t)
 {
 	if (estado == Estado::JUEGO)
 	{
-		mundo->mueve();
+		mundo->mueve(t);
 		if (mundo->getNumEnemigos() == 0) {	//si los enemigos se reducen a 0
 			if (!mundo->cargarNivel())		//se carga nivel
 				estado = Estado::FIN;		//si nivel>3, WIN!

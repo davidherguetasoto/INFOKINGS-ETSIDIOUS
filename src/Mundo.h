@@ -37,7 +37,7 @@ public:
 	void teclaEspecial(unsigned char key);
 	void teclaEspecialUp(unsigned char key);
 	void inicializa();
-	void mueve();
+	void mueve(float t);
 	void dibuja();
 	void aleatorio();
 
