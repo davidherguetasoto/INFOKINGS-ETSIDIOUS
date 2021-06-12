@@ -2,10 +2,17 @@
 #include <stdlib.h> //para rand()
 #include "freeglut.h"
 
+Bonus::Bonus(float extra, int tipo):extra(extra),tipo(tipo)
+{
+	velocidad.y = -7.0f;
+}
+
+
 Bonus::Bonus()
 {
+	velocidad.y = -7.0f;
 	lado = 1.0f;
-	aceleracion.y = -9.8f;
+	//aceleracion.y = -9.8f;
 }
 
 void Bonus::mueve(float t)

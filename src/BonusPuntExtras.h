@@ -1,5 +1,12 @@
 #pragma once
-class BonusPuntExtras
+#include"Bonus.h"
+
+class BonusPuntExtras:public Bonus
 {
+protected:
+
+public:
+	friend class Interaccion;
+	BonusPuntExtras();
 };
 

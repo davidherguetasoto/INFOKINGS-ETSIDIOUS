@@ -32,6 +32,7 @@ void Mundo::dibuja()
 	asteroides.dibuja();
 	enemigos.dibuja();
 	disparos.dibuja();
+	bonus.Dibuja();
 
 	ETSIDI::setTextColor(1, 1, 0);
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
@@ -52,6 +53,7 @@ void Mundo::mueve()
 
 	disparos.mueve(0.025f);
 	disparos.colision(caja);
+
 	//Colision de los disparos con naves
 	for (int i = 0; i < disparos.getNumero(); i++)
 	{
@@ -80,11 +82,10 @@ void Mundo::mueve()
 			}
 		}
 	}
-
-
-
-	for (int i = asteroides.getNum(); i > 0; i--) {
-		if (Interaccion::colision(*asteroides[i], caja.suelo)) {
+	for (int i = asteroides.getNum(); i > 0; i--) 
+	{
+		if (Interaccion::colision(*asteroides[i], caja.suelo)) 
+		{
 			asteroides.eliminar(asteroides[i]);
 		}
 		/*for (int j = 0; j < disparos.getNumero(); j++) {
@@ -98,6 +99,9 @@ void Mundo::mueve()
 			}
 		}*/
 	}
+
+	//Colision Bonus con Naves enemigas
+
 }
 void Mundo::tecla(unsigned char key)
 {
