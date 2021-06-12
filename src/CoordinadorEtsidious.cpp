@@ -2,10 +2,11 @@
 CoordinadorEtsidious::CoordinadorEtsidious()
 {
 	estado = Estado::INICIO;
+	mundo = new Mundo;
 }
 CoordinadorEtsidious::~CoordinadorEtsidious()
 {
-	mundo.~Mundo();
+	delete mundo;
 }
 void CoordinadorEtsidious::dibuja()
 {
@@ -31,11 +32,11 @@ void CoordinadorEtsidious::dibuja()
 	}
 	else if (estado == Estado::JUEGO)
 	{
-		mundo.dibuja();
+		mundo->dibuja();
 	}
 	else if(estado==Estado::GAMEOVER)
 	{
-		mundo.dibuja();
+		mundo->dibuja();
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 		ETSIDI::printxy("GAMEOVER: Has perdido", -5, 10);
@@ -43,7 +44,7 @@ void CoordinadorEtsidious::dibuja()
 	}
 	else if (estado == Estado::FIN)
 	{
-		mundo.dibuja();
+		mundo->dibuja();
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 		ETSIDI::printxy("ENHORABUENA, has salvado el mundo", -5, 10);
@@ -51,7 +52,7 @@ void CoordinadorEtsidious::dibuja()
 	}
 	else if (estado == Estado::PAUSA)
 	{
-		mundo.dibuja();
+		mundo->dibuja();
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 		ETSIDI::printxy("PAUSA", -5, 10);
@@ -68,7 +69,8 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 	{
 		if (key == 'e'||key=='E')
 		{
-			mundo.inicializa();
+			mundo = new Mundo;
+			mundo->inicializa();
 			estado = Estado::JUEGO;
 		}
 		if (key == 's'||key=='S')
@@ -76,7 +78,7 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 	}
 	else if (estado == Estado::JUEGO)
 	{
-		mundo.tecla(key);
+		mundo->tecla(key);
 		if (key == 'p' || key=='P') {
 			estado = Estado::PAUSA;
 		}
@@ -84,7 +86,10 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 	else if (estado == Estado::GAMEOVER || estado == Estado::FIN)
 	{
 		if (key == 'c' || key == 'C')
+		{
 			estado = Estado::INICIO;
+			delete mundo;
+		}
 	}
 	else if (estado == Estado::PAUSA)
 	{
@@ -99,36 +104,36 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 void CoordinadorEtsidious::teclaEspecialUp(unsigned char key)
 {
 	if (estado == Estado::JUEGO)
-		mundo.teclaEspecialUp(key);
+		mundo->teclaEspecialUp(key);
 }
 void CoordinadorEtsidious::teclaEspecial(unsigned char key)
 {
 	if (estado == Estado::JUEGO)
 	{
-		mundo.teclaEspecial(key);
+		mundo->teclaEspecial(key);
 	}
 }
 void CoordinadorEtsidious::inicializa()
 {
-	mundo.inicializa();
+	mundo->inicializa();
 }
 void CoordinadorEtsidious::aleatorio()
 {
 	if (estado == Estado::JUEGO)
 	{
-		mundo.aleatorio();
+		mundo->aleatorio();
 	}
 }
 void CoordinadorEtsidious::mueve(float t)
 {
 	if (estado == Estado::JUEGO)
 	{
-		mundo.mueve();
-		if (mundo.getNumEnemigos() == 0) {	//si los enemigos se reducen a 0
-			if (!mundo.cargarNivel())		//se carga nivel
+		mundo->mueve();
+		if (mundo->getNumEnemigos() == 0) {	//si los enemigos se reducen a 0
+			if (!mundo->cargarNivel())		//se carga nivel
 				estado = Estado::FIN;		//si nivel>3, WIN!
 		}
-		if (mundo.personaje.getVida() == 0) {
+		if (mundo->personaje.getVida() == 0) {
 			estado = Estado::GAMEOVER;
 		}
 	}
