@@ -8,7 +8,7 @@ void OnTimer(int value); //esta funcion sera llamada cuando transcurra una tempo
 void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla	
 void onSpecialKeyboardDown(int key, int x, int y); //Declaración funciones teclas especiales
 void OnSpecialKeyboardUp(int key, int x, int y); //Detección flanco negativo teclas especiales
-int i = 0;
+void OnTime(int t); //esta funcion sera llamada cuando transcurra una temporizacion
 
 int main(int argc, char* argv[])
 {
@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 	glutKeyboardFunc(OnKeyboardDown);
 	glutSpecialUpFunc(OnSpecialKeyboardUp); //flancos negativos de las teclas especiales
 	glutSpecialFunc(onSpecialKeyboardDown); //gestion de los cursores
-	
+	glutTimerFunc(2500, OnTime, 0); //Cada dos segundos y medio llama a la funcion OnTime()
 
 	etsidious.inicializa();
 
@@ -77,10 +77,18 @@ void OnTimer(int value)
 {
 	//poner aqui el código de animacion
 	etsidious.mueve(0.025f);
-	etsidious.aleatorio();
+	//etsidious.aleatorio();
 
 	//no borrar estas lineas
 	glutTimerFunc(25, OnTimer, 0);
 	glutPostRedisplay();
 }
 
+void OnTime(int t)
+{
+	etsidious.aleatorio();
+
+	//no borrar estas lineas
+	glutTimerFunc(2500, OnTime, 0);
+	glutPostRedisplay();
+}
