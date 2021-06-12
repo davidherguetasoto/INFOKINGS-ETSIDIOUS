@@ -111,7 +111,6 @@ void Mundo::mueve(float t)
 			}
 		}
 	}
-
 }
 void Mundo::tecla(unsigned char key)
 {
