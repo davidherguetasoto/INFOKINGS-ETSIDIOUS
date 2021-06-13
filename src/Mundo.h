@@ -13,6 +13,8 @@ dependiendo de entradas del usuario por teclado*/
 #include "Obstaculo.h"
 #include "ListaDisparos.h"
 #include"ListaBonus.h"
+#include"ETSIDI.h"
+using ETSIDI::SpriteSequence;
 
 class Mundo
 {
@@ -29,6 +31,8 @@ class Mundo
 	ListaBonus bonus;
 
 	int nivel;
+
+	SpriteSequence misiles_disponibles{ "imagenes/misil_sin_disparar.png",1 };
 
 public:
 	Mundo();

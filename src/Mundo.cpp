@@ -1,6 +1,7 @@
 #include "Mundo.h"
 #include "freeglut.h"
 #include"Interaccion.h"
+
 Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1)
 {
 
@@ -44,6 +45,21 @@ void Mundo::dibuja()
 	ETSIDI::setTextColor(1, 1, 1);
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
 	ETSIDI::printxy("Infokings", 3.5, 21);
+
+	//DIBUJO DEL NÚMERO DE MISILES DISPONIBLES
+	ETSIDI::setTextColor(1, 0, 0);
+	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+	ETSIDI::printxy("MISILES:", -3, -6);
+	if(personaje.getNumMisiles()>0)
+		for (int i = 0; i < personaje.getNumMisiles(); i++)
+		{
+			glPushMatrix();
+			glTranslatef(0+i,-6 , 0);
+			glColor3f(1.0f, 0.0f, 0.0f);
+			misiles_disponibles.draw();
+			glTranslatef(0 - i, 6, 0);
+			glPopMatrix();
+		}
 }
 
 void Mundo::mueve(float t)
