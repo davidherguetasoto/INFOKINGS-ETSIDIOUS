@@ -1,13 +1,13 @@
 #include "NavePersonaje.h"
 #include "freeglut.h"
 
-NavePersonaje::NavePersonaje():Nave(VIDA_MAX)
+NavePersonaje::NavePersonaje():Nave(80)//poner vida_max luego
 {
 	altura = 2.0f;
 	radio = 0.5f;
 	color.set(0, 0, 255);
 	num_bonus = 0;//num_bonus para inicializarlo a 0 prueba
-	num_misiles = 10;
+	num_misiles = 3;
 	disparo_misiles = false;
 	disparo_doble = false;
 }

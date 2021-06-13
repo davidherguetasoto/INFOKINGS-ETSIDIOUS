@@ -21,6 +21,14 @@ void Mundo::inicializa()
 
 	nivel = 0;
 	cargarNivel();
+	Bonus* d = new BonusMisiles;
+	d->setPos(6, 12);
+	bonus.agregar(d);
+
+	Bonus* b = new BonusVidas;
+	b->setPos(-6, 12);
+	bonus.agregar(b);
+
 }
 void Mundo::dibuja()
 {
@@ -116,7 +124,7 @@ void Mundo::mueve(float t)
 
 
 	bonus.Mueve(t);
-	bonus.colision(pared);
+	bonus.colision(caja.suelo);
 
 
 	//Colision de los disparos con naves
@@ -159,11 +167,22 @@ void Mundo::mueve(float t)
 		}
 		if (tipo == BONUS_VIDAS)
 		{
-
+			BonusVidas* b = (BonusVidas*)bonus[i];
+			if (Interaccion::colision(*b, personaje))
+			{
+				personaje.setVida(personaje.getVida() + bonus[i]->getExtra());
+				bonus.eliminar(bonus[i]);
+			}
+			
 		}
 		if (tipo == BONUS_MISILES)
 		{
-
+			BonusMisiles* b = (BonusMisiles*)bonus[i];
+			if (Interaccion::colision(*b, personaje))
+			{
+				personaje.setNumMisiles(personaje.getNumMisiles() + bonus[i]->getExtra());
+				bonus.eliminar(bonus[i]);
+			}
 		}
 		if (tipo == BONUS_PUNT_EXTRAS)
 		{

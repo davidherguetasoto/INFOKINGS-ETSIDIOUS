@@ -9,15 +9,15 @@
 class Bonus:public ObjetoMovil
 {
 protected:
-	float lado = 5.0;
+	float lado;
 	float extra; //aumento de vida, o disparos de la nave personaje
 	Vector2D origen;//Origen donde este el enemigo
 	int tipo; //tipo de bonus(0,1,2 o 3)
 
 public:
 	//Tipos de Bonus
-	Bonus();
-	Bonus(float daño, int tipo);
+	//Bonus();
+	Bonus(float extra, int tipo);
 	void mueve(float t);
 	virtual ~Bonus();
 	virtual void dibuja()=0;

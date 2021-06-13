@@ -3,6 +3,8 @@
 BonusMisiles::BonusMisiles() :Bonus(1, BONUS_MISILES)
 {
 	velocidad.y = -7.0f;
+	//posicion.x = 6;
+	//posicion.y = 17;
 }
 
 void BonusMisiles::dibuja()
