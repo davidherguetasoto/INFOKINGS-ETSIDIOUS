@@ -33,7 +33,6 @@ class Mundo
 	int nivel;
 	float t_DisparoDoble;
 
-
 public:
 	Mundo();
 	virtual ~Mundo();
