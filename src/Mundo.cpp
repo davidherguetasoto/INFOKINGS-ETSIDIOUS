@@ -98,6 +98,11 @@ void Mundo::mueve(float t)
 	disparos.mueve(t);
 	disparos.colision(caja);
 
+
+	bonus.Mueve(t);
+	bonus.colision(pared);
+
+
 	//Colision de los disparos con naves
 	for (int i = 0; i < disparos.getNumero(); i++)
 	{
@@ -126,6 +131,30 @@ void Mundo::mueve(float t)
 			}
 		}
 	}
+
+
+	//Colision del bonus con nave personaje
+	for (int i = 0; i < bonus.getNumero(); i++)
+	{
+		int tipo = bonus[i]->getTipo();
+		if (tipo == BONUS_DISPARO_DOBLE)
+		{
+
+		}
+		if (tipo == BONUS_VIDAS)
+		{
+
+		}
+		if (tipo == BONUS_MISILES)
+		{
+
+		}
+		if (tipo == BONUS_PUNT_EXTRAS)
+		{
+
+		}
+	}
+
 
 	//INTERACCIÓN DE LOS DISPAROS CON LOS ASTEROIDES
 	for (int i = 0; i < disparos.getNumero(); i++)

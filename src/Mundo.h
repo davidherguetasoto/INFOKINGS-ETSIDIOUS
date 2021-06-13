@@ -6,6 +6,7 @@ dependiendo de entradas del usuario por teclado*/
 #pragma once
 //#include "Bonus.h"
 #include "Caja.h"
+#include "Pared.h"
 #include "Interaccion.h"
 #include "ListaObstaculos.h"
 #include "ListaEnemigos.h"
@@ -24,6 +25,7 @@ class Mundo
 
 	//Bonus bonus;
 	Caja caja;
+	Pared pared;
 	NavePersonaje personaje;
 	ListaObstaculos asteroides;
 	ListaEnemigos enemigos;

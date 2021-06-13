@@ -61,10 +61,25 @@ void ListaBonus::colision(Pared p)
 	for (int i = 0; i < numero; i++)
 	{
 		int tipo = lista[i]->getTipo();
-		if (tipo == BONUS_DISPARO_DOBLE || tipo == BONUS_MISILES || tipo == BONUS_PUNT_EXTRAS || tipo== BONUS_VIDAS)
+		if (tipo == BONUS_DISPARO_DOBLE)
 		{
-			BonusDisparoDoble* d = (BonusDisparoDoble*)lista[i];
-			if (Interaccion::colision(*d, p))eliminar(d);
+			BonusDisparoDoble* b = (BonusDisparoDoble*)lista[i];
+			if (Interaccion::colision(*b, p))eliminar(b);
+		}
+		if (tipo == BONUS_MISILES)
+		{
+			BonusMisiles* b = (BonusMisiles*)lista[i];
+			if (Interaccion::colision(*b, p))eliminar(b);
+		}
+		if (tipo == BONUS_PUNT_EXTRAS)
+		{
+			BonusPuntExtras* b = (BonusPuntExtras*)lista[i];
+			if (Interaccion::colision(*b, p))eliminar(b);
+		}
+		if (tipo == BONUS_VIDAS)
+		{
+			BonusVidas* b = (BonusVidas*)lista[i];
+			if (Interaccion::colision(*b, p))eliminar(b);
 		}
 	}
 }
