@@ -173,11 +173,11 @@ void Mundo::tecla(unsigned char key)
 			 else if (personaje.getModoDoble())
 			 {
 				 Disparo* d = new DisparoDoble;
-				 d->setPos(personaje.getPos().x+0.3f,personaje.getPos().y);
+				 d->setPos(personaje.getPos().x+0.35f,personaje.getPos().y);
 				 disparos.agregar(d);
-				 Disparo* d2 = new DisparoDoble;
-				 d2->setPos(personaje.getPos().x - 0.3f, personaje.getPos().y);
-				 disparos.agregar(d2);
+				d = new DisparoDoble;
+				 d->setPos(personaje.getPos().x - 0.35f, personaje.getPos().y);
+				 disparos.agregar(d);
 			 }
 			 else
 			 {
