@@ -3,6 +3,7 @@ CoordinadorEtsidious::CoordinadorEtsidious()
 {
 	estado = Estado::INICIO;
 	mundo = new Mundo;
+	puntuacion = 0;
 }
 CoordinadorEtsidious::~CoordinadorEtsidious()
 {
@@ -88,6 +89,7 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 		if (key == 'c' || key == 'C')
 		{
 			estado = Estado::INICIO;
+			puntuacion=mundo->getPuntos();
 			delete mundo;
 		}
 	}

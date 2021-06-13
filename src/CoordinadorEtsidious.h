@@ -12,6 +12,7 @@ protected:
 	Mundo* mundo;
 	enum class Estado{INICIO, JUEGO, GAMEOVER, FIN, PAUSA, RANKING};
 	Estado estado;
+	float puntuacion;
 public:
 	CoordinadorEtsidious();
 	virtual ~CoordinadorEtsidious();

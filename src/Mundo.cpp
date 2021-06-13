@@ -4,7 +4,7 @@
 #include <sstream>
 #include<string>
 using namespace std;
-Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1),t_DisparoDoble(0)
+Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1),t_DisparoDoble(0),puntuacion(0)
 {
 
 }

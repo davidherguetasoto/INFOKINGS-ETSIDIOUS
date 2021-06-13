@@ -31,7 +31,8 @@ class Mundo
 	ListaBonus bonus;
 
 	int nivel;
-	float t_DisparoDoble;
+	float t_DisparoDoble; //tiempo restante del disparo doble
+	float puntuacion; //Puntuación del jugador
 
 public:
 	Mundo();
@@ -46,6 +47,6 @@ public:
 
 	int getNumEnemigos();
 	bool cargarNivel();
-
+	float getPuntos() { return puntuacion; }
 	friend class CoordinadorEtsidious;
 };
