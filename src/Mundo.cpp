@@ -68,10 +68,17 @@ void Mundo::dibuja()
 			glDisable(GL_TEXTURE_2D);
 		}
 	}
-	//DIBUJO DEL TIPO DE DISPARO PRESENTE
+	//TEXTO MODO DE DISPARO
+	ETSIDI::setTextColor(1, 1, 0);
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-	ETSIDI::printxy("TIPO", 12, -3);
-	ETSIDI::printxy("DISPARO:", 12, -4);
+	ETSIDI::printxy("DISPARO:", 12, 18);
+	if(personaje.getModoMisiles())
+		ETSIDI::printxy("MISIL", 12, 17);
+	else if(personaje.getModoDoble())
+		ETSIDI::printxy("DOBLE", 12, 17);
+	else
+		ETSIDI::printxy("NORMAL", 12, 17);
+	
 
 	//DIBUJO DE LA VIDA
 	ETSIDI::setTextColor(1, 0, 0);
