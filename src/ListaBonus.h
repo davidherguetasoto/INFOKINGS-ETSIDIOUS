@@ -14,6 +14,10 @@ class ListaBonus
 	friend class Bonus;
 private:
 	Bonus *lista[MAX_BONUS];
+	//BonusDisparoDoble* lista[MAX_BONUS];
+	//BonusMisiles* lista[MAX_BONUS];
+	//BonusPuntExtras* lista[MAX_BONUS];
+	//BonusVidas* lista[MAX_BONUS];
 	int numero;
 public:
 	ListaBonus(); 
@@ -23,9 +27,15 @@ public:
 	void Mueve(float t);
 	void eliminar(int index);
 	void eliminar(Bonus* b);
-	//Bonus* colision(NavePersonaje &n);
+	void colision(Pared p);
+
+	//Bonus* colision(NavePersonaje& n);
+	//BonusDisparoDoble* colision(NavePersonaje &n);
+	//BonusMisiles* colision(NavePersonaje& n);
+	//BonusPuntExtras* colision(NavePersonaje& n);
+	//BonusVidas* colision(NavePersonaje& n);
 	void destruirContenido();
-	//Bonus* operator[](int i);
+	Bonus* operator[](int i);
 	int getNumero();
 };
 

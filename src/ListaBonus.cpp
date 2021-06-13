@@ -36,14 +36,40 @@ void ListaBonus::Mueve(float t)
 
 void ListaBonus::eliminar(int index)
 {
-
+	if ((index < 0) || (index >= numero))
+		return;
+	delete lista[index];
+	numero--;
+	//Recolocar los disparos después de borrar uno para que no haya huecos en la lista
+	for (int i = index; i < numero; i++)
+		lista[i] = lista[i + 1];
 }
 
 
 void ListaBonus::eliminar(Bonus* b)
 {
-
+	for (int i = 0; i < numero; i++)
+		if (lista[i] == b)
+		{
+			eliminar(i);
+			return;
+		}
 }
+
+void ListaBonus::colision(Pared p)
+{
+	for (int i = 0; i < numero; i++)
+	{
+		int tipo = lista[i]->getTipo();
+		if (tipo == BONUS_DISPARO_DOBLE || tipo == BONUS_MISILES || tipo == BONUS_PUNT_EXTRAS || tipo== BONUS_VIDAS)
+		{
+			BonusDisparoDoble* d = (BonusDisparoDoble*)lista[i];
+			if (Interaccion::colision(*d, p))eliminar(d);
+		}
+	}
+}
+
+
 
 /*Bonus* ListaBonus::colision(NavePersonaje& n)
 {
@@ -55,7 +81,6 @@ void ListaBonus::eliminar(Bonus* b)
 	return 0;
 }*/
 
-
 void ListaBonus::destruirContenido()
 {
 	for (int i = 0; i < numero; i++)
@@ -63,10 +88,14 @@ void ListaBonus::destruirContenido()
 	numero = 0;
 }
 
-/*Bonus* ListaBonus::operator[](int i)
+Bonus* ListaBonus::operator[](int i)
 {
-
-}*/
+	if (i >= numero)//si me paso, devuelvo la ultima
+		i = numero - 1;
+	if (i < 0) //si el indice es negativo, devuelvo la primera
+		i = 0;
+	return lista[i];
+}
 
 
 int ListaBonus::getNumero()
