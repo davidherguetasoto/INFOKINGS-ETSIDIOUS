@@ -4,6 +4,8 @@ DisparoAliado::DisparoAliado() :Disparo(35,DISPARO_ALIADO)
 {
 	velocidad.y = 30.0f;
 	radio = 0.25f;
+	sprite_DisparoAliado.setCenter(0.5f, 0);
+	sprite_DisparoAliado.setSize(1.2f, 2);
 }
 DisparoAliado::DisparoAliado(float daño, int tipo) : Disparo(daño, tipo)
 {
@@ -12,11 +14,11 @@ DisparoAliado::DisparoAliado(float daño, int tipo) : Disparo(daño, tipo)
 }
 void DisparoAliado::dibuja()
 {
-	//PROVISIONAL
 	glPushMatrix();
-	glColor3f(0, 255, 255);
-	glTranslatef(posicion.x, posicion.y, 0);
-	glutSolidSphere(radio, 20, 20);
-	glTranslatef(-posicion.x, -posicion.y, 0);
+	glTranslatef(posicion.x, posicion.y, 1);
+	glColor3f(1.0f, 0.0f, 0.0f);
+	//gestion de direccion y animacion
+	sprite_DisparoAliado.setState(0);
+	sprite_DisparoAliado.draw();
 	glPopMatrix();
 }

@@ -10,16 +10,17 @@ NavePersonaje::NavePersonaje():Nave(VIDA_MAX)//poner vida_max luego
 	num_misiles = 3;
 	disparo_misiles = false;
 	disparo_doble = false;
+	sprite_nave.setCenter(1.9f, 2);
+	sprite_nave.setSize(4, 6);
 }
 void NavePersonaje::dibuja()
 {
 	glPushMatrix();
-	color.ponColor();
-	glTranslatef(posicion.x, posicion.y, 0);
-	glRotatef(-90, 1, 0, 0);
-	glutSolidCone(radio, altura, 20, 20);
-	glRotatef(90, 1, 0, 0);
-	glTranslatef(-posicion.x, -posicion.y, 0);
+	glTranslatef(posicion.x, posicion.y, 1);
+	glColor3f(1.0f, 0.0f, 0.0f);
+	//gestion de direccion y animacion
+	sprite_nave.setState(0);
+	sprite_nave.draw();
 	glPopMatrix();
 }
 

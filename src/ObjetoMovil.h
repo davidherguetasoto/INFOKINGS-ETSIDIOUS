@@ -1,6 +1,7 @@
 #pragma once
 #include"Vector2D.h"
 #include "ETSIDI.h"
+using ETSIDI::SpriteSequence;
 class ObjetoMovil
 {
 protected:
