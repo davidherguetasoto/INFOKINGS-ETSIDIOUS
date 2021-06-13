@@ -68,6 +68,15 @@ void Mundo::dibuja()
 			glDisable(GL_TEXTURE_2D);
 		}
 	}
+	//DIBUJO DEL TIPO DE DISPARO PRESENTE
+	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+	ETSIDI::printxy("TIPO", 12, -3);
+	ETSIDI::printxy("DISPARO:", 12, -4);
+
+	//DIBUJO DE LA VIDA
+	ETSIDI::setTextColor(1, 0, 0);
+	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+	ETSIDI::printxy("VIDA:", -12, -6);
 
 	for (int i = 0; i < 5; i++) {
 		if (personaje.getVida() > 20 * i) {

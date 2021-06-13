@@ -21,10 +21,6 @@ void NavePersonaje::dibuja()
 	glRotatef(90, 1, 0, 0);
 	glTranslatef(-posicion.x, -posicion.y, 0);
 	glPopMatrix();
-
-	ETSIDI::setTextColor(1, 0, 0);
-	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-	ETSIDI::printxy("VIDA:", -12, -6);
 }
 
 //prueba
