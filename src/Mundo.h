@@ -32,7 +32,7 @@ class Mundo
 
 	int nivel;
 
-	//SpriteSequence misiles_disponibles{ "imagenes/misil_sin_disparar.png",1 };
+
 
 public:
 	Mundo();
