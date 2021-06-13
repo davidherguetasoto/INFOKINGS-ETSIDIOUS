@@ -50,16 +50,41 @@ void Mundo::dibuja()
 	ETSIDI::setTextColor(1, 0, 0);
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 	ETSIDI::printxy("MISILES:", -3, -6);
-	if(personaje.getNumMisiles()>0)
+	if (personaje.getNumMisiles() > 0)
+	{
 		for (int i = 0; i < personaje.getNumMisiles(); i++)
 		{
-			glPushMatrix();
-			glTranslatef(0+i,-6 , 0);
-			glColor3f(1.0f, 0.0f, 0.0f);
-			misiles_disponibles.draw();
-			glTranslatef(0 - i, 6, 0);
-			glPopMatrix();
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/misil_sin_disparar.png").id);
+			glDisable(GL_LIGHTING);
+			glBegin(GL_POLYGON);
+			glColor3f(1, 1, 1);
+			glTexCoord2d(0, 1); glVertex2f(2 + i, -6);
+			glTexCoord2d(1, 1); glVertex2f(3 + i, -6);
+			glTexCoord2d(1, 0); glVertex2f(3 + i, -5);
+			glTexCoord2d(0, 0); glVertex2f(2 + i, -5);
+			glEnd();
+			glEnable(GL_LIGHTING);
+			glDisable(GL_TEXTURE_2D);
 		}
+	}
+
+	for (int i = 0; i < 5; i++) {
+		if (personaje.getVida() > 20 * i) {
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/corazonbueno.png").id);
+			glDisable(GL_LIGHTING);
+			glBegin(GL_POLYGON);
+			glColor3f(1, 1, 1);
+			glTexCoord2d(0, 1); glVertex2f(-9 + i, -6);
+			glTexCoord2d(1, 1); glVertex2f(-8 + i, -6);
+			glTexCoord2d(1, 0); glVertex2f(-8 + i, -5);
+			glTexCoord2d(0, 0); glVertex2f(-9 + i, -5);
+			glEnd();
+			glEnable(GL_LIGHTING);
+			glDisable(GL_TEXTURE_2D);
+		}
+	}
 }
 
 void Mundo::mueve(float t)
@@ -170,13 +195,7 @@ void Mundo::tecla(unsigned char key)
 		{
 			 if (personaje.getModoMisiles())
 			{
-				int misiles = 0;
-				for (int i = 0; i < disparos.getNumero(); i++)
-				{
-					int tipo = disparos[i]->getTipo();
-					if (tipo == MISIL)misiles++;
-				}
-				if (misiles < personaje.getNumMisiles() && personaje.getNumMisiles()>0)
+				if (personaje.getNumMisiles()>0)
 				{
 					Disparo* d = new Misil;
 					d->setPos(personaje.getPos());
