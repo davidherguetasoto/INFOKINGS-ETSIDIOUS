@@ -11,19 +11,29 @@ bool Interaccion::rebote(NavePersonaje& nave, Pared pared)
 }
 void Interaccion::rebote(NavePersonaje& nave, Caja caja)
 {
-	bool flag_pared_izq, flag_pared_dcha, flag_techo, flag_suelo;
-	flag_suelo = rebote(nave, caja.suelo);
-	flag_pared_izq = rebote(nave, caja.pared_izq);
-	flag_pared_dcha = rebote(nave, caja.pared_dcha);
-	flag_techo = rebote(nave, caja.techo);
+	bool flag_pared_izq = false, flag_pared_dcha = false, flag_techo = false, flag_suelo = 0;
+	Vector2D pos = nave.getPos();
+
+	if (pos.x <= caja.pared_izq.getLim1().x)flag_pared_izq = true;
+	else flag_pared_izq = false;
+
+	if (pos.x >= caja.pared_dcha.getLim1().x)flag_pared_dcha = true;
+	else flag_pared_dcha = false;
+
+	if (pos.y <= caja.suelo.getLim1().y)flag_suelo = true;
+	else flag_suelo = false;
+
+	if (pos.y >= caja.techo.getLim1().y)flag_techo = true;
+	else flag_techo = false;
+
 	if (flag_suelo)
-	nave.setPos(nave.posicion.x, caja.suelo.limite1.y+0.45);
+	nave.setPos(nave.posicion.x, caja.suelo.limite1.y+0.05);
 	else if (flag_pared_izq)
-		nave.setPos(caja.pared_izq.limite1.x+0.45, nave.posicion.y);
+		nave.setPos(caja.pared_izq.limite1.x+0.05, nave.posicion.y);
 	else if (flag_pared_dcha)
-		nave.setPos(caja.pared_dcha.limite1.x-0.45, nave.posicion.y);
+		nave.setPos(caja.pared_dcha.limite1.x-0.05, nave.posicion.y);
 	else if (flag_techo)
-		nave.setPos(nave.posicion.x, caja.techo.limite1.y-0.45);
+		nave.setPos(nave.posicion.x, caja.techo.limite1.y-0.05);
 }
 
 bool Interaccion::colision(Obstaculo o, DisparoAliado d)
@@ -79,23 +89,43 @@ bool Interaccion::colision(DisparoEnemigo d, Pared p)
 }
 bool Interaccion::colision(DisparoAliado d, Caja c)
 {
-	bool flag_pared_izq, flag_pared_dcha, flag_techo, flag_suelo;
-	flag_suelo = colision(d, c.suelo);
-	flag_pared_izq = colision(d, c.pared_izq);
-	flag_pared_dcha = colision(d, c.pared_dcha);
-	flag_techo = colision(d, c.techo);
+	//En principio solo chocarán contra el suelo y el techo
+
+	bool flag_pared_izq=false, flag_pared_dcha=false, flag_techo=false, flag_suelo=0;
+	Vector2D pos = d.getPos();
 	
+	/*if (pos.x <= c.pared_izq.getLim1().x)flag_pared_izq = true;
+	else flag_pared_izq = false;*/
+
+	/*if (pos.x >= c.pared_dcha.getLim1().x)flag_pared_dcha = true;
+	else flag_pared_dcha = false;*/
+
+	if (pos.y <= c.suelo.getLim1().y)flag_suelo = true;
+	else flag_suelo = false;
+
+	if (pos.y >= c.techo.getLim1().y)flag_techo = true;
+	else flag_techo = false;
+
 	if (flag_suelo || flag_techo || flag_pared_izq || flag_pared_dcha)
 		return true;
 	return false;
 }
 bool Interaccion::colision(DisparoEnemigo d, Caja c)
 {
-	bool flag_pared_izq, flag_pared_dcha, flag_techo, flag_suelo;
-	flag_suelo = colision(d, c.suelo);
-	flag_pared_izq = colision(d, c.pared_izq);
-	flag_pared_dcha = colision(d, c.pared_dcha);
-	flag_techo = colision(d, c.techo);
+	bool flag_pared_izq = false, flag_pared_dcha = false, flag_techo = false, flag_suelo = 0;
+	Vector2D pos = d.getPos();
+
+	/*if (pos.x <= c.pared_izq.getLim1().x)flag_pared_izq = true;
+	else flag_pared_izq = false;
+
+	if (pos.x >= c.pared_dcha.getLim1().x)flag_pared_dcha = true;
+	else flag_pared_dcha = false;*/
+
+	if (pos.y <= c.suelo.getLim1().y)flag_suelo = true;
+	else flag_suelo = false;
+
+	if (pos.y >= c.techo.getLim1().y)flag_techo = true;
+	else flag_techo = false;
 
 	if (flag_suelo || flag_techo || flag_pared_izq || flag_pared_dcha)
 		return true;
@@ -105,7 +135,7 @@ bool Interaccion::colision(DisparoEnemigo d, Caja c)
 bool Interaccion::colision(DisparoAliado d, NaveEnemiga n)
 {
 	Vector2D distancia = n.getPos() - d.getPos();
-	if (distancia.modulo() <= (d.getRadio()+0.05f))
+	if (distancia.modulo() <= (d.getRadio()+0.07f))
 	{
 		return true;
 	}
@@ -114,13 +144,113 @@ bool Interaccion::colision(DisparoAliado d, NaveEnemiga n)
 bool Interaccion::colision(DisparoEnemigo d, NavePersonaje n)
 {
 	Vector2D distancia = n.getPos() - d.getPos();
-	if (distancia.modulo() < (d.getRadio() + 0.05f))
+	if (distancia.modulo() < (d.getRadio()+0.07f))
 	{
 		return true;
 	}
 	return false;
 }
 
+
+//interacciones para que desaparezca el bonus sino lo coge la nave personaje
+bool Interaccion::colision(BonusDisparoDoble b, Pared p)
+{
+	if (b.getPos().y < p.getLim1().y)
+	{
+		return true;
+	}
+	return false;
+}
+bool Interaccion::colision(BonusMisiles b, Pared p)
+{
+	if (b.getPos().y < p.getLim1().y)
+	{
+		return true;
+	}
+	return false;
+}
+bool Interaccion::colision(BonusPuntExtras b, Pared p)
+{
+	if (b.getPos().y < p.getLim1().y)
+	{
+		return true;
+	}
+	return false;
+}
+bool Interaccion::colision(BonusVidas b, Pared p)
+{
+	if (b.getPos().y < p.getLim1().y)
+	{
+		return true;
+	}
+	return false;
+}
+
+
+/*bool Interaccion::colision(Bonus &b, Pared p)
+{
+	Vector2D dir;
+	float dif = p.distancia(b.getPos(),&dir) - b.getLado();
+	if (dif <= 0.0f)
+	{
+		Vector2D v_inicial = b.getVel();
+		b.getVel() = v_inicial - dir.unitario() * 2.0 * (v_inicial * dir);
+		b.getPos() = b.getPos() - dir.unitario() * dif;
+		return true;
+	}
+	return false;
+}*/
+/*bool Interaccion::colision(Bonus b, NavePersonaje n)
+{
+	Vector2D distancia = n.getPos() - b.getPos();
+	if (distancia.modulo() < (b.getLado()))
+	{
+		return true;
+	}
+	return false;
+}*/
+
+//Interacción  para que la nave coja el bonus que sale
+bool Interaccion::colision(BonusDisparoDoble b, NavePersonaje n)
+{
+	Vector2D distancia = n.getPos() - b.getPos();
+	if (distancia.modulo() < (b.getLado()))
+	{
+		return true;
+	}
+	return false;
+}
+bool Interaccion::colision(BonusMisiles b, NavePersonaje n)
+{
+	Vector2D distancia = n.getPos() - b.getPos();
+	if (distancia.modulo() < (b.getLado()))
+	{
+		return true;
+	}
+	return false;
+}
+bool Interaccion::colision(BonusPuntExtras b, NavePersonaje n)
+{
+	Vector2D distancia = n.getPos() - b.getPos();
+	if (distancia.modulo() < (b.getLado()))
+	{
+		return true;
+	}
+	return false;
+}
+bool Interaccion::colision(BonusVidas b, NavePersonaje n)
+{
+	Vector2D distancia = n.getPos() - b.getPos();
+	if (distancia.modulo() < (b.getLado()))
+	{
+		return true;
+	}
+	return false;
+}
+
+
+
+//CHOQUE PERSONAJE CON NAVE ENEMIGA
 bool Interaccion::colision(NaveEnemiga b, NavePersonaje& n)
 {
 	Vector2D distancia = b.getPos() - n.getPos();

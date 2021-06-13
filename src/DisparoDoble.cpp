@@ -2,8 +2,12 @@
 
 DisparoDoble::DisparoDoble() :DisparoAliado(35, DISPARO_DOBLE)
 {
-	radio = 0.35f;
+	radio = 0.3f;
 	velocidad.y = 35.0f;
+}
+DisparoDoble::~DisparoDoble()
+{
+
 }
 void DisparoDoble::dibuja()
 {

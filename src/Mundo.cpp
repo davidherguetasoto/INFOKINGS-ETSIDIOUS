@@ -1,6 +1,7 @@
 #include "Mundo.h"
 #include "freeglut.h"
 #include"Interaccion.h"
+
 Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1)
 {
 
@@ -8,6 +9,9 @@ Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1)
 Mundo::~Mundo()
 {
 	enemigos.destruirContenido();
+	asteroides.destruirContenido();
+	disparos.destruirContenido();
+	bonus.destruirContenido();
 }
 void Mundo::inicializa()
 {
@@ -41,17 +45,32 @@ void Mundo::dibuja()
 	ETSIDI::setTextColor(1, 1, 1);
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
 	ETSIDI::printxy("Infokings", 3.5, 21);
+
+	//DIBUJO DEL NÚMERO DE MISILES DISPONIBLES
+	ETSIDI::setTextColor(1, 0, 0);
+	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+	ETSIDI::printxy("MISILES:", -3, -6);
+	if(personaje.getNumMisiles()>0)
+		for (int i = 0; i < personaje.getNumMisiles(); i++)
+		{
+			glPushMatrix();
+			glTranslatef(0+i,-6 , 0);
+			glColor3f(1.0f, 0.0f, 0.0f);
+			misiles_disponibles.draw();
+			glTranslatef(0 - i, 6, 0);
+			glPopMatrix();
+		}
 }
 
-void Mundo::mueve()
+void Mundo::mueve(float t)
 {
-	personaje.mueve(0.025f);
+	personaje.mueve(t);
 	Interaccion::rebote(personaje, caja);
 
-	asteroides.mueve(0.025f);
-	enemigos.mueve(0.025f);
+	asteroides.mueve(t);
+	enemigos.mueve(t);
 
-	disparos.mueve(0.025f);
+	disparos.mueve(t);
 	disparos.colision(caja);
 
 	//Colision de los disparos con naves
@@ -108,7 +127,6 @@ void Mundo::mueve()
 			}
 		}
 	}
-
 }
 void Mundo::tecla(unsigned char key)
 {
@@ -145,18 +163,12 @@ void Mundo::tecla(unsigned char key)
 		z_ojo--;
 		break;
 	}
-	//DISPARO ESTÁNDAR
+	//DISPARAR
 	case' ':
 	{
 		if (disparos.getNumero() < MAX_DISPAROS)
 		{
-			if (!personaje.getModoDisparo())
-			{
-				Disparo* d = new DisparoAliado;
-				d->setPos(personaje.getPos());
-				disparos.agregar(d);
-			}
-			else if (personaje.getModoDisparo())
+			 if (personaje.getModoMisiles())
 			{
 				int misiles = 0;
 				for (int i = 0; i < disparos.getNumero(); i++)
@@ -174,14 +186,35 @@ void Mundo::tecla(unsigned char key)
 				}
 				if (personaje.getNumMisiles() <= 0)personaje.setDisparoMisiles(false);
 			}
-			}
+			 else if (personaje.getModoDoble())
+			 {
+				 Disparo* d = new DisparoDoble;
+				 d->setPos(personaje.getPos().x+0.35f,personaje.getPos().y);
+				 disparos.agregar(d);
+				d = new DisparoDoble;
+				 d->setPos(personaje.getPos().x - 0.35f, personaje.getPos().y);
+				 disparos.agregar(d);
+			 }
+			 else
+			 {
+				 Disparo* d = new DisparoAliado;
+				 d->setPos(personaje.getPos());
+				 disparos.agregar(d);
+			 }
+		}
 		break;
 	}
 	//MODO DISPARO
 	case'd':
 	{
-		if (personaje.getModoDisparo())personaje.setDisparoMisiles(false);
-		else if(personaje.getNumMisiles()>0)personaje.setDisparoMisiles(true);
+		if (personaje.getModoMisiles())personaje.setDisparoMisiles(false);
+		else if (personaje.getNumMisiles() > 0)personaje.setDisparoMisiles(true);
+		break;
+	}
+	case'D':
+	{
+		if (personaje.getModoMisiles())personaje.setDisparoMisiles(false);
+		else if (personaje.getNumMisiles() > 0)personaje.setDisparoMisiles(true);
 		break;
 	}
 	}
@@ -223,34 +256,38 @@ void Mundo::teclaEspecial(unsigned char key)
 	{
 	case GLUT_KEY_LEFT:
 	{
-		if (!Interaccion::rebote(personaje, caja.pared_izq))
+		if (personaje.getPos().x>(caja.pared_izq.getLim1().x+0.05))
 		{
 			personaje.setVel(-VELOCIDAD_PERSONAJE, 0.0f);
 		}
+		else personaje.setVel(0.0f, 0.0f);
 		break;
 	}
 	case GLUT_KEY_RIGHT:
 	{
-		if (!Interaccion::rebote(personaje, caja.pared_dcha))
+		if (personaje.getPos().x < (caja.pared_dcha.getLim1().x - 0.05))
 		{
 			personaje.setVel(VELOCIDAD_PERSONAJE, 0.0f);
 		}
+		else personaje.setVel(0.0f, 0.0f);
 		break;
 	}
 	case GLUT_KEY_UP:
 	{
-		if (!Interaccion::rebote(personaje, caja.techo))
+		if (personaje.getPos().y < (caja.techo.getLim1().y - 0.05))
 		{
 			personaje.setVel(0.0f, VELOCIDAD_PERSONAJE);
 		}
+		else personaje.setVel(0.0f, 0.0f);
 		break;
 	}
 	case GLUT_KEY_DOWN:
 	{
-		if (!Interaccion::rebote(personaje, caja.suelo))
+		if (personaje.getPos().y > (caja.suelo.getLim1().y + 0.05))
 		{
 			personaje.setVel(0.0f, -VELOCIDAD_PERSONAJE);
 		}
+		else personaje.setVel(0.0f, 0.0f);
 		break;
 	}	
 	}

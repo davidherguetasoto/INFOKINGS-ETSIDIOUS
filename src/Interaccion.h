@@ -9,6 +9,11 @@
 #include "DisparoAliado.h"
 #include "DisparoEnemigo.h"
 #include "Misil.h"
+#include "DisparoDoble.h"
+#include "BonusDisparoDoble.h"
+#include "BonusMisiles.h"
+#include"BonusPuntExtras.h"
+#include"BonusVidas.h"
 
 class Interaccion
 {
@@ -40,10 +45,17 @@ public:
 	static bool colision(DisparoEnemigo d, NavePersonaje n); //daño a jugador
 
 	//CHOQUE DEL BONUS CON LA PARTE INFERIOR DE LA CAJA
-	static bool colision(Bonus b, Caja c); //bonus desaparece al alcanzar caja
+	static bool colision(BonusDisparoDoble b, Pared p); //bonus desaparece al alcanzar caja
+	static bool colision(BonusMisiles b, Pared p);
+	static bool colision(BonusPuntExtras b, Pared p);
+	static bool colision(BonusVidas b, Pared p);
 
 	//EL JUGADOR RECOGE EL BONUS
-	static bool colision(Bonus b, NavePersonaje n); //recogida del bonus
+	//static bool colision(Bonus b, NavePersonaje n); //recogida del bonus
+	static bool colision(BonusDisparoDoble b,NavePersonaje n);
+	static bool colision(BonusMisiles, NavePersonaje n);
+	static bool colision(BonusPuntExtras, NavePersonaje n);
+	static bool colision(BonusVidas, NavePersonaje n);
 
 	//CHOQUE DEL PESONAJE CON UNA NAVE ENEMIGA
 	static bool colision(NaveEnemiga b, NavePersonaje& n); //merma salud de personaje al tocarlo

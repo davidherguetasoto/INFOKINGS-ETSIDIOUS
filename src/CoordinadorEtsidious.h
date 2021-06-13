@@ -9,7 +9,7 @@ el juego*/
 class CoordinadorEtsidious
 {
 protected:
-	Mundo mundo;
+	Mundo* mundo;
 	enum class Estado{INICIO, JUEGO, GAMEOVER, FIN, PAUSA, RANKING};
 	Estado estado;
 public:

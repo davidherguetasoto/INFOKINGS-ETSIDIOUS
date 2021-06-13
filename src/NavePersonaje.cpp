@@ -1,8 +1,7 @@
 #include "NavePersonaje.h"
 #include "freeglut.h"
 
-
-NavePersonaje::NavePersonaje():Nave(100.0f)
+NavePersonaje::NavePersonaje():Nave(VIDA_MAX)
 {
 	altura = 2.0f;
 	radio = 0.5f;
@@ -10,6 +9,7 @@ NavePersonaje::NavePersonaje():Nave(100.0f)
 	num_bonus = 0;//num_bonus para inicializarlo a 0 prueba
 	num_misiles = 5;
 	disparo_misiles = false;
+	disparo_doble = true;
 }
 void NavePersonaje::dibuja()
 {
@@ -24,7 +24,7 @@ void NavePersonaje::dibuja()
 
 	ETSIDI::setTextColor(1, 0, 0);
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-	ETSIDI::printxy("vida:", -10, -6);
+	ETSIDI::printxy("VIDA:", -12, -6);
 
 	for (int i = 0; i < 5; i++) {
 		if (vida > 20*i) {
@@ -33,10 +33,10 @@ void NavePersonaje::dibuja()
 			glDisable(GL_LIGHTING);
 			glBegin(GL_POLYGON);
 			glColor3f(1, 1, 1);
-			glTexCoord2d(0, 1); glVertex2f(-7 +  i, -6);
-			glTexCoord2d(1, 1); glVertex2f(-6 +  i, -6);
-			glTexCoord2d(1, 0); glVertex2f(-6 +  i, -5);
-			glTexCoord2d(0, 0); glVertex2f(-7 +  i, -5);
+			glTexCoord2d(0, 1); glVertex2f(-9 +  i, -6);
+			glTexCoord2d(1, 1); glVertex2f(-8 +  i, -6);
+			glTexCoord2d(1, 0); glVertex2f(-8 +  i, -5);
+			glTexCoord2d(0, 0); glVertex2f(-9 +  i, -5);
 			glEnd();
 			glEnable(GL_LIGHTING);
 			glDisable(GL_TEXTURE_2D);
@@ -65,4 +65,10 @@ void NavePersonaje::setNumMisiles(int misiles)
 	if (misiles <= 0)misiles = 0;
 	else if (misiles >= MISILES_MAX)misiles = MISILES_MAX;
 	num_misiles = misiles;
+}
+void NavePersonaje::setVida(float vida)
+{
+	Nave::setVida(vida);
+	if ((this->vida) > VIDA_MAX)
+		this->vida = VIDA_MAX;
 }

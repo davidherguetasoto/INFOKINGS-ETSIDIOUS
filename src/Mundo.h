@@ -13,6 +13,8 @@ dependiendo de entradas del usuario por teclado*/
 #include "Obstaculo.h"
 #include "ListaDisparos.h"
 #include"ListaBonus.h"
+#include"ETSIDI.h"
+using ETSIDI::SpriteSequence;
 
 class Mundo
 {
@@ -30,6 +32,8 @@ class Mundo
 
 	int nivel;
 
+	SpriteSequence misiles_disponibles{ "imagenes/misil_sin_disparar.png",1 };
+
 public:
 	Mundo();
 	virtual ~Mundo();
@@ -37,7 +41,7 @@ public:
 	void teclaEspecial(unsigned char key);
 	void teclaEspecialUp(unsigned char key);
 	void inicializa();
-	void mueve();
+	void mueve(float t);
 	void dibuja();
 	void aleatorio();
 
