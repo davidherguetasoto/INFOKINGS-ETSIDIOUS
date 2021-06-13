@@ -30,7 +30,6 @@ void Misil::dibuja()
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 1);
 	glColor3f(1.0f, 0.0f, 0.0f);
-	//glutSolidSphere(altura, 20, 20);
 	//gestion de direccion y animacion
 	sprite_misil.setState(0);
 	sprite_misil.draw();
