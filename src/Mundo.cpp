@@ -39,7 +39,7 @@ void Mundo::dibuja()
 {
 	//PASO DEL VALOR DEL TIEMPO DEL DISPARO DOBLE
 	//A STRING PARA PODERLO IMPRIMIR
-	int t_aux=0;
+	int t_aux = 0; //variable auxiliar para convertir el tiempo a entero
 	t_aux = t_DisparoDoble * 0.025f;
 	string tiempo_disparo_doble;
 	stringstream sstr;
