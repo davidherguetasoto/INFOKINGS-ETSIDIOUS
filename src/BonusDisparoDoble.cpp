@@ -1,6 +1,6 @@
 #include "BonusDisparoDoble.h"
 
-BonusDisparoDoble::BonusDisparoDoble() :Bonus(10, BONUS_DISPARO_DOBLE)
+BonusDisparoDoble::BonusDisparoDoble() :Bonus(10, BONUS_DISPARO_DOBLE)//Se pasa el tiempo de duracion y el tiempo de disparo
 {
 	velocidad.y = -7.0f;
 }

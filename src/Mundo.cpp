@@ -26,9 +26,12 @@ void Mundo::inicializa()
 	bonus.agregar(d);
 
 	Bonus* b = new BonusVidas;
-	b->setPos(-6, 12);
+	b->setPos(6, 15);
 	bonus.agregar(b);
 
+	Bonus* c = new BonusDisparoDoble;
+	c->setPos(-6, 16);
+	bonus.agregar(c);
 }
 void Mundo::dibuja()
 {
@@ -113,6 +116,8 @@ void Mundo::dibuja()
 
 void Mundo::mueve(float t)
 {
+	float t_DisparoDoble = 0;
+
 	personaje.mueve(t);
 	Interaccion::rebote(personaje, caja);
 
@@ -126,6 +131,16 @@ void Mundo::mueve(float t)
 	bonus.Mueve(t);
 	bonus.colision(caja.suelo);
 
+	//Gestion de tiempo de disparo doble
+	if (t_DisparoDoble > 0)
+	{
+		personaje.setDisparoDoble(true);
+		t_DisparoDoble -= t;
+	}
+	else
+	{
+		personaje.setDisparoDoble(false);
+	}
 
 	//Colision de los disparos con naves
 	for (int i = 0; i < disparos.getNumero(); i++)
@@ -163,7 +178,12 @@ void Mundo::mueve(float t)
 		int tipo = bonus[i]->getTipo();
 		if (tipo == BONUS_DISPARO_DOBLE)
 		{
-
+			BonusDisparoDoble* b = (BonusDisparoDoble*)bonus[i];
+			if (Interaccion::colision(*b, personaje))
+			{
+				t_DisparoDoble = bonus[i]->getExtra() / t;
+				bonus.eliminar(bonus[i]);
+			}
 		}
 		if (tipo == BONUS_VIDAS)
 		{
