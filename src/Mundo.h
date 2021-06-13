@@ -31,7 +31,7 @@ class Mundo
 	ListaBonus bonus;
 
 	int nivel;
-
+	float t_DisparoDoble;
 
 
 public:

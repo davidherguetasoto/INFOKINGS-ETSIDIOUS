@@ -1,8 +1,10 @@
 #include "Mundo.h"
 #include "freeglut.h"
 #include"Interaccion.h"
-
-Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1)
+#include <sstream>
+#include<string>
+using namespace std;
+Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1),t_DisparoDoble(0)
 {
 
 }
@@ -35,6 +37,17 @@ void Mundo::inicializa()
 }
 void Mundo::dibuja()
 {
+	//PASO DEL VALOR DEL TIEMPO DEL DISPARO DOBLE
+	//A STRING PARA PODERLO IMPRIMIR
+	int t_aux=0;
+	t_aux = t_DisparoDoble * 0.025f;
+	string tiempo_disparo_doble;
+	stringstream sstr;
+	const char* c = tiempo_disparo_doble.c_str();
+	sstr<<t_aux;
+	sstr >> tiempo_disparo_doble;
+
+
 	//PUNTO DE VISTA DE LA CÁMARA
 	gluLookAt(/*x, y, z,*/
 		x_ojo, y_ojo, z_ojo, // posicion del ojo
@@ -85,8 +98,12 @@ void Mundo::dibuja()
 	ETSIDI::printxy("DISPARO:", 12, 18);
 	if(personaje.getModoMisiles())
 		ETSIDI::printxy("MISIL", 12, 17);
-	else if(personaje.getModoDoble())
+	else if (personaje.getModoDoble())
+	{
 		ETSIDI::printxy("DOBLE", 12, 17);
+		ETSIDI::printxy("TIEMPO:", 12, 15);
+		ETSIDI::printxy(c, 12, 14);
+	}
 	else
 		ETSIDI::printxy("NORMAL", 12, 17);
 	
@@ -116,8 +133,6 @@ void Mundo::dibuja()
 
 void Mundo::mueve(float t)
 {
-	float t_DisparoDoble = 0;
-
 	personaje.mueve(t);
 	Interaccion::rebote(personaje, caja);
 
@@ -135,7 +150,7 @@ void Mundo::mueve(float t)
 	if (t_DisparoDoble > 0)
 	{
 		personaje.setDisparoDoble(true);
-		t_DisparoDoble -= t;
+		t_DisparoDoble -=1;
 	}
 	else
 	{
@@ -181,7 +196,7 @@ void Mundo::mueve(float t)
 			BonusDisparoDoble* b = (BonusDisparoDoble*)bonus[i];
 			if (Interaccion::colision(*b, personaje))
 			{
-				t_DisparoDoble = bonus[i]->getExtra() / t;
+				t_DisparoDoble =bonus[i]->getExtra() / t;
 				bonus.eliminar(bonus[i]);
 			}
 		}

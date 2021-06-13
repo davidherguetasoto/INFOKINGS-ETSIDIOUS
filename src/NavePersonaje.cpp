@@ -1,7 +1,7 @@
 #include "NavePersonaje.h"
 #include "freeglut.h"
 
-NavePersonaje::NavePersonaje():Nave(80)//poner vida_max luego
+NavePersonaje::NavePersonaje():Nave(VIDA_MAX)//poner vida_max luego
 {
 	altura = 2.0f;
 	radio = 0.5f;
