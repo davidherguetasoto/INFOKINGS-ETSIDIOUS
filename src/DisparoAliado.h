@@ -1,6 +1,9 @@
 #pragma once
 #include "disparo.h"
+
 class DisparoAliado : public Disparo{
+private:
+	SpriteSequence sprite_DisparoAliado{ "imagenes/Disparo.png",1 };
 protected:
 	//provisional para dibujarlos
 	float radio;

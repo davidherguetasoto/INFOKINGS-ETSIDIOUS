@@ -1,8 +1,6 @@
 #pragma once
 #include "DisparoAliado.h"
-#include "ETSIDI.h"
 
-using ETSIDI::SpriteSequence;
 class Misil : public DisparoAliado
 {
 private:
