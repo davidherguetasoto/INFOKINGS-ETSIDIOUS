@@ -5,6 +5,8 @@ Misil::Misil():DisparoAliado(100,MISIL)
 {
 	radio = 0.3f;
 	velocidad.y = 40.0f;
+	sprite_misil.setCenter(1, 0);
+	sprite_misil.setSize(2, 2);
 }
 Misil::~Misil()
 {
@@ -12,15 +14,7 @@ Misil::~Misil()
 }
 void Misil::dibuja()
 {
-	//PROVISIONAL
-	//glPushMatrix();
-	//glColor3f(255, 0,255);
-	//glTranslatef(posicion.x, posicion.y, 0);
-	//glutSolidSphere(radio, 20, 20);
-	//glTranslatef(-posicion.x, -posicion.y, 0);
-	//glPopMatrix();
-
-	glEnable(GL_TEXTURE_2D);
+	/*glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/misil.png").id);
 	glDisable(GL_LIGHTING);
 	glBegin(GL_POLYGON);
@@ -31,5 +25,14 @@ void Misil::dibuja()
 	glTexCoord2d(0, 0); glVertex3f(posicion.x - 1, posicion.y + 1, 1);
 	glEnd();
 	glEnable(GL_LIGHTING);
-	glDisable(GL_TEXTURE_2D);
+	glDisable(GL_TEXTURE_2D);*/
+
+	glPushMatrix();
+	glTranslatef(posicion.x, posicion.y, 1);
+	glColor3f(1.0f, 0.0f, 0.0f);
+	//glutSolidSphere(altura, 20, 20);
+	//gestion de direccion y animacion
+	sprite_misil.setState(0);
+	sprite_misil.draw();
+	glPopMatrix();
 }
