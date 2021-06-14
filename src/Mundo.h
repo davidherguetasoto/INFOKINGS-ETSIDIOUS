@@ -28,7 +28,7 @@ class Mundo
 	ListaObstaculos asteroides;
 	ListaEnemigos enemigos;
 	ListaDisparos disparos;
-	ListaDisparos disparosenemigos;
+	//ListaDisparos disparosenemigos;
 	ListaBonus bonus;
 
 	int nivel;
