@@ -6,7 +6,7 @@
 #include<cstdlib>
 
 using namespace std;
-Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1),t_DisparoDoble(0),puntuacion(0),pressed_spacebar(false)
+Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1),puntuacion(0),pressed_spacebar(false)
 {
 
 }
@@ -63,7 +63,7 @@ void Mundo::dibuja()
 	//PASO DEL VALOR DEL TIEMPO DEL DISPARO DOBLE
 	//A STRING PARA PODERLO IMPRIMIR
 	int t_aux = 0; //variable auxiliar para convertir el tiempo a entero
-	t_aux = t_DisparoDoble * 0.025f;
+	t_aux = personaje.get_t_DisparoDoble() * 0.025f;
 	string tiempo_disparo_doble;
 	stringstream sstr;
 	const char* c = tiempo_disparo_doble.c_str();
@@ -171,14 +171,14 @@ void Mundo::mueve(float t)
 	bonus.colision(caja.suelo);
 
 	//GESTIÓN DEL TIEMPO DEL DISPARO DOBLE
-	if (t_DisparoDoble > 0)
+	if (personaje.get_t_DisparoDoble() > 0)
 	{
 		personaje.setDisparoDoble(true);
-		t_DisparoDoble -=1;
+		personaje.set_t_DisparoDoble(personaje.get_t_DisparoDoble()-1);
 	}
 	else
 	{
-		//personaje.setDisparoDoble(false);
+		personaje.setDisparoDoble(false);
 	}
 
 	//COLISIÓN DE LOS DISPAROS CON LAS NAVES
@@ -236,7 +236,7 @@ void Mundo::mueve(float t)
 			BonusDisparoDoble* b = (BonusDisparoDoble*)bonus[i];
 			if (Interaccion::colision(*b, personaje))
 			{
-				t_DisparoDoble =bonus[i]->getExtra() / t;
+				personaje.set_t_DisparoDoble(bonus[i]->getExtra() / t);
 				bonus.eliminar(bonus[i]);
 			}
 		}

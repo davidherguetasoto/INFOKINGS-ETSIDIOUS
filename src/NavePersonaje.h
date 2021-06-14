@@ -10,7 +10,7 @@ class NavePersonaje :public Nave
 private:
 	SpriteSequence sprite_nave{ "imagenes/NavePersonaje.png",1 };
 protected:
-	//PROVISIONAL PARA HACER DIBUJOS DE PRUEBA
+	float t_DisparoDoble; //tiempo restante del disparo doble
 	float altura;
 	float radio;
 	//prueba bonus
@@ -35,10 +35,11 @@ public:
 	void setDisparoDoble(bool modo) { disparo_doble = modo; }
 	bool getModoDoble() { return disparo_doble; }
 
-	//prueba bonus
+	
 	void IncrementaNumBonus();
 	void SetNumBonuns(int num);
 	int GetNumBonus();
 	void setVida(float vida);
-	//prueba bonus
+	float get_t_DisparoDoble() { return t_DisparoDoble; }
+	void set_t_DisparoDoble(float t);
 };

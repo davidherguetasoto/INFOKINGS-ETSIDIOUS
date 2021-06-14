@@ -31,7 +31,6 @@ class Mundo
 	ListaBonus bonus;
 
 	int nivel;
-	float t_DisparoDoble; //tiempo restante del disparo doble
 	int puntuacion; //Puntuación del jugador
 	bool pressed_spacebar; //Variable auxiliar para gestionar flancos negativos en tecla espacio
 

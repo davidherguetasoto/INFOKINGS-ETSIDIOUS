@@ -3,13 +3,14 @@
 
 NavePersonaje::NavePersonaje():Nave(VIDA_MAX)//poner vida_max luego
 {
+	t_DisparoDoble = 0;
 	altura = 5.0f; 
 	radio = 1.75f; 
 
 	num_bonus = 0;//num_bonus para inicializarlo a 0 prueba
 	num_misiles = 3;
 	disparo_misiles = false;
-	disparo_doble = true;
+	disparo_doble = false;
 	sprite_nave.setCenter(radio, altura/2);
 	sprite_nave.setSize(radio*2, altura);
 }
@@ -50,4 +51,10 @@ void NavePersonaje::setVida(float vida)
 	Nave::setVida(vida);
 	if ((this->vida) > VIDA_MAX)
 		this->vida = VIDA_MAX;
+}
+void NavePersonaje::set_t_DisparoDoble(float t)
+{
+	t_DisparoDoble = t;
+	if (t_DisparoDoble < 0)
+		t_DisparoDoble = 0;
 }
