@@ -56,7 +56,7 @@ void Mundo::inicializa()
 			a->setPos(-6, 12);
 			bonus.agregar(a);
 		}
-	}*/
+	}
 }
 void Mundo::dibuja()
 {
