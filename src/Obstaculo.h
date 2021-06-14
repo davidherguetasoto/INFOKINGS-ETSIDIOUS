@@ -2,6 +2,8 @@
 #include "ObjetoMovil.h"
 class Obstaculo : public ObjetoMovil
 {
+private:
+	SpriteSequence sprite_obstaculo{ "imagenes/asteroide.png",1 };
 	float radio;
 	float daño;
 public:
