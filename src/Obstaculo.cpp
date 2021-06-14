@@ -2,13 +2,13 @@
 #include "freeglut.h"
 Obstaculo::Obstaculo()
 {
-	radio = 0.5f;
+	radio = 0.75f;
 	posicion.x = 5.0f;
 	posicion.y = 20.0f;
 	velocidad.y = -15.0f;
 	daño = 40.0f;
-	sprite_obstaculo.setCenter(0.75f, 0.75f);
-	sprite_obstaculo.setSize(1.5f, 1.5f);
+	sprite_obstaculo.setCenter(radio, radio);
+	sprite_obstaculo.setSize(radio*2, radio*2); //1.5
 }
 
 
