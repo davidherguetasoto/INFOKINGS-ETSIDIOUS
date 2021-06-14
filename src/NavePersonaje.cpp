@@ -7,7 +7,7 @@ NavePersonaje::NavePersonaje():Nave(VIDA_MAX)//poner vida_max luego
 	radio = 0.5f;
 	color.set(0, 0, 255);
 	num_bonus = 0;//num_bonus para inicializarlo a 0 prueba
-	num_misiles = 3;
+	num_misiles = 6;
 	disparo_misiles = false;
 	disparo_doble = false;
 	sprite_nave.setCenter(2.5f, 3);

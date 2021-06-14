@@ -307,9 +307,9 @@ void Mundo::tecla(unsigned char key)
 	//DISPARAR
 	case' ':
 	{
-		if (disparos.getNumero() < MAX_DISPAROS)
+  		if (disparos.getNumero() < MAX_DISPAROS)
 		{
-			 if (personaje.getModoMisiles())
+  			 if (personaje.getModoMisiles())
 			{
 				if (personaje.getNumMisiles()>0)
 				{
@@ -317,7 +317,7 @@ void Mundo::tecla(unsigned char key)
 					d->setPos(personaje.getPos());
 					disparos.agregar(d);
 					personaje.setNumMisiles(personaje.getNumMisiles() - 1);
-					int p = personaje.getNumMisiles();
+					d = NULL;
 				}
 				if (personaje.getNumMisiles() <= 0)personaje.setDisparoMisiles(false);
 			}
@@ -337,7 +337,7 @@ void Mundo::tecla(unsigned char key)
 				 disparos.agregar(d);
 			 }
 		}
-		break;
+ 		break;
 	}
 	//MODO DISPARO
 	case'd':
@@ -353,7 +353,7 @@ void Mundo::tecla(unsigned char key)
 		break;
 	}
 	}
-}
+ }
 void Mundo::teclaEspecialUp(unsigned char key)
 {
 	switch (key)
