@@ -37,6 +37,7 @@ void ListaDisparos::eliminar(int index)
 	if ((index < 0) || (index >= numero))
 		return;
 	delete lista[index];
+	lista[index] = NULL;
 	numero--;
 	//Recolocar los disparos después de borrar uno para que no haya huecos en la lista
 	for (int i = index; i < numero; i++)

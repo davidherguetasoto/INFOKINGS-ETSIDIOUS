@@ -319,27 +319,23 @@ void Mundo::tecla(unsigned char key)
 						d->setPos(personaje.getPos());
 						disparos.agregar(d);
 						personaje.setNumMisiles(personaje.getNumMisiles() - 1);
-						d = NULL;
 					}
 					if (personaje.getNumMisiles() <= 0)personaje.setDisparoMisiles(false);
 				}
-				else if (personaje.getModoDoble())
+ 				else if (personaje.getModoDoble())
 				{
 					Disparo* d = new DisparoDoble;
 					d->setPos(personaje.getPos().x + 0.5f, personaje.getPos().y);
 					disparos.agregar(d);
-					d = NULL;
 					d = new DisparoDoble;
 					d->setPos(personaje.getPos().x - 0.5f, personaje.getPos().y);
 					disparos.agregar(d);
-					d = NULL;
 				}
 				else
 				{
 					Disparo* d = new DisparoAliado;
 					d->setPos(personaje.getPos());
 					disparos.agregar(d);
-					d = NULL;
 				}
 			}
 		}
