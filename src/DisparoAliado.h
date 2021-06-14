@@ -4,9 +4,6 @@
 class DisparoAliado : public Disparo{
 private:
 	SpriteSequence sprite_DisparoAliado{ "imagenes/Disparo.png",1 };
-protected:
-	//provisional para dibujarlos
-	float radio;
 public:
 	friend class Interaccion;
 	DisparoAliado();
@@ -14,6 +11,5 @@ public:
 	//Si no se especifica el tipo, será disparo aliado estándar
 	DisparoAliado(float daño,int tipo=DISPARO_ALIADO);
 	void dibuja();
-	float getRadio() { return radio; }
 };
 

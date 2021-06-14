@@ -28,12 +28,10 @@ class Mundo
 	ListaObstaculos asteroides;
 	ListaEnemigos enemigos;
 	ListaDisparos disparos;
-	//ListaDisparos disparosenemigos;
 	ListaBonus bonus;
 
 	int nivel;
-	float t_DisparoDoble; //tiempo restante del disparo doble
-	float puntuacion; //Puntuación del jugador
+	int puntuacion; //Puntuación del jugador
 	bool pressed_spacebar; //Variable auxiliar para gestionar flancos negativos en tecla espacio
 
 public:

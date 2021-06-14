@@ -3,10 +3,11 @@
 //Se crea un disparo de tipo MISIL con 100 de daño
 Misil::Misil():DisparoAliado(100,MISIL)
 {
-	radio = 0.3f;
+	radio = 0.75f;
+	altura = 2.5f;
 	velocidad.y = 40.0f;
-	sprite_misil.setCenter(1, 1);
-	sprite_misil.setSize(2, 2);
+	sprite_misil.setCenter(radio, altura/2);
+	sprite_misil.setSize(radio*2, altura);
 }
 Misil::~Misil()
 {

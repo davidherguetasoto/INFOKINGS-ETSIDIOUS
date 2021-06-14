@@ -39,6 +39,7 @@ void ListaEnemigos::eliminar(int index)
 	if ((index < 0) || (index >= numero))
 		return;
 	delete lista[index];
+	lista[index] = NULL;
 	numero--;
 	for (int i = index; i < numero; i++)
 		lista[i] = lista[i + 1];

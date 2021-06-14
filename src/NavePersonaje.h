@@ -2,7 +2,6 @@
 #include "Nave.h"
 #include "ColorRGB.h"
 
-
 #define VELOCIDAD_PERSONAJE 15.0f //Macro para decidir el valor de la velocidad a la que irá el personaje
 #define MISILES_MAX 6 //Número máximo de misiles que puede llevar la nave
 #define VIDA_MAX 100 //Vida máxima del personaje
@@ -11,11 +10,9 @@ class NavePersonaje :public Nave
 private:
 	SpriteSequence sprite_nave{ "imagenes/NavePersonaje.png",1 };
 protected:
-	//PROVISIONAL PARA HACER DIBUJOS DE PRUEBA
+	float t_DisparoDoble; //tiempo restante del disparo doble
 	float altura;
 	float radio;
-	ColorRGB color;
-	float puntos;
 	//prueba bonus
 	int num_bonus;
 	bool disparo_doble; //Modo de disparo doble
@@ -38,14 +35,11 @@ public:
 	void setDisparoDoble(bool modo) { disparo_doble = modo; }
 	bool getModoDoble() { return disparo_doble; }
 
-	//PAra puntos de la nave.
-	float getPuntos();
-	virtual void setPuntos(float puntos);
-
-	//prueba bonus
+	
 	void IncrementaNumBonus();
 	void SetNumBonuns(int num);
 	int GetNumBonus();
 	void setVida(float vida);
-	//prueba bonus
+	float get_t_DisparoDoble() { return t_DisparoDoble; }
+	void set_t_DisparoDoble(float t);
 };

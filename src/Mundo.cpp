@@ -6,7 +6,7 @@
 #include<cstdlib>
 
 using namespace std;
-Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1),t_DisparoDoble(0),puntuacion(0),pressed_spacebar(false)
+Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1),puntuacion(0),pressed_spacebar(false)
 {
 
 }
@@ -16,7 +16,6 @@ Mundo::~Mundo()
 	asteroides.destruirContenido();
 	disparos.destruirContenido();
 	bonus.destruirContenido();
-	//disparosenemigos.destruirContenido();
 }
 void Mundo::inicializa()
 {
@@ -27,19 +26,7 @@ void Mundo::inicializa()
 	nivel = 0;
 	cargarNivel();
 
-	Bonus* d = new BonusMisiles;
-	d->setPos(6, 12);
-	bonus.agregar(d);
-	Bonus* c = new BonusDisparoDoble;
-	c->setPos(-6, 15);
-	bonus.agregar(c);
-	Bonus* a = new BonusPuntExtras;
-	a->setPos(-6, 12);
-	bonus.agregar(a);
-	Bonus* b = new BonusVidas;
-	b->setPos(6, 15);
-	bonus.agregar(b);
-	/*int nrandom1;
+	int nrandom1;
 	int nrandom2;
 	nrandom1 = 1 + rand() % 2;
 	if (nrandom1 == 1)
@@ -76,7 +63,7 @@ void Mundo::dibuja()
 	//PASO DEL VALOR DEL TIEMPO DEL DISPARO DOBLE
 	//A STRING PARA PODERLO IMPRIMIR
 	int t_aux = 0; //variable auxiliar para convertir el tiempo a entero
-	t_aux = t_DisparoDoble * 0.025f;
+	t_aux = personaje.get_t_DisparoDoble() * 0.025f;
 	string tiempo_disparo_doble;
 	stringstream sstr;
 	const char* c = tiempo_disparo_doble.c_str();
@@ -99,6 +86,7 @@ void Mundo::dibuja()
 	bonus.Dibuja();
 	//disparosenemigos.dibuja();
 
+	//DIBUJO DEL LETRERO DEL JUEGO
 	ETSIDI::setTextColor(1, 1, 0);
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 	ETSIDI::printxy("ETSIDIOUS", -11, 21);
@@ -178,24 +166,22 @@ void Mundo::mueve(float t)
 
 	disparos.mueve(t);
 	disparos.colision(caja);
-	//disparosenemigos.mueve(t);
-	//disparosenemigos.colision(caja);
 
 	bonus.Mueve(t);
 	bonus.colision(caja.suelo);
 
-	//Gestion de tiempo de disparo doble
-	if (t_DisparoDoble > 0)
+	//GESTIÓN DEL TIEMPO DEL DISPARO DOBLE
+	if (personaje.get_t_DisparoDoble() > 0)
 	{
 		personaje.setDisparoDoble(true);
-		t_DisparoDoble -=1;
+		personaje.set_t_DisparoDoble(personaje.get_t_DisparoDoble()-1);
 	}
 	else
 	{
 		personaje.setDisparoDoble(false);
 	}
 
-	//Colision de los disparos con naves
+	//COLISIÓN DE LOS DISPAROS CON LAS NAVES
 	for (int i = 0; i < disparos.getNumero(); i++)
 	{
 		int tipo = disparos[i]->getTipo();
@@ -204,27 +190,33 @@ void Mundo::mueve(float t)
 			for (int n = 0; n < enemigos.getNumero(); n++)
 			{
 				DisparoAliado* d = (DisparoAliado*)disparos[i];
-				if (Interaccion::colision(*d, *enemigos[n]))
+				if (d != NULL)
 				{
-					enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
-					if (enemigos[n]->getVida() <= 0.0f)
-						enemigos.eliminar(enemigos[n]);
-					disparos.eliminar(disparos[i]);
+					if (Interaccion::colision(*d, *enemigos[n]))
+					{
+						enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
+						if (enemigos[n]->getVida() <= 0.0f)
+							enemigos.eliminar(enemigos[n]);
+						disparos.eliminar(disparos[i]);
+					}
 				}
 			}
 		}
 		if (tipo == DISPARO_ENEMIGO)
 		{
 			DisparoEnemigo* d = (DisparoEnemigo*)disparos[i];
-			if (Interaccion::colision(*d, personaje))
+			if (d != NULL)
 			{
-				personaje.setVida(personaje.getVida() - disparos[i]->getDano());
-				disparos.eliminar(disparos[i]);
+				if (Interaccion::colision(*d, personaje))
+				{
+					personaje.setVida(personaje.getVida() - disparos[i]->getDano());
+					disparos.eliminar(disparos[i]);
+				}
 			}
 		}
 	}
 
-	//Colision de los asteroides con la nave aliada
+	//COLISIÓN ASTEROIDES CON EL PERSONAJE
 	for (int i = 0; i < asteroides.getNum(); i++)
 	{
 		Obstaculo* o = (Obstaculo*)asteroides[i];
@@ -235,7 +227,7 @@ void Mundo::mueve(float t)
 		}
 	}
 
-	//Colision del bonus con nave personaje
+	//PERSONAJE RECOGE BONUS
 	for (int i = 0; i < bonus.getNumero(); i++)
 	{
 		int tipo = bonus[i]->getTipo();
@@ -244,7 +236,7 @@ void Mundo::mueve(float t)
 			BonusDisparoDoble* b = (BonusDisparoDoble*)bonus[i];
 			if (Interaccion::colision(*b, personaje))
 			{
-				t_DisparoDoble =bonus[i]->getExtra() / t;
+				personaje.set_t_DisparoDoble(bonus[i]->getExtra() / t);
 				bonus.eliminar(bonus[i]);
 			}
 		}
@@ -272,7 +264,6 @@ void Mundo::mueve(float t)
 			BonusPuntExtras *b = (BonusPuntExtras*)bonus[i];
 			if (Interaccion::colision(*b, personaje))
 			{
-				personaje.setPuntos(personaje.getPuntos() + bonus[i]->getExtra());
 				puntuacion += bonus[i]->getExtra();
 				bonus.eliminar(bonus[i]);
 			}
@@ -496,18 +487,18 @@ bool Mundo::cargarNivel()
 	nivel++;
 	personaje.setPos(0, 0);
 	enemigos.destruirContenido();
-	//disparos.destruirContenido();
+	disparos.destruirContenido();
 
 	if (nivel == 1) {
 		NaveEnemiga* n1 = new NaveEnemiga();
 		enemigos.agregar(n1);
 		enemigos[0]->setPos(0.0f, 16.0f);
-		/*NaveEnemiga* n2 = new NaveEnemiga();
+		NaveEnemiga* n2 = new NaveEnemiga();
 		enemigos.agregar(n2);
-		enemigos[0]->setPos(5.0f, 16.0f);*/
-		/*NaveEnemiga* n3 = new NaveEnemiga();
+		enemigos[1]->setPos(5.0f, 14.0f);
+		NaveEnemiga* n3 = new NaveEnemiga();
 		enemigos.agregar(n3);
-		enemigos[1]->setPos(-5.0f, 16.0f);*/
+		enemigos[2]->setPos(-5.0f, 14.0f);
 	}
 	if (nivel == 2) {
 		for (int i = 0; i < 5; i++) {
@@ -526,19 +517,23 @@ void Mundo::aleatorio()
 {
 	float lim1 = caja.pared_izq.getLim1().x;
 	float lim2 = caja.pared_dcha.getLim1().x;
-	float x = lim1 + rand() % (int)(lim2 - lim1);
-	Obstaculo* o2 = new Obstaculo();
-	o2->setPos(x, caja.techo.getLim1().y);
-	asteroides.agregar(o2);
-
-	int num = 1 + rand() % (10 - 1);
-	if (num < 8) {
-		for (int i = 0; i < enemigos.getNumero(); i++)
+	int num= 1 + rand() % (11 - 1);
+	if (num < 5)
 	{
-		Disparo* d = new DisparoEnemigo;
-		d->setPos(enemigos[i]->getPos());
-		disparos.agregar(d);
-	}
+		float x = (lim1+0.05f) + rand() % (int)((lim2 - lim1)-0.05f);
+		Obstaculo* o2 = new Obstaculo();
+		o2->setPos(x, caja.techo.getLim1().y);
+		asteroides.agregar(o2);
 	}
 	
+	for (int i = 0; i < enemigos.getNumero(); i++)
+	{
+		int num2 = 1 + rand() % (11 - 1);
+		if (num2 < 6)
+		{
+			Disparo* d = new DisparoEnemigo;
+			d->setPos(enemigos[i]->getPos());
+			disparos.agregar(d);
+		}
+	}
 }

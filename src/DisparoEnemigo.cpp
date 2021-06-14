@@ -2,16 +2,21 @@
 
 DisparoEnemigo::DisparoEnemigo() :Disparo(20, DISPARO_ENEMIGO)
 {
-	radio = 0.25f;
+	radio = 0.65f;
+	altura = 1.75f;
 	velocidad.y = -30.0f;
-	sprite_DisparoEnemigo.setCenter(0.6f, 1);
-	sprite_DisparoEnemigo.setSize(1.2f, 2);
+	sprite_DisparoEnemigo.setCenter(radio,altura/2);
+	sprite_DisparoEnemigo.setSize(radio*2,altura);
 	sprite_DisparoEnemigo.setAngle(180.0f);
 }
 DisparoEnemigo::DisparoEnemigo(float daño, int tipo) : Disparo(daño, tipo)
 {
-	radio = 0.25f;
+	radio = 0.65f;
+	altura = 1.75f;
 	velocidad.y = -30.0f;
+	sprite_DisparoEnemigo.setCenter(radio, altura / 2);
+	sprite_DisparoEnemigo.setSize(radio * 2, altura);
+	sprite_DisparoEnemigo.setAngle(180.0f);
 }
 void DisparoEnemigo::dibuja()
 {
