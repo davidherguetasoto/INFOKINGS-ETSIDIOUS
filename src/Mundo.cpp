@@ -326,6 +326,7 @@ void Mundo::tecla(unsigned char key)
 				 Disparo* d = new DisparoDoble;
 				 d->setPos(personaje.getPos().x+0.35f,personaje.getPos().y);
 				 disparos.agregar(d);
+				 d = NULL;
 				d = new DisparoDoble;
 				 d->setPos(personaje.getPos().x - 0.35f, personaje.getPos().y);
 				 disparos.agregar(d);
