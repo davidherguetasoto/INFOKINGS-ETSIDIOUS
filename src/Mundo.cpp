@@ -16,7 +16,6 @@ Mundo::~Mundo()
 	asteroides.destruirContenido();
 	disparos.destruirContenido();
 	bonus.destruirContenido();
-	//disparosenemigos.destruirContenido();
 }
 void Mundo::inicializa()
 {
@@ -167,13 +166,11 @@ void Mundo::mueve(float t)
 
 	disparos.mueve(t);
 	disparos.colision(caja);
-	//disparosenemigos.mueve(t);
-	//disparosenemigos.colision(caja);
 
 	bonus.Mueve(t);
 	bonus.colision(caja.suelo);
 
-	//Gestion de tiempo de disparo doble
+	//GESTIÓN DEL TIEMPO DEL DISPARO DOBLE
 	if (t_DisparoDoble > 0)
 	{
 		personaje.setDisparoDoble(true);
@@ -184,7 +181,7 @@ void Mundo::mueve(float t)
 		personaje.setDisparoDoble(false);
 	}
 
-	//Colision de los disparos con naves
+	//COLISIÓN DE LOS DISPAROS CON LAS NAVES
 	for (int i = 0; i < disparos.getNumero(); i++)
 	{
 		int tipo = disparos[i]->getTipo();
@@ -213,7 +210,7 @@ void Mundo::mueve(float t)
 		}
 	}
 
-	//Colision de los asteroides con la nave aliada
+	//COLISIÓN ASTEROIDES CON EL PERSONAJE
 	for (int i = 0; i < asteroides.getNum(); i++)
 	{
 		Obstaculo* o = (Obstaculo*)asteroides[i];
@@ -224,7 +221,7 @@ void Mundo::mueve(float t)
 		}
 	}
 
-	//Colision del bonus con nave personaje
+	//PERSONAJE RECOGE BONUS
 	for (int i = 0; i < bonus.getNumero(); i++)
 	{
 		int tipo = bonus[i]->getTipo();
@@ -261,7 +258,6 @@ void Mundo::mueve(float t)
 			BonusPuntExtras *b = (BonusPuntExtras*)bonus[i];
 			if (Interaccion::colision(*b, personaje))
 			{
-				personaje.setPuntos(personaje.getPuntos() + bonus[i]->getExtra());
 				puntuacion += bonus[i]->getExtra();
 				bonus.eliminar(bonus[i]);
 			}
@@ -485,7 +481,7 @@ bool Mundo::cargarNivel()
 	nivel++;
 	personaje.setPos(0, 0);
 	enemigos.destruirContenido();
-	//disparos.destruirContenido();
+	disparos.destruirContenido();
 
 	if (nivel == 1) {
 		NaveEnemiga* n1 = new NaveEnemiga();
@@ -493,10 +489,10 @@ bool Mundo::cargarNivel()
 		enemigos[0]->setPos(0.0f, 16.0f);
 		NaveEnemiga* n2 = new NaveEnemiga();
 		enemigos.agregar(n2);
-		enemigos[1]->setPos(5.0f, 16.0f);
+		enemigos[1]->setPos(5.0f, 14.0f);
 		NaveEnemiga* n3 = new NaveEnemiga();
 		enemigos.agregar(n3);
-		enemigos[2]->setPos(-5.0f, 16.0f);
+		enemigos[2]->setPos(-5.0f, 14.0f);
 	}
 	if (nivel == 2) {
 		for (int i = 0; i < 5; i++) {
