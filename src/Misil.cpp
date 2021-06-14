@@ -5,7 +5,7 @@ Misil::Misil():DisparoAliado(100,MISIL)
 {
 	radio = 0.3f;
 	velocidad.y = 40.0f;
-	sprite_misil.setCenter(1, 0);
+	sprite_misil.setCenter(1, 1);
 	sprite_misil.setSize(2, 2);
 }
 Misil::~Misil()
