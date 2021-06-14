@@ -8,6 +8,7 @@ NavePersonaje::NavePersonaje():Nave(VIDA_MAX)//poner vida_max luego
 	color.set(0, 0, 255);
 	num_bonus = 0;//num_bonus para inicializarlo a 0 prueba
 	num_misiles = 3;
+	puntos = 0;//Puntos extra de la nave
 	disparo_misiles = false;
 	disparo_doble = false;
 	sprite_nave.setCenter(2.5f, 3.0f);
@@ -50,4 +51,16 @@ void NavePersonaje::setVida(float vida)
 	Nave::setVida(vida);
 	if ((this->vida) > VIDA_MAX)
 		this->vida = VIDA_MAX;
+}
+
+
+float NavePersonaje::getPuntos()
+{
+	return puntos;
+}
+void NavePersonaje::setPuntos(float puntos)
+{
+	this->puntos = puntos;
+	if (this->puntos <= 0)
+		this->puntos = 0;
 }

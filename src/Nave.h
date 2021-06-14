@@ -9,6 +9,7 @@ public:
 	virtual void dibuja()=0;
 	float getVida();
 	virtual	void setVida(float vida);
+
 	//añadir funcion para disparo (?)
 };
 

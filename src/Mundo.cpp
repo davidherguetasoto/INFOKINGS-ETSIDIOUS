@@ -32,8 +32,12 @@ void Mundo::inicializa()
 	bonus.agregar(b);
 
 	Bonus* c = new BonusDisparoDoble;
-	c->setPos(-6, 16);
+	c->setPos(-6, 15);
 	bonus.agregar(c);
+
+	Bonus* a = new BonusPuntExtras;
+	a->setPos(-6, 12);
+	bonus.agregar(a);
 }
 void Mundo::dibuja()
 {
@@ -231,7 +235,13 @@ void Mundo::mueve(float t)
 		}
 		if (tipo == BONUS_PUNT_EXTRAS)
 		{
-
+			BonusPuntExtras *b = (BonusPuntExtras*)bonus[i];
+			if (Interaccion::colision(*b, personaje))
+			{
+				personaje.setPuntos(personaje.getPuntos() + bonus[i]->getExtra());
+				puntuacion += bonus[i]->getExtra();
+				bonus.eliminar(bonus[i]);
+			}
 		}
 	}
 
@@ -458,6 +468,12 @@ bool Mundo::cargarNivel()
 		NaveEnemiga* n1 = new NaveEnemiga();
 		enemigos.agregar(n1);
 		enemigos[0]->setPos(0.0f, 16.0f);
+		/*NaveEnemiga* n2 = new NaveEnemiga();
+		enemigos.agregar(n2);
+		enemigos[0]->setPos(5.0f, 16.0f);*/
+		/*NaveEnemiga* n3 = new NaveEnemiga();
+		enemigos.agregar(n3);
+		enemigos[1]->setPos(-5.0f, 16.0f);*/
 	}
 	if (nivel == 2) {
 		for (int i = 0; i < 5; i++) {
