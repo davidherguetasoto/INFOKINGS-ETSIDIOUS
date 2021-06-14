@@ -27,8 +27,6 @@ void Mundo::inicializa()
 	nivel = 0;
 	cargarNivel();
 
-
-
 	int nrandom1;
 	int nrandom2;
 	nrandom1 = 1 + rand() % 2;
@@ -89,6 +87,7 @@ void Mundo::dibuja()
 	bonus.Dibuja();
 	//disparosenemigos.dibuja();
 
+	//DIBUJO DEL LETRERO DEL JUEGO
 	ETSIDI::setTextColor(1, 1, 0);
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 	ETSIDI::printxy("ETSIDIOUS", -11, 21);
@@ -492,12 +491,12 @@ bool Mundo::cargarNivel()
 		NaveEnemiga* n1 = new NaveEnemiga();
 		enemigos.agregar(n1);
 		enemigos[0]->setPos(0.0f, 16.0f);
-		/*NaveEnemiga* n2 = new NaveEnemiga();
+		NaveEnemiga* n2 = new NaveEnemiga();
 		enemigos.agregar(n2);
-		enemigos[0]->setPos(5.0f, 16.0f);*/
-		/*NaveEnemiga* n3 = new NaveEnemiga();
+		enemigos[1]->setPos(5.0f, 16.0f);
+		NaveEnemiga* n3 = new NaveEnemiga();
 		enemigos.agregar(n3);
-		enemigos[1]->setPos(-5.0f, 16.0f);*/
+		enemigos[2]->setPos(-5.0f, 16.0f);
 	}
 	if (nivel == 2) {
 		for (int i = 0; i < 5; i++) {
@@ -516,19 +515,23 @@ void Mundo::aleatorio()
 {
 	float lim1 = caja.pared_izq.getLim1().x;
 	float lim2 = caja.pared_dcha.getLim1().x;
-	float x = lim1 + rand() % (int)(lim2 - lim1);
-	Obstaculo* o2 = new Obstaculo();
-	o2->setPos(x, caja.techo.getLim1().y);
-	asteroides.agregar(o2);
-
-	int num = 1 + rand() % (10 - 1);
-	if (num < 8) {
-		for (int i = 0; i < enemigos.getNumero(); i++)
+	int num= 1 + rand() % (10 - 1);
+	if (num < 5)
 	{
-		Disparo* d = new DisparoEnemigo;
-		d->setPos(enemigos[i]->getPos());
-		disparos.agregar(d);
-	}
+		float x = lim1 + rand() % (int)(lim2 - lim1);
+		Obstaculo* o2 = new Obstaculo();
+		o2->setPos(x, caja.techo.getLim1().y);
+		asteroides.agregar(o2);
 	}
 	
+	for (int i = 0; i < enemigos.getNumero(); i++)
+	{
+		int num2 = 1 + rand() % (10 - 1);
+		if (num2 < 6)
+		{
+			Disparo* d = new DisparoEnemigo;
+			d->setPos(enemigos[i]->getPos());
+			disparos.agregar(d);
+		}
+	}
 }

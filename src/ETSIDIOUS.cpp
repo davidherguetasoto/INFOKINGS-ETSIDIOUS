@@ -96,6 +96,6 @@ void OnTime(int t)
 	etsidious.aleatorio();
 
 	//no borrar estas lineas
-	glutTimerFunc(2500, OnTime, 0);
+	glutTimerFunc(1000, OnTime, 0);
 	glutPostRedisplay();
 }
