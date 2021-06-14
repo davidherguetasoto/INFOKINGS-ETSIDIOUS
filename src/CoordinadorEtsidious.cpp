@@ -4,9 +4,11 @@ CoordinadorEtsidious::CoordinadorEtsidious()
 	estado = Estado::INICIO;
 	mundo = new Mundo;
 	puntuacion = 0;
+	flag_mundo = true;
 }
 CoordinadorEtsidious::~CoordinadorEtsidious()
 {
+	if(flag_mundo)
 	delete mundo;
 }
 void CoordinadorEtsidious::dibuja()
@@ -70,12 +72,18 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 	{
 		if (key == 'e'||key=='E')
 		{
-			mundo = new Mundo;
+			if (!flag_mundo)
+			{
+				mundo = new Mundo;
+				flag_mundo = true;
+			}
 			mundo->inicializa();
 			estado = Estado::JUEGO;
 		}
-		if (key == 's'||key=='S')
+		if (key == 's' || key == 'S')
+		{
 			exit(0);
+		}
 	}
 	else if (estado == Estado::JUEGO)
 	{
@@ -90,7 +98,11 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 		{
 			estado = Estado::INICIO;
 			puntuacion=mundo->getPuntos();
-			delete mundo;
+			if (flag_mundo)
+			{
+				delete mundo;
+				flag_mundo = false;
+			}
 		}
 	}
 	else if (estado == Estado::PAUSA)

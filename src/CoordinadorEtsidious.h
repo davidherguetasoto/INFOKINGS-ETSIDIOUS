@@ -13,6 +13,7 @@ protected:
 	enum class Estado{INICIO, JUEGO, GAMEOVER, FIN, PAUSA, RANKING};
 	Estado estado;
 	float puntuacion;
+	bool flag_mundo; //Hay un mundo creado? TRUE:=SI FALSE:=NO
 public:
 	CoordinadorEtsidious();
 	virtual ~CoordinadorEtsidious();
