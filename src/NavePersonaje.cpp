@@ -14,6 +14,7 @@ NavePersonaje::NavePersonaje():Nave(VIDA_MAX)//poner vida_max luego
 	sprite_nave.setCenter(2.5f, 3.0f);
 	sprite_nave.setSize(5.0f, 6.0f);
 }
+
 void NavePersonaje::dibuja()
 {
 	glPushMatrix();
@@ -40,12 +41,14 @@ int NavePersonaje::GetNumBonus()
 {
 	return num_bonus;
 }
+
 void NavePersonaje::setNumMisiles(int misiles)
 {
 	if (misiles <= 0)misiles = 0;
 	else if (misiles >= MISILES_MAX)misiles = MISILES_MAX;
 	num_misiles = misiles;
 }
+
 void NavePersonaje::setVida(float vida)
 {
 	Nave::setVida(vida);
@@ -58,6 +61,8 @@ float NavePersonaje::getPuntos()
 {
 	return puntos;
 }
+
+
 void NavePersonaje::setPuntos(float puntos)
 {
 	this->puntos = puntos;

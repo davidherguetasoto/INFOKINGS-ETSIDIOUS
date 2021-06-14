@@ -1,10 +1,11 @@
 #pragma once
 #include"Bonus.h"
-
+#include"ColorRGB.h"
 
 class BonusDisparoDoble :public Bonus
 {
-protected:
+private:
+	SpriteSequence sprite_DispDoble{"imagenes/laser.png",1 };
 
 public:
 	friend class Interaccion;

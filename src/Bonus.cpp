@@ -5,7 +5,7 @@
 Bonus::Bonus(float extra, int tipo):extra(extra),tipo(tipo)
 {
 	velocidad.y = -7.0f;
-	lado = 1.0f;
+	lado = 2.0f;
 }
 
 
