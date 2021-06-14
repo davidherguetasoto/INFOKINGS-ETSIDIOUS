@@ -1,6 +1,6 @@
 #include "DisparoDoble.h"
 
-DisparoDoble::DisparoDoble() :DisparoAliado(50, DISPARO_DOBLE)
+DisparoDoble::DisparoDoble() :DisparoAliado(40, DISPARO_DOBLE)
 {
 	radio = 0.3f;
 	velocidad.y = 35.0f;
