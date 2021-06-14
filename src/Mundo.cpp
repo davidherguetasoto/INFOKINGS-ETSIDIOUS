@@ -186,6 +186,16 @@ void Mundo::mueve(float t)
 		}
 	}
 
+	//Colision de los asteroides con la nave aliada
+	for (int i = 0; i < asteroides.getNum(); i++)
+	{
+		Obstaculo* o = (Obstaculo*)asteroides[i];
+		if (Interaccion::colision(*o, personaje))
+		{
+			personaje.setVida(personaje.getVida() - asteroides[i]->getDano());
+			asteroides.eliminar(asteroides[i]);
+		}
+	}
 
 	//Colision del bonus con nave personaje
 	for (int i = 0; i < bonus.getNumero(); i++)
