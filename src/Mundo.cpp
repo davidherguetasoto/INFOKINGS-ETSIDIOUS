@@ -324,18 +324,20 @@ void Mundo::tecla(unsigned char key)
 			 else if (personaje.getModoDoble())
 			 {
 				 Disparo* d = new DisparoDoble;
-				 d->setPos(personaje.getPos().x+0.35f,personaje.getPos().y);
+				 d->setPos(personaje.getPos().x+0.5f,personaje.getPos().y);
 				 disparos.agregar(d);
 				 d = NULL;
 				d = new DisparoDoble;
-				 d->setPos(personaje.getPos().x - 0.35f, personaje.getPos().y);
+				 d->setPos(personaje.getPos().x - 0.5f, personaje.getPos().y);
 				 disparos.agregar(d);
+				 d = NULL;
 			 }
 			 else
 			 {
 				 Disparo* d = new DisparoAliado;
 				 d->setPos(personaje.getPos());
 				 disparos.agregar(d);
+				 d = NULL;
 			 }
 		}
  		break;
