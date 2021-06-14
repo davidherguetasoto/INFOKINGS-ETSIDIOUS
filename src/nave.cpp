@@ -12,5 +12,7 @@ float Nave::getVida()
 void Nave::setVida(float vida)
 {
 	this->vida = vida;
+	if (this->vida <= 0)
+		this->vida = 0;
 }
 
