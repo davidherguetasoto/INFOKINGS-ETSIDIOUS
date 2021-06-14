@@ -27,7 +27,7 @@ public:
 	static bool colision(Obstaculo o, Misil m); //se destruyen ambos al impactar
 	
 	//COLISIÓN DEL OBSTÁCULO CON EL SUELO
-	static bool colision(Obstaculo o, Pared p);
+	static bool colision(Obstaculo o, Pared p); //al pasar el limite del suelo se destruye el obstaculo
 
 	//COLISIÓN DEL OBSTÁCULO CON LA NAVE DEL PERSONAJE
 	static bool colision(Obstaculo o, NavePersonaje n); //obstáculo merma salud de jugador

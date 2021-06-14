@@ -39,7 +39,7 @@ void Interaccion::rebote(NavePersonaje& nave, Caja caja)
 bool Interaccion::colision(Obstaculo o, DisparoAliado d)
 {
 	Vector2D distancia = d.getPos() - o.getPos();
-	if (distancia.modulo() < (d.getRadio()+o.getRadio()))
+	if (distancia.modulo() < (d.getRadio() + o.getRadio()))
 		return true;
 	return false;
 }
@@ -56,18 +56,13 @@ bool Interaccion::colision(Obstaculo o, Pared p)
 	if (o.getPos().y < p.getLim1().y) { return true; }
 	return false;
 }
-//bool Interaccion::colision(Obstaculo o, Caja c)
-//{
-//	if (Interaccion::colision(o, c.pared_dcha)) return true;
-//	else if (Interaccion::colision(o, c.pared_izq)) return true;
-//	else if (Interaccion::colision(o, c.suelo)) return true;
-//	else if (Interaccion::colision(o, c.techo)) return true;
-//	else return false;
-//}
+
 
 bool Interaccion::colision(Obstaculo o, NavePersonaje n)
 {
-	//...
+	Vector2D distancia = n.getPos() - o.getPos();
+	if (distancia.modulo() < (n.getRadio() + o.getRadio()))
+		return true;
 	return false;
 }
 

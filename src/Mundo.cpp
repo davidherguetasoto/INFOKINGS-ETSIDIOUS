@@ -251,6 +251,13 @@ void Mundo::mueve(float t)
 			}
 		}
 	}
+
+	//INTERACCION ASTEROIDES SUELO
+	for (int i = asteroides.getNum(); i > 0; i--) {
+		if (Interaccion::colision(*asteroides[i], caja.suelo)) {
+			asteroides.eliminar(asteroides[i]);
+		}
+	}
 }
 void Mundo::tecla(unsigned char key)
 {
