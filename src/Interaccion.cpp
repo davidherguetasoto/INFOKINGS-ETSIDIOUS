@@ -130,7 +130,7 @@ bool Interaccion::colision(DisparoEnemigo d, Caja c)
 bool Interaccion::colision(DisparoAliado d, NaveEnemiga n)
 {
 	Vector2D distancia = n.getPos() - d.getPos();
-	if (distancia.modulo() <= (d.getRadio()+0.07f))
+	if (distancia.modulo() <= (d.getRadio()+0.07f+n.getRadio()))
 	{
 		return true;
 	}
@@ -139,7 +139,7 @@ bool Interaccion::colision(DisparoAliado d, NaveEnemiga n)
 bool Interaccion::colision(DisparoEnemigo d, NavePersonaje n)
 {
 	Vector2D distancia = n.getPos() - d.getPos();
-	if (distancia.modulo() < (d.getRadio()+0.07f))
+	if (distancia.modulo() < (d.getRadio()+0.07f+n.getRadio()))
 	{
 		return true;
 	}
