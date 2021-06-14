@@ -3,14 +3,18 @@
 DisparoAliado::DisparoAliado() :Disparo(35,DISPARO_ALIADO)
 {
 	velocidad.y = 30.0f;
-	radio = 0.25f;
-	sprite_DisparoAliado.setCenter(0.6f, 1);
-	sprite_DisparoAliado.setSize(1.2f, 2);
+	radio = 0.65f;
+	altura = 1.75f;
+	sprite_DisparoAliado.setCenter(radio, altura/2);
+	sprite_DisparoAliado.setSize(radio*2, altura);
 }
 DisparoAliado::DisparoAliado(float daño, int tipo) : Disparo(daño, tipo)
 {
 	velocidad.y = 30.0f;
-	radio=0.25f;
+	radio = 0.65f;
+	altura = 1.75f;
+	sprite_DisparoAliado.setCenter(radio, altura / 2);
+	sprite_DisparoAliado.setSize(radio * 2, altura);
 }
 void DisparoAliado::dibuja()
 {

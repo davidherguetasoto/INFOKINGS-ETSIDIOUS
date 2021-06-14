@@ -18,6 +18,8 @@ protected:
 	float daño; //Daño que produce el disparo
 	Vector2D origen; //Origen del disparo
 	int tipo; //Atributo para seleccionar los distintos tipos de disparo
+	float radio;
+	float altura;
 public:
 	Disparo(float daño,int tipo);
 	virtual ~Disparo();
@@ -27,5 +29,7 @@ public:
 	void setOrigen(float ix, float iy);
 	float getDano();
 	int getTipo();
+	float getRadio() { return radio; }
+	float getAltura() { return radio; }
 };
 

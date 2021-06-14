@@ -4,9 +4,6 @@ class DisparoEnemigo : public Disparo
 {
 private:
 	SpriteSequence sprite_DisparoEnemigo{ "imagenes/Disparo.png",1 };
-protected:
-	//provisional
-	float radio;
 public:
 	DisparoEnemigo();
 	//Constructor sobrecargado para especificar el daño y tipo de los derivados.
