@@ -26,7 +26,7 @@ void Mundo::inicializa()
 	nivel = 0;
 	cargarNivel();
 
-	Bonus* d = new BonusMisiles;
+	/*Bonus* d = new BonusMisiles;
 	d->setPos(6, 12);
 	bonus.agregar(d);
 	Bonus* c = new BonusDisparoDoble;
@@ -37,40 +37,9 @@ void Mundo::inicializa()
 	bonus.agregar(a);
 	Bonus* b = new BonusVidas;
 	b->setPos(6, 15);
-	bonus.agregar(b);
+	bonus.agregar(b);*/
 
-	/*
-	int nrandom1;
-	int nrandom2;
-	nrandom1 = 1 + rand() % 2;
-	if (nrandom1 == 1)
-	{
-		nrandom2 = 1 + rand() % 4;
-		if (nrandom2 == 1)
-		{
-			Bonus* d = new BonusMisiles;
-			d->setPos(6, 12);
-			bonus.agregar(d);
-		}
-		else if (nrandom2 == 2)
-		{
-			Bonus* c = new BonusDisparoDoble;
-			c->setPos(-6, 15);
-			bonus.agregar(c);
-		}
-		else if (nrandom2 == 3)
-		{
-			Bonus* b = new BonusVidas;
-			b->setPos(6, 15);
-			bonus.agregar(b);
-		}
-		else if (nrandom2 == 4)
-		{
-			Bonus* a = new BonusPuntExtras;
-			a->setPos(-6, 12);
-			bonus.agregar(a);
-		}
-	}*/
+
 }
 void Mundo::dibuja()
 {
@@ -210,7 +179,41 @@ void Mundo::mueve(float t)
 					{
 						enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
 						if (enemigos[n]->getVida() <= 0.0f)
+						{
 							enemigos.eliminar(enemigos[n]);
+
+							int nrandom1;
+							int nrandom2;
+							nrandom1 = 1 + rand() % 2;
+							if (nrandom1 == 1)
+							{
+								nrandom2 = 1 + rand() % 4;
+								if (nrandom2 == 1)
+								{
+									Bonus* d = new BonusMisiles;
+									d->setPos(6, 12);
+									bonus.agregar(d);
+								}
+								else if (nrandom2 == 2)
+								{
+									Bonus* c = new BonusDisparoDoble;
+									c->setPos(-6, 15);
+									bonus.agregar(c);
+								}
+								else if (nrandom2 == 3)
+								{
+									Bonus* b = new BonusVidas;
+									b->setPos(6, 15);
+									bonus.agregar(b);
+								}
+								else if (nrandom2 == 4)
+								{
+									Bonus* a = new BonusPuntExtras;
+									a->setPos(-6, 12);
+									bonus.agregar(a);
+								}
+							}
+						}
 						disparos.eliminar(disparos[i]);
 					}
 				}
