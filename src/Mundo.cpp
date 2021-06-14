@@ -190,12 +190,15 @@ void Mundo::mueve(float t)
 			for (int n = 0; n < enemigos.getNumero(); n++)
 			{
 				DisparoAliado* d = (DisparoAliado*)disparos[i];
-				if (Interaccion::colision(*d, *enemigos[n]))
+				if (d != NULL)
 				{
-					enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
-					if (enemigos[n]->getVida() <= 0.0f)
-						enemigos.eliminar(enemigos[n]);
-					disparos.eliminar(disparos[i]);
+					if (Interaccion::colision(*d, *enemigos[n]))
+					{
+						enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
+						if (enemigos[n]->getVida() <= 0.0f)
+							enemigos.eliminar(enemigos[n]);
+						disparos.eliminar(disparos[i]);
+					}
 				}
 			}
 		}
