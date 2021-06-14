@@ -4,7 +4,7 @@
 
 
 #define VELOCIDAD_PERSONAJE 15.0f //Macro para decidir el valor de la velocidad a la que irá el personaje
-#define MISILES_MAX 5 //Número máximo de misiles que puede llevar la nave
+#define MISILES_MAX 6 //Número máximo de misiles que puede llevar la nave
 #define VIDA_MAX 100 //Vida máxima del personaje
 class NavePersonaje :public Nave
 {
