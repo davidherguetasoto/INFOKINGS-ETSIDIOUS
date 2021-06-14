@@ -6,9 +6,9 @@ Obstaculo::Obstaculo()
 	posicion.x = 5.0f;
 	posicion.y = 20.0f;
 	velocidad.y = -15.0f;
-	daño = 20.0f;
-	sprite_obstaculo.setCenter(1, 1);
-	sprite_obstaculo.setSize(1.5, 1.5);
+	daño = 40.0f;
+	sprite_obstaculo.setCenter(0.75f, 0.75f);
+	sprite_obstaculo.setSize(1.5f, 1.5f);
 }
 
 
