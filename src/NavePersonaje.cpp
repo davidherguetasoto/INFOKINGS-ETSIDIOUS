@@ -10,8 +10,8 @@ NavePersonaje::NavePersonaje():Nave(VIDA_MAX)//poner vida_max luego
 	num_misiles = 3;
 	disparo_misiles = false;
 	disparo_doble = false;
-	sprite_nave.setCenter(1.9f, 2);
-	sprite_nave.setSize(4, 6);
+	sprite_nave.setCenter(2.5f, 3);
+	sprite_nave.setSize(5, 6);
 }
 void NavePersonaje::dibuja()
 {

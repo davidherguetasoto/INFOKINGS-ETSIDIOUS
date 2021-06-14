@@ -8,8 +8,8 @@ NaveEnemiga::NaveEnemiga():Nave(100.0F)
 	altura = 2.0f;
 	radio = 0.5f;
 	color.set(255, 0, 0);
-	sprite_nave.setCenter(2,2);
-	sprite_nave.setSize(4, 6);
+	sprite_nave.setCenter(1.5f,2.5f);
+	sprite_nave.setSize(3, 5);
 	sprite_nave.setAngle(180.0f);
 }
 void NaveEnemiga::dibuja()
