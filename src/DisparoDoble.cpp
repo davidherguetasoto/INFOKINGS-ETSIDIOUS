@@ -4,6 +4,8 @@ DisparoDoble::DisparoDoble() :DisparoAliado(50, DISPARO_DOBLE)
 {
 	radio = 0.3f;
 	velocidad.y = 35.0f;
+	sprite_doble.setCenter(0.375f, 0.75f);
+	sprite_doble.setSize(0.75f, 1.5f);
 }
 DisparoDoble::~DisparoDoble()
 {
@@ -11,11 +13,11 @@ DisparoDoble::~DisparoDoble()
 }
 void DisparoDoble::dibuja()
 {
-	//PROVISIONAL
 	glPushMatrix();
-	glColor3f(255, 255, 255);
-	glTranslatef(posicion.x, posicion.y, 0);
-	glutSolidSphere(radio, 20, 20);
-	glTranslatef(-posicion.x, -posicion.y, 0);
+	glTranslatef(posicion.x, posicion.y, 1);
+	glColor3f(1.0f, 0.0f, 0.0f);
+	//gestion de direccion y animacion
+	sprite_doble.setState(0);
+	sprite_doble.draw();
 	glPopMatrix();
 }
