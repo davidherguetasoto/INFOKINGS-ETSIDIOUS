@@ -17,9 +17,10 @@ protected:
 public:
 	CoordinadorEtsidious();
 	virtual ~CoordinadorEtsidious();
-	void teclaEspecial(unsigned char key);
-	void teclaEspecialUp(unsigned char key);
+	void teclaEspecial(int key);
+	void teclaEspecialUp(int key);
 	void tecla(unsigned char key);
+	void teclaUp(unsigned char key);
 	void mueve(float t);
 	void dibuja();
 	void inicializa();

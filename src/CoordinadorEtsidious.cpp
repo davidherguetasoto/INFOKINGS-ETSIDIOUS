@@ -115,12 +115,17 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 
 	}
 }
-void CoordinadorEtsidious::teclaEspecialUp(unsigned char key)
+void CoordinadorEtsidious::teclaUp(unsigned char key)
+{
+	if (estado == Estado::JUEGO)
+		mundo->teclaUp(key);
+}
+void CoordinadorEtsidious::teclaEspecialUp(int key)
 {
 	if (estado == Estado::JUEGO)
 		mundo->teclaEspecialUp(key);
 }
-void CoordinadorEtsidious::teclaEspecial(unsigned char key)
+void CoordinadorEtsidious::teclaEspecial(int key)
 {
 	if (estado == Estado::JUEGO)
 	{

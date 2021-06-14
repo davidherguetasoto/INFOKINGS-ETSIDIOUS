@@ -4,7 +4,7 @@
 #include <sstream>
 #include<string>
 using namespace std;
-Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1),t_DisparoDoble(0),puntuacion(0)
+Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1),t_DisparoDoble(0),puntuacion(0),pressed_spacebar(false)
 {
 
 }
@@ -307,39 +307,43 @@ void Mundo::tecla(unsigned char key)
 	//DISPARAR
 	case' ':
 	{
-  		if (disparos.getNumero() < MAX_DISPAROS)
+		if (!pressed_spacebar)
 		{
-  			 if (personaje.getModoMisiles())
+			if (disparos.getNumero() < MAX_DISPAROS)
 			{
-				if (personaje.getNumMisiles()>0)
+				if (personaje.getModoMisiles())
 				{
-					Disparo* d = new Misil;
-					d->setPos(personaje.getPos());
+					if (personaje.getNumMisiles() > 0)
+					{
+						Disparo* d = new Misil;
+						d->setPos(personaje.getPos());
+						disparos.agregar(d);
+						personaje.setNumMisiles(personaje.getNumMisiles() - 1);
+						d = NULL;
+					}
+					if (personaje.getNumMisiles() <= 0)personaje.setDisparoMisiles(false);
+				}
+				else if (personaje.getModoDoble())
+				{
+					Disparo* d = new DisparoDoble;
+					d->setPos(personaje.getPos().x + 0.5f, personaje.getPos().y);
 					disparos.agregar(d);
-					personaje.setNumMisiles(personaje.getNumMisiles() - 1);
+					d = NULL;
+					d = new DisparoDoble;
+					d->setPos(personaje.getPos().x - 0.5f, personaje.getPos().y);
+					disparos.agregar(d);
 					d = NULL;
 				}
-				if (personaje.getNumMisiles() <= 0)personaje.setDisparoMisiles(false);
+				else
+				{
+					Disparo* d = new DisparoAliado;
+					d->setPos(personaje.getPos());
+					disparos.agregar(d);
+					d = NULL;
+				}
 			}
-			 else if (personaje.getModoDoble())
-			 {
-				 Disparo* d = new DisparoDoble;
-				 d->setPos(personaje.getPos().x+0.5f,personaje.getPos().y);
-				 disparos.agregar(d);
-				 d = NULL;
-				d = new DisparoDoble;
-				 d->setPos(personaje.getPos().x - 0.5f, personaje.getPos().y);
-				 disparos.agregar(d);
-				 d = NULL;
-			 }
-			 else
-			 {
-				 Disparo* d = new DisparoAliado;
-				 d->setPos(personaje.getPos());
-				 disparos.agregar(d);
-				 d = NULL;
-			 }
 		}
+		pressed_spacebar = true;
  		break;
 	}
 	//MODO DISPARO
@@ -357,7 +361,18 @@ void Mundo::tecla(unsigned char key)
 	}
 	}
  }
-void Mundo::teclaEspecialUp(unsigned char key)
+void Mundo::teclaUp(unsigned char key)
+{
+	switch (key)
+	{
+		//GESTIÓN DE FLANCOS NEGATIVOS DEL ESPACIO PARA EVITAR QUE EL USUARIO
+		//DISPARE CONTINUAMENTE AL MANTENER PULSADO
+	case' ':
+		pressed_spacebar = false;
+
+	}
+}
+void Mundo::teclaEspecialUp(int key)
 {
 	switch (key)
 	{
@@ -388,7 +403,7 @@ void Mundo::teclaEspecialUp(unsigned char key)
 	}
 }
 
-void Mundo::teclaEspecial(unsigned char key)
+void Mundo::teclaEspecial(int key)
 {
 	switch (key)
 	{

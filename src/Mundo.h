@@ -33,13 +33,15 @@ class Mundo
 	int nivel;
 	float t_DisparoDoble; //tiempo restante del disparo doble
 	float puntuacion; //Puntuación del jugador
+	bool pressed_spacebar; //Variable auxiliar para gestionar flancos negativos en tecla espacio
 
 public:
 	Mundo();
 	virtual ~Mundo();
 	void tecla(unsigned char key);
-	void teclaEspecial(unsigned char key);
-	void teclaEspecialUp(unsigned char key);
+	void teclaUp(unsigned char key);
+	void teclaEspecial(int key);
+	void teclaEspecialUp(int key);
 	void inicializa();
 	void mueve(float t);
 	void dibuja();

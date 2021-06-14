@@ -5,7 +5,8 @@ CoordinadorEtsidious etsidious;
 //CALLBACKS LIBRERÍA FREEGLUT
 void OnDraw(void); //esta funcion sera llamada para dibujar
 void OnTimer(int value); //esta funcion sera llamada cuando transcurra una temporizacion
-void OnKeyboardDown(unsigned char key, int x, int y); //cuando se pulse una tecla	
+void OnKeyboardDown(unsigned char key, int x, int y);//cuando se pulse una tecla	
+void OnKeyboardUp(unsigned char key, int x, int y); //Detección de flancos negativos de las teclas
 void onSpecialKeyboardDown(int key, int x, int y); //Declaración funciones teclas especiales
 void OnSpecialKeyboardUp(int key, int x, int y); //Detección flanco negativo teclas especiales
 void OnTime(int t); //esta funcion sera llamada cuando transcurra una temporizacion
@@ -32,6 +33,7 @@ int main(int argc, char* argv[])
 	glutDisplayFunc(OnDraw);
 	glutTimerFunc(25, OnTimer, 0);//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
 	glutKeyboardFunc(OnKeyboardDown);
+	glutKeyboardUpFunc(OnKeyboardUp);
 	glutSpecialUpFunc(OnSpecialKeyboardUp); //flancos negativos de las teclas especiales
 	glutSpecialFunc(onSpecialKeyboardDown); //gestion de los cursores
 	glutTimerFunc(2500, OnTime, 0); //Cada dos segundos y medio llama a la funcion OnTime()
@@ -62,6 +64,11 @@ void OnDraw(void)
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	etsidious.tecla(key);
+	glutPostRedisplay();
+}
+void OnKeyboardUp(unsigned char key, int x_t, int y_t)
+{
+	etsidious.teclaUp(key);
 	glutPostRedisplay();
 }
 void onSpecialKeyboardDown(int key, int x, int y)
