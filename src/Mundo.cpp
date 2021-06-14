@@ -3,6 +3,8 @@
 #include"Interaccion.h"
 #include <sstream>
 #include<string>
+#include<cstdlib>
+
 using namespace std;
 Mundo::Mundo() :x_ojo(0), y_ojo(0), z_ojo(0), nivel(1),t_DisparoDoble(0),puntuacion(0),pressed_spacebar(false)
 {
@@ -24,21 +26,40 @@ void Mundo::inicializa()
 
 	nivel = 0;
 	cargarNivel();
-	Bonus* d = new BonusMisiles;
-	d->setPos(6, 12);
-	bonus.agregar(d);
 
-	Bonus* b = new BonusVidas;
-	b->setPos(6, 15);
-	bonus.agregar(b);
 
-	Bonus* c = new BonusDisparoDoble;
-	c->setPos(-6, 15);
-	bonus.agregar(c);
 
-	Bonus* a = new BonusPuntExtras;
-	a->setPos(-6, 12);
-	bonus.agregar(a);
+	int nrandom1;
+	int nrandom2;
+	nrandom1 = 1 + rand() % 2;
+	if (nrandom1 == 1)
+	{
+		nrandom2 = 1 + rand() % 4;
+		if (nrandom2 == 1)
+		{
+			Bonus* d = new BonusMisiles;
+			d->setPos(6, 12);
+			bonus.agregar(d);
+		}
+		else if (nrandom2 == 2)
+		{
+			Bonus* c = new BonusDisparoDoble;
+			c->setPos(-6, 15);
+			bonus.agregar(c);
+		}
+		else if (nrandom2 == 3)
+		{
+			Bonus* b = new BonusVidas;
+			b->setPos(6, 15);
+			bonus.agregar(b);
+		}
+		else if (nrandom2 == 4)
+		{
+			Bonus* a = new BonusPuntExtras;
+			a->setPos(-6, 12);
+			bonus.agregar(a);
+		}
+	}
 }
 void Mundo::dibuja()
 {
