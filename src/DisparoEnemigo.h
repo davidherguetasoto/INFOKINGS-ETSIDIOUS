@@ -2,6 +2,8 @@
 #include "disparo.h"
 class DisparoEnemigo : public Disparo
 {
+private:
+	SpriteSequence sprite_DisparoEnemigo{ "imagenes/Disparo.png",1 };
 protected:
 	//provisional
 	float radio;

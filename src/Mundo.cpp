@@ -14,6 +14,7 @@ Mundo::~Mundo()
 	asteroides.destruirContenido();
 	disparos.destruirContenido();
 	bonus.destruirContenido();
+	disparosenemigos.destruirContenido();
 }
 void Mundo::inicializa()
 {
@@ -61,6 +62,7 @@ void Mundo::dibuja()
 	enemigos.dibuja();
 	disparos.dibuja();
 	bonus.Dibuja();
+	disparosenemigos.dibuja();
 
 	ETSIDI::setTextColor(1, 1, 0);
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
@@ -141,7 +143,8 @@ void Mundo::mueve(float t)
 
 	disparos.mueve(t);
 	disparos.colision(caja);
-
+	disparosenemigos.mueve(t);
+	disparosenemigos.colision(caja);
 
 	bonus.Mueve(t);
 	bonus.colision(caja.suelo);
@@ -480,4 +483,12 @@ void Mundo::aleatorio()
 	Obstaculo* o2 = new Obstaculo();
 	o2->setPos(x, caja.techo.getLim1().y);
 	asteroides.agregar(o2);
+
+	for (int i = 0; i < enemigos.getNumero(); i++)
+	{
+		Disparo* d = new DisparoEnemigo;
+		d->setPos(enemigos[i]->getPos());
+		disparosenemigos.agregar(d);
+	}
+	
 }
