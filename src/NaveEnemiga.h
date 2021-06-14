@@ -11,7 +11,6 @@ protected:
 	//PROVISIONAL PARA HACER DIBUJOS DE PRUEBA
 	float altura;
 	float radio;
-	ColorRGB color;
 public:
 	NaveEnemiga();
 	void dibuja(); //Se debe definir cómo se dibuja el enemigo estándar

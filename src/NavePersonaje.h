@@ -13,7 +13,6 @@ protected:
 	//PROVISIONAL PARA HACER DIBUJOS DE PRUEBA
 	float altura;
 	float radio;
-	ColorRGB color;
 	//prueba bonus
 	int num_bonus;
 	bool disparo_doble; //Modo de disparo doble

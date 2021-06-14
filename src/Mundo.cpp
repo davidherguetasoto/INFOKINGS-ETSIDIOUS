@@ -178,7 +178,7 @@ void Mundo::mueve(float t)
 	}
 	else
 	{
-		personaje.setDisparoDoble(false);
+		//personaje.setDisparoDoble(false);
 	}
 
 	//COLISIÓN DE LOS DISPAROS CON LAS NAVES
@@ -190,22 +190,28 @@ void Mundo::mueve(float t)
 			for (int n = 0; n < enemigos.getNumero(); n++)
 			{
 				DisparoAliado* d = (DisparoAliado*)disparos[i];
-				if (Interaccion::colision(*d, *enemigos[n]))
+				if (d != NULL)
 				{
-					enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
-					if (enemigos[n]->getVida() <= 0.0f)
-						enemigos.eliminar(enemigos[n]);
-					disparos.eliminar(disparos[i]);
+					if (Interaccion::colision(*d, *enemigos[n]))
+					{
+						enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
+						if (enemigos[n]->getVida() <= 0.0f)
+							enemigos.eliminar(enemigos[n]);
+						disparos.eliminar(disparos[i]);
+					}
 				}
 			}
 		}
 		if (tipo == DISPARO_ENEMIGO)
 		{
 			DisparoEnemigo* d = (DisparoEnemigo*)disparos[i];
-			if (Interaccion::colision(*d, personaje))
+			if (d != NULL)
 			{
-				personaje.setVida(personaje.getVida() - disparos[i]->getDano());
-				disparos.eliminar(disparos[i]);
+				if (Interaccion::colision(*d, personaje))
+				{
+					personaje.setVida(personaje.getVida() - disparos[i]->getDano());
+					disparos.eliminar(disparos[i]);
+				}
 			}
 		}
 	}
@@ -511,10 +517,10 @@ void Mundo::aleatorio()
 {
 	float lim1 = caja.pared_izq.getLim1().x;
 	float lim2 = caja.pared_dcha.getLim1().x;
-	int num= 1 + rand() % (10 - 1);
+	int num= 1 + rand() % (11 - 1);
 	if (num < 5)
 	{
-		float x = lim1 + rand() % (int)(lim2 - lim1);
+		float x = (lim1+0.05f) + rand() % (int)((lim2 - lim1)-0.05f);
 		Obstaculo* o2 = new Obstaculo();
 		o2->setPos(x, caja.techo.getLim1().y);
 		asteroides.agregar(o2);
@@ -522,7 +528,7 @@ void Mundo::aleatorio()
 	
 	for (int i = 0; i < enemigos.getNumero(); i++)
 	{
-		int num2 = 1 + rand() % (10 - 1);
+		int num2 = 1 + rand() % (11 - 1);
 		if (num2 < 6)
 		{
 			Disparo* d = new DisparoEnemigo;
