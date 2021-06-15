@@ -8,7 +8,6 @@ private:
 	SpriteSequence sprite_nave{ "imagenes/NaveEnemiga.png",1 };
 protected:
 	float daño; //Daño que harán cuando colisionen con la nave del personaje
-	//PROVISIONAL PARA HACER DIBUJOS DE PRUEBA
 public:
 	NaveEnemiga();
 	void dibuja(); //Se debe definir cómo se dibuja el enemigo estándar
