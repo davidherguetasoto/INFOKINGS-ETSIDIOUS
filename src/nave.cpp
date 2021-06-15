@@ -3,7 +3,8 @@
 
 Nave::Nave(float vida) : vida(vida)
 {
-	
+	radio = 1.0f;
+	altura = 1.0f;
 }
 float Nave::getVida()
 {

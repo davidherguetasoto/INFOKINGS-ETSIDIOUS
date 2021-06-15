@@ -11,8 +11,6 @@ private:
 	SpriteSequence sprite_nave{ "imagenes/NavePersonaje.png",1 };
 protected:
 	float t_DisparoDoble; //tiempo restante del disparo doble
-	float altura;
-	float radio;
 	//prueba bonus
 	int num_bonus;
 	bool disparo_doble; //Modo de disparo doble
@@ -22,8 +20,7 @@ public:
 	NavePersonaje();
 	void dibuja(); //Define cómo se dibuja el personaje
 	friend class Interaccion;
-	float getRadio() { return radio; }
-	float getAltura() { return altura; }
+	
 	int getNumMisiles() { return num_misiles; }
 	void setNumMisiles(int misiles);
 
