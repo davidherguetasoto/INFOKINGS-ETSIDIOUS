@@ -580,11 +580,11 @@ void Mundo::bonus_aleatorio(NaveEnemiga n,int lim)
 }
 
 
-void Mundo::bonus_aleatorio(Obstaculo n, int lim)
+void Mundo::bonus_aleatorio(Obstaculo n, int limRand)
 {
 	int nrandom1;
 	int nrandom2;
-	nrandom1 = 1 + rand() % lim;
+	nrandom1 = 1 + rand() % limRand;
 	if (nrandom1 == 1)
 	{
 		nrandom2 = 1 + rand() % 4;
