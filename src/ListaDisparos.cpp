@@ -12,7 +12,8 @@ bool ListaDisparos::agregar(Disparo* d)
 
 		//SONIDO A REPRODUCIR AL DISPARAR
 		//SE PUEDEN PONER DISTINTOS SONIDOS PARA CADA DISPARO
-		//ETSIDI::play("sonidos/disparo.wav");
+		if(d->getTipo()==DISPARO_ALIADO)//|| d->getTipo() == DISPARO_ENEMIGO)
+		ETSIDI::play("sonidos/Disparo.wav");
 	}
 	else return FALSE;
 	return TRUE;
