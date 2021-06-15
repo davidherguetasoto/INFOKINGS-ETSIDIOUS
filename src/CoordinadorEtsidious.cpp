@@ -87,14 +87,14 @@ void CoordinadorEtsidious::dibuja()
 		ETSIDI::printxy("Te apuntas?", -12, 8);
 
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/espadas.png").id);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/Collage.png").id);
 		glDisable(GL_LIGHTING);
 		glBegin(GL_POLYGON);
 		glColor3f(1, 1, 1);
-		glTexCoord2d(0, 1); glVertex2f(4 , 4);
-		glTexCoord2d(1, 1); glVertex2f(9, 4);
-		glTexCoord2d(1, 0); glVertex2f(9 , 9);
-		glTexCoord2d(0, 0); glVertex2f(4, 9);
+		glTexCoord2d(0, 1); glVertex2f(6 , 0);
+		glTexCoord2d(1, 1); glVertex2f(14, 0);
+		glTexCoord2d(1, 0); glVertex2f(14 , 9);
+		glTexCoord2d(0, 0); glVertex2f(6, 9);
 		glEnd();
 		glEnable(GL_LIGHTING);
 		glDisable(GL_TEXTURE_2D);
