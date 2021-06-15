@@ -4,15 +4,15 @@
 NavePersonaje::NavePersonaje():Nave(VIDA_MAX)//poner vida_max luego
 {
 	t_DisparoDoble = 0;
-	altura = 5.0f; 
-	radio = 1.75f; 
+	altura = 2.5f; //5
+	radio = 0.875f; //1.75
 
 	num_bonus = 0;//num_bonus para inicializarlo a 0 prueba
 	num_misiles = 3;
 	disparo_misiles = false;
 	disparo_doble = false;
-	sprite_nave.setCenter(radio, altura/2);
-	sprite_nave.setSize(radio*2, altura);
+	sprite_nave.setCenter(radio*2, altura);
+	sprite_nave.setSize(radio*4, altura*2);
 }
 void NavePersonaje::dibuja()
 {
