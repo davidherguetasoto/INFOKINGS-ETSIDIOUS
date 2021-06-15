@@ -51,4 +51,5 @@ public:
 	bool cargarNivel();
 	float getPuntos() { return puntuacion; }
 	friend class CoordinadorEtsidious;
+	void incrementa(float p);
 };
