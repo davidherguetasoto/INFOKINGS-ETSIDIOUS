@@ -20,12 +20,13 @@ void CoordinadorEtsidious::dibuja()
 			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 20);
-		ETSIDI::printxy("infokings presenta...", -4, 12);
-		ETSIDI::printxy("ETSIDIUOS", -2.2, 10);
+		ETSIDI::printxy("infokings presenta...", -4, 13);
+		ETSIDI::printxy("ETSIDIUOS", -2.2, 11);
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
-		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR LA AVENTURA", -8, 7);
-		ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5, 6);
+		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR LA AVENTURA", -8, 8);
+		ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5, 7);
+		ETSIDI::printxy("PULSE LA TECLA -C- PARA VER LOS CONTROLES", -8, 6);
 		ETSIDI::printxy("Realizado por:", -1, 4);
 		ETSIDI::printxy("Adrian Bedmar Juanas", -2, 3);
 		ETSIDI::printxy("Luis Torres del Nuevo", -2, 2);
@@ -65,6 +66,21 @@ void CoordinadorEtsidious::dibuja()
 	{
 
 	}
+	else if (estado == Estado::CONTROLES)
+	{
+		gluLookAt(0, 7.5, 30, // posicion del ojo
+			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
+			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
+		ETSIDI::setTextColor(1, 1, 1);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+		ETSIDI::printxy("CONTROLES:", -8, 10);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 14);
+		ETSIDI::printxy("Utilice las flechas para moverse", -8, 8);
+		ETSIDI::printxy("Utilice la tecla espacio para disparar", -8, 7);
+		ETSIDI::printxy("Utilice la tecla d para cambiar el modo de disparo", -8, 6);
+		ETSIDI::printxy("Utilice la tecla p para poner en pausa el juego", -8, 5);
+		ETSIDI::printxy("Pulsa -S- para volver al menú principal", -8, 2);
+	}
 }
 void CoordinadorEtsidious::tecla(unsigned char key)
 {
@@ -83,6 +99,10 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 		if (key == 's' || key == 'S')
 		{
 			exit(0);
+		}
+		if (key == 'c' || key == 'C')
+		{
+			estado = Estado::CONTROLES;
 		}
 	}
 	else if (estado == Estado::JUEGO)
@@ -109,6 +129,11 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 	{
 		if (key == 'c' || key == 'C')
 			estado = Estado::JUEGO;
+	}
+	else if (estado == Estado::CONTROLES)
+	{
+		if (key == 's' || key == 'S')
+			estado = Estado::INICIO;
 	}
 	else if (estado == Estado::RANKING)
 	{
