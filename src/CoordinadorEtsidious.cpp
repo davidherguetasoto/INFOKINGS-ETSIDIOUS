@@ -149,6 +149,7 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 			{
 				delete mundo;
 				flag_mundo = false;
+				ETSIDI::playMusica("sonidos/Title_Screen_Them.mp3", true);
 			}
 		}
 	}
