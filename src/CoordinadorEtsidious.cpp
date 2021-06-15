@@ -71,22 +71,40 @@ void CoordinadorEtsidious::dibuja()
 		gluLookAt(0, 7.5, 30, // posicion del ojo
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
 			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
+
+		//EXPLICACIÓN DEL JUEGO
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-		ETSIDI::printxy("SUMERGETE EN LA AVENTURA", -6, 16);
+		ETSIDI::printxy("SUMERGETE EN LA AVENTURA", -10, 16);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 14);
-		ETSIDI::printxy("Los malvados alienígenas del planeta BEBEAWA han", -8, 6);
-		ETSIDI::printxy("desplegado sus tropas para hacerse ", -8, 5);
-		ETSIDI::printxy("Utilice la tecla d para cambiar el modo de disparo", -8, 4);
-		ETSIDI::printxy("Utilice la tecla p para poner en pausa el juego", -8, 3);
-		ETSIDI::printxy("Pulsa -S- para volver al menú principal", -8, 0);
-		ETSIDI::printxy("CONTROLES:", -6, 8);
+		ETSIDI::printxy("Los malvados alienigenas del planeta BEBEAWA han desplegado", -12, 14);
+		ETSIDI::printxy("sus tropas para dominar la Tierra. Solo tu puedes salvar a la", -12, 13);
+		ETSIDI::printxy("humanidad. Evita ser golpeado por los disparos enemigos y los", -12, 12);
+		ETSIDI::printxy("asteroides, o tu vida se verá mermada. Obten las diferentes", -12, 11);
+		ETSIDI::printxy("bonificaciones para conseguir la mayor puntuación posible.", -12, 10);
+		ETSIDI::printxy("¿Te apuntas?", -12, 9);
+
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/espadas.png").id);
+		glDisable(GL_LIGHTING);
+		glBegin(GL_POLYGON);
+		glColor3f(1, 1, 1);
+		glTexCoord2d(0, 1); glVertex2f(4 , 4);
+		glTexCoord2d(1, 1); glVertex2f(9, 4);
+		glTexCoord2d(1, 0); glVertex2f(9 , 9);
+		glTexCoord2d(0, 0); glVertex2f(4, 9);
+		glEnd();
+		glEnable(GL_LIGHTING);
+		glDisable(GL_TEXTURE_2D);
+
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+		ETSIDI::printxy("CONTROLES:", -10, 7);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 14);
-		ETSIDI::printxy("Utilice las flechas para moverse", -8, 6);
-		ETSIDI::printxy("Utilice la tecla espacio para disparar", -8, 5);
-		ETSIDI::printxy("Utilice la tecla d para cambiar el modo de disparo", -8, 4);
-		ETSIDI::printxy("Utilice la tecla p para poner en pausa el juego", -8, 3);
-		ETSIDI::printxy("Pulsa -S- para volver al menú principal", -8, 0);
+		ETSIDI::printxy("Utilice las flechas para moverse", -12, 5);
+		ETSIDI::printxy("Utilice la tecla espacio para disparar", -12, 4);
+		ETSIDI::printxy("Utilice la tecla d para cambiar el modo de disparo", -12, 3);
+		ETSIDI::printxy("Utilice la tecla p para poner en pausa el juego", -12, 2);
+		ETSIDI::printxy("Pulsa -S- para volver al menu principal", -8, 0);
 	}
 }
 void CoordinadorEtsidious::tecla(unsigned char key)
