@@ -292,6 +292,8 @@ void Mundo::mueve(float t)
 					bonus_aleatorio(*asteroides[n], 1);
 					asteroides.eliminar(asteroides[n]);
 					disparos.eliminar(disparos[i]);
+					ETSIDI::play("sonidos/asteroidedestruido.wav");
+
 				}
 			}
 		}
