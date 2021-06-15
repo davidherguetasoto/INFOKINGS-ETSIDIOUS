@@ -80,9 +80,10 @@ void CoordinadorEtsidious::dibuja()
 		ETSIDI::printxy("Los malvados alienigenas del planeta BEBEAWA han desplegado", -12, 14);
 		ETSIDI::printxy("sus tropas para dominar la Tierra. Solo tu puedes salvar a la", -12, 13);
 		ETSIDI::printxy("humanidad. Evita ser golpeado por los disparos enemigos y los", -12, 12);
-		ETSIDI::printxy("asteroides, o tu vida se verá mermada. Obten las diferentes", -12, 11);
-		ETSIDI::printxy("bonificaciones para conseguir la mayor puntuación posible.", -12, 10);
-		ETSIDI::printxy("¿Te apuntas?", -12, 9);
+		ETSIDI::printxy("asteroides, o tu vida se vera mermada. Obten las diferentes", -12, 11);
+		ETSIDI::printxy("bonificaciones y acaba con todos los enemigos para", -12, 10);
+		ETSIDI::printxy("conseguir la mayor puntuacion posible.", -12, 9);
+		ETSIDI::printxy("Te apuntas?", -12, 8);
 
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/espadas.png").id);
@@ -98,11 +99,11 @@ void CoordinadorEtsidious::dibuja()
 		glDisable(GL_TEXTURE_2D);
 
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-		ETSIDI::printxy("CONTROLES:", -10, 7);
+		ETSIDI::printxy("CONTROLES:", -10, 6);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 14);
 		ETSIDI::printxy("Utilice las flechas para moverse", -12, 5);
 		ETSIDI::printxy("Utilice la tecla espacio para disparar", -12, 4);
-		ETSIDI::printxy("Utilice la tecla d para cambiar el modo de disparo", -12, 3);
+		ETSIDI::printxy("Utilice la tecla d para activar el disparo de misiles ", -12, 3);
 		ETSIDI::printxy("Utilice la tecla p para poner en pausa el juego", -12, 2);
 		ETSIDI::printxy("Pulsa -S- para volver al menu principal", -8, 0);
 	}
