@@ -75,14 +75,15 @@ void CoordinadorEtsidious::dibuja()
 		//EXPLICACIÓN DEL JUEGO
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-		ETSIDI::printxy("SUMERGETE EN LA AVENTURA", -10, 16);
+		ETSIDI::printxy("SUMERGETE EN LA AVENTURA", -10, 17);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 14);
-		ETSIDI::printxy("Los malvados alienigenas del planeta BEBEAWA han desplegado", -12, 14);
-		ETSIDI::printxy("sus tropas para dominar la Tierra. Solo tu puedes salvar a la", -12, 13);
-		ETSIDI::printxy("humanidad. Evita ser golpeado por los disparos enemigos y los", -12, 12);
-		ETSIDI::printxy("asteroides, o tu vida se vera mermada. Obten las diferentes", -12, 11);
-		ETSIDI::printxy("bonificaciones y acaba con todos los enemigos para", -12, 10);
-		ETSIDI::printxy("conseguir la mayor puntuacion posible.", -12, 9);
+		ETSIDI::printxy("Los malvados alienigenas del planeta BEBEAWA han desplegado", -12, 15);
+		ETSIDI::printxy("sus tropas para dominar la Tierra. Solo tu puedes salvar a la", -12, 14);
+		ETSIDI::printxy("humanidad. Evita ser golpeado por los disparos enemigos y los", -12, 13);
+		ETSIDI::printxy("asteroides, o tu vida se vera mermada.", -12, 12);
+		ETSIDI::printxy("Solo podras destruir los asteroides con ayuda de tus misiles", -12, 11);
+		ETSIDI::printxy(" Obten las diferentes bonificaciones y acaba con todos los enemigos", -12, 10);
+		ETSIDI::printxy("para conseguir la mayor puntuacion posible.", -12, 9);
 		ETSIDI::printxy("Te apuntas?", -12, 8);
 
 		glEnable(GL_TEXTURE_2D);
