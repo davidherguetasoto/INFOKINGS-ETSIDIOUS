@@ -25,6 +25,7 @@ void Mundo::inicializa()
 
 	nivel = 0;
 	cargarNivel();
+	/*ETSIDI::playMusica("sonidos/intro.mp3", true);*/
 
 	/*Bonus* d = new BonusMisiles;
 	d->setPos(6, 12);
