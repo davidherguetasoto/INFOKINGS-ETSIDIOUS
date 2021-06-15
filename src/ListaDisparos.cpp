@@ -12,10 +12,14 @@ bool ListaDisparos::agregar(Disparo* d)
 
 		//SONIDO A REPRODUCIR AL DISPARAR
 		//SE PUEDEN PONER DISTINTOS SONIDOS PARA CADA DISPARO
-		if(d->getTipo()==DISPARO_ALIADO)//|| d->getTipo() == DISPARO_ENEMIGO)
-		ETSIDI::play("sonidos/Disparo.wav");
+		if (d->getTipo() == DISPARO_ALIADO)
+			ETSIDI::play("sonidos/Disparo.wav");
 		else if(d->getTipo() == DISPARO_DOBLE)
 			ETSIDI::play("sonidos/DisparoDoble.wav");
+		else if (d->getTipo() == DISPARO_ENEMIGO)
+			ETSIDI::play("sonidos/disparoenemigo.wav");
+		else if (d->getTipo() == MISIL)
+			ETSIDI::play("sonidos/disparomisil.wav");
 	}
 	else return FALSE;
 	return TRUE;

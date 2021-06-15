@@ -208,9 +208,11 @@ void CoordinadorEtsidious::mueve(float t)
 		if (mundo->getNumEnemigos() == 0) {	//si los enemigos se reducen a 0
 			if (!mundo->cargarNivel())		//se carga nivel
 				estado = Estado::FIN;		//si nivel>3, WIN!
+			ETSIDI::play("sonidos/victoria.wav");
 		}
 		if (mundo->personaje.getVida() == 0) {
 			estado = Estado::GAMEOVER;
+			ETSIDI::play("sonidos/derrota.wav");
 		}
 	}
 }
