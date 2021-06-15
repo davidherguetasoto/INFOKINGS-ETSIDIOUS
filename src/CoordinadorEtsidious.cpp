@@ -73,13 +73,20 @@ void CoordinadorEtsidious::dibuja()
 			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-		ETSIDI::printxy("CONTROLES:", -8, 10);
+		ETSIDI::printxy("SUMERGETE EN LA AVENTURA", -6, 16);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 14);
-		ETSIDI::printxy("Utilice las flechas para moverse", -8, 8);
-		ETSIDI::printxy("Utilice la tecla espacio para disparar", -8, 7);
-		ETSIDI::printxy("Utilice la tecla d para cambiar el modo de disparo", -8, 6);
-		ETSIDI::printxy("Utilice la tecla p para poner en pausa el juego", -8, 5);
-		ETSIDI::printxy("Pulsa -S- para volver al menú principal", -8, 2);
+		ETSIDI::printxy("Los malvados alienígenas del planeta BEBEAWA han", -8, 6);
+		ETSIDI::printxy("desplegado sus tropas para hacerse ", -8, 5);
+		ETSIDI::printxy("Utilice la tecla d para cambiar el modo de disparo", -8, 4);
+		ETSIDI::printxy("Utilice la tecla p para poner en pausa el juego", -8, 3);
+		ETSIDI::printxy("Pulsa -S- para volver al menú principal", -8, 0);
+		ETSIDI::printxy("CONTROLES:", -6, 8);
+		ETSIDI::setFont("fuentes/Bitwise.ttf", 14);
+		ETSIDI::printxy("Utilice las flechas para moverse", -8, 6);
+		ETSIDI::printxy("Utilice la tecla espacio para disparar", -8, 5);
+		ETSIDI::printxy("Utilice la tecla d para cambiar el modo de disparo", -8, 4);
+		ETSIDI::printxy("Utilice la tecla p para poner en pausa el juego", -8, 3);
+		ETSIDI::printxy("Pulsa -S- para volver al menú principal", -8, 0);
 	}
 }
 void CoordinadorEtsidious::tecla(unsigned char key)
@@ -160,6 +167,10 @@ void CoordinadorEtsidious::teclaEspecial(int key)
 void CoordinadorEtsidious::inicializa()
 {
 	mundo->inicializa();
+	if (estado == Estado::INICIO)
+	{
+		ETSIDI::playMusica("sonidos/starwars.mp3", true);
+	}
 }
 void CoordinadorEtsidious::aleatorio()
 {
@@ -172,6 +183,7 @@ void CoordinadorEtsidious::mueve(float t)
 {
 	if (estado == Estado::JUEGO)
 	{
+		ETSIDI::stopMusica();
 		mundo->mueve(t);
 		if (mundo->getNumEnemigos() == 0) {	//si los enemigos se reducen a 0
 			if (!mundo->cargarNivel())		//se carga nivel
