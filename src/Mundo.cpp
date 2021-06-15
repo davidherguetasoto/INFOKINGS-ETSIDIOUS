@@ -187,10 +187,12 @@ void Mundo::mueve(float t)
 				{
 					if (Interaccion::colision(*d, *enemigos[n]))
 					{
+						ETSIDI::play("sonidos/impactodisparo.wav");
 						enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
 						if (enemigos[n]->getVida() <= 0.0f)
 						{
 							incrementa(100);
+							ETSIDI::play("sonidos/enemigomuere.wav");
 							bonus_aleatorio(*enemigos[n],2);
 							enemigos.eliminar(enemigos[n]);
 						}
@@ -222,6 +224,7 @@ void Mundo::mueve(float t)
 		{
 			personaje.setVida(personaje.getVida() - asteroides[i]->getDano());
 			incrementa(-50);
+			ETSIDI::play("sonidos/asteroidedestruido.wav");
 			asteroides.eliminar(asteroides[i]);
 		}
 	}
