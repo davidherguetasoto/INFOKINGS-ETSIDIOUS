@@ -45,12 +45,10 @@ void Mundo::dibuja()
 {
 	//PASO DEL VALOR DEL TIEMPO DEL DISPARO DOBLE
 	//A STRING PARA PODERLO IMPRIMIR
-	int t_aux = 0; //variable auxiliar para convertir el tiempo a entero
-	t_aux = personaje.get_t_DisparoDoble() * 0.025f;
 	string tiempo_disparo_doble;
 	stringstream sstr;
 	const char* c = tiempo_disparo_doble.c_str();
-	sstr<<t_aux;
+	sstr<<static_cast<int>(personaje.get_t_DisparoDoble()*0.025);
 	sstr >> tiempo_disparo_doble;
 
 

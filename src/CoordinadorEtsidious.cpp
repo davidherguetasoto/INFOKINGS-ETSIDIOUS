@@ -15,6 +15,7 @@ void CoordinadorEtsidious::dibuja()
 {
 	if (estado == Estado::INICIO)
 	{
+		ETSIDI::playMusica("sonidos/Title_Screen_Them.mp3", true);
 		gluLookAt(0, 7.5, 30, // posicion del ojo
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
 			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
@@ -187,10 +188,10 @@ void CoordinadorEtsidious::teclaEspecial(int key)
 void CoordinadorEtsidious::inicializa()
 {
 	mundo->inicializa();
-	if (estado == Estado::INICIO)
+	/*if (estado == Estado::INICIO)
 	{
 		ETSIDI::playMusica("sonidos/Title_Screen_Them.mp3", true);
-	}
+	}*/
 }
 void CoordinadorEtsidious::aleatorio()
 {
