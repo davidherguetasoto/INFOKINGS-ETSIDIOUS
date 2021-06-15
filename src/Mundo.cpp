@@ -180,37 +180,7 @@ void Mundo::mueve(float t)
 						enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
 						if (enemigos[n]->getVida() <= 0.0f)
 						{
-							int nrandom1;
-							int nrandom2;
-							nrandom1 = 1 + rand() % 2;
-							if (nrandom1 == 1)
-							{
-								nrandom2 = 1 + rand() % 4;
-								if (nrandom2 == 1)
-								{
-									Bonus* d = new BonusMisiles;
-									d->setPos(enemigos[n]->getPos());
-									bonus.agregar(d);
-								}
-								else if (nrandom2 == 2)
-								{
-									Bonus* c = new BonusDisparoDoble;
-									c->setPos(enemigos[n]->getPos());
-									bonus.agregar(c);
-								}
-								else if (nrandom2 == 3)
-								{
-									Bonus* b = new BonusVidas;
-									b->setPos(enemigos[n]->getPos());
-									bonus.agregar(b);
-								}
-								else if (nrandom2 == 4)
-								{
-									Bonus* a = new BonusPuntExtras;
-									a->setPos(enemigos[n]->getPos());
-									bonus.agregar(a);
-								}
-							}
+							Bonus_aleatorio(n);
 							enemigos.eliminar(enemigos[n]);
 						}
 						disparos.eliminar(disparos[i]);
@@ -556,6 +526,41 @@ void Mundo::aleatorio()
 			Disparo* d = new DisparoEnemigo;
 			d->setPos(enemigos[i]->getPos());
 			disparos.agregar(d);
+		}
+	}
+}
+
+void Mundo::Bonus_aleatorio(int n)
+{
+	int nrandom1;
+	int nrandom2;
+	nrandom1 = 1 + rand() % 2;
+	if (nrandom1 == 1)
+	{
+		nrandom2 = 1 + rand() % 4;
+		if (nrandom2 == 1)
+		{
+			Bonus* d = new BonusMisiles;
+			d->setPos(enemigos[n]->getPos());
+			bonus.agregar(d);
+		}
+		else if (nrandom2 == 2)
+		{
+			Bonus* c = new BonusDisparoDoble;
+			c->setPos(enemigos[n]->getPos());
+			bonus.agregar(c);
+		}
+		else if (nrandom2 == 3)
+		{
+			Bonus* b = new BonusVidas;
+			b->setPos(enemigos[n]->getPos());
+			bonus.agregar(b);
+		}
+		else if (nrandom2 == 4)
+		{
+			Bonus* a = new BonusPuntExtras;
+			a->setPos(enemigos[n]->getPos());
+			bonus.agregar(a);
 		}
 	}
 }

@@ -45,7 +45,7 @@ public:
 	void mueve(float t);
 	void dibuja();
 	void aleatorio();
-
+	void Bonus_aleatorio(int n);
 	int getNumEnemigos();
 	bool cargarNivel();
 	float getPuntos() { return puntuacion; }
