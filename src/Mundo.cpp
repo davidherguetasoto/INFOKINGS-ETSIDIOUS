@@ -310,37 +310,6 @@ void Mundo::tecla(unsigned char key)
 {
 	switch (key)
 	{
-	//TECLAS PARA CAMBIAR EL PUNTO DE VISTA DURANTE EL DESARROLLO
-	case'z':
-	{
-		x_ojo++;
-		break;
-	}
-	case'x':
-	{
-		x_ojo--;
-		break;
-	}
-	case'c':
-	{
-		y_ojo++;
-		break;
-	}
-	case'v':
-	{
-		y_ojo--;
-		break;
-	}
-	case'b':
-	{
-		z_ojo++;
-		break;
-	}
-	case'n':
-	{
-		z_ojo--;
-		break;
-	}
 	//DISPARAR
 	case' ':
 	{
