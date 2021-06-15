@@ -169,7 +169,7 @@ void CoordinadorEtsidious::inicializa()
 	mundo->inicializa();
 	if (estado == Estado::INICIO)
 	{
-		ETSIDI::playMusica("sonidos/starwars.mp3", true);
+		ETSIDI::playMusica("sonidos/Title_Screen_Them.mp3", true);
 	}
 }
 void CoordinadorEtsidious::aleatorio()
