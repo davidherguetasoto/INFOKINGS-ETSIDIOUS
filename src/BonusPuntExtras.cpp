@@ -1,6 +1,6 @@
 #include "BonusPuntExtras.h"
 
-BonusPuntExtras::BonusPuntExtras() :Bonus(30, BONUS_PUNT_EXTRAS)
+BonusPuntExtras::BonusPuntExtras() :Bonus(150, BONUS_PUNT_EXTRAS)
 {
 	velocidad.y = -7.0f;
 	sprite_puntos.setCenter(lado/2.0f, lado/2.0f);

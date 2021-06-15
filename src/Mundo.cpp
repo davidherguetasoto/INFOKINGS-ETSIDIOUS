@@ -25,7 +25,6 @@ void Mundo::inicializa()
 
 	nivel = 0;
 	cargarNivel();
-	/*ETSIDI::playMusica("sonidos/intro.mp3", true);*/
 
 	/*Bonus* d = new BonusMisiles;
 	d->setPos(6, 12);
@@ -116,6 +115,18 @@ void Mundo::dibuja()
 	else
 		ETSIDI::printxy("NORMAL", 12, 17);
 	
+	//TEXTO PUNTUACIÓN
+	ETSIDI::setTextColor(1, 1, 0);
+	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+	ETSIDI::printxy("PUNTOS:", -18, 18);	
+	//PASO DEL VALOR DE LA PUNTUACIÓN
+	//A STRING PARA PODERLO IMPRIMIR
+	string puntos_tot;
+	stringstream sstrp;
+	const char* p = puntos_tot.c_str();
+	sstrp << puntuacion;
+	sstrp >> puntos_tot;
+	ETSIDI::printxy(p, -16, 17);
 
 	//DIBUJO DE LA VIDA
 	ETSIDI::setTextColor(1, 0, 0);
@@ -154,6 +165,10 @@ void Mundo::mueve(float t)
 	bonus.Mueve(t);
 	bonus.colision(caja.suelo);
 
+	//GESTION DISPARO NEGATIVO
+	if (puntuacion < 0)
+		puntuacion = 0;
+
 	//GESTIÓN DEL TIEMPO DEL DISPARO DOBLE
 	if (personaje.get_t_DisparoDoble() > 0)
 	{
@@ -181,6 +196,7 @@ void Mundo::mueve(float t)
 						enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
 						if (enemigos[n]->getVida() <= 0.0f)
 						{
+							puntuacion += 100;
 							bonus_aleatorio(*enemigos[n],2);
 							enemigos.eliminar(enemigos[n]);
 						}
@@ -197,6 +213,7 @@ void Mundo::mueve(float t)
 				if (Interaccion::colision(*d, personaje))
 				{
 					personaje.setVida(personaje.getVida() - disparos[i]->getDano());
+					puntuacion = puntuacion - 30;
 					disparos.eliminar(disparos[i]);
 				}
 			}
@@ -210,6 +227,7 @@ void Mundo::mueve(float t)
 		if (Interaccion::colision(*o, personaje))
 		{
 			personaje.setVida(personaje.getVida() - asteroides[i]->getDano());
+			puntuacion = puntuacion - 50;
 			asteroides.eliminar(asteroides[i]);
 		}
 	}
