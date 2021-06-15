@@ -10,7 +10,7 @@ class CoordinadorEtsidious
 {
 protected:
 	Mundo* mundo;
-	enum class Estado{INICIO, JUEGO, GAMEOVER, FIN, PAUSA, RANKING};
+	enum class Estado{INICIO, JUEGO, GAMEOVER, FIN, PAUSA, RANKING, CONTROLES};
 	Estado estado;
 	float puntuacion;
 	bool flag_mundo; //¿Hay un mundo creado? TRUE:=SI FALSE:=NO
