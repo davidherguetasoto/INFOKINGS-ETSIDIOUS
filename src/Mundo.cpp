@@ -45,12 +45,10 @@ void Mundo::dibuja()
 {
 	//PASO DEL VALOR DEL TIEMPO DEL DISPARO DOBLE
 	//A STRING PARA PODERLO IMPRIMIR
-	int t_aux = 0; //variable auxiliar para convertir el tiempo a entero
-	t_aux = personaje.get_t_DisparoDoble() * 0.025f;
 	string tiempo_disparo_doble;
 	stringstream sstr;
 	const char* c = tiempo_disparo_doble.c_str();
-	sstr<<t_aux;
+	sstr<<static_cast<int>(personaje.get_t_DisparoDoble()*0.025);
 	sstr >> tiempo_disparo_doble;
 
 
@@ -189,10 +187,12 @@ void Mundo::mueve(float t)
 				{
 					if (Interaccion::colision(*d, *enemigos[n]))
 					{
+						ETSIDI::play("sonidos/impactodisparo.wav");
 						enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
 						if (enemigos[n]->getVida() <= 0.0f)
 						{
 							incrementa(100);
+							ETSIDI::play("sonidos/enemigomuere.wav");
 							bonus_aleatorio(*enemigos[n],2);
 							enemigos.eliminar(enemigos[n]);
 						}
@@ -224,6 +224,7 @@ void Mundo::mueve(float t)
 		{
 			personaje.setVida(personaje.getVida() - asteroides[i]->getDano());
 			incrementa(-50);
+			ETSIDI::play("sonidos/asteroidedestruido.wav");
 			asteroides.eliminar(asteroides[i]);
 		}
 	}
@@ -294,6 +295,8 @@ void Mundo::mueve(float t)
 					bonus_aleatorio(*asteroides[n], 1);
 					asteroides.eliminar(asteroides[n]);
 					disparos.eliminar(disparos[i]);
+					ETSIDI::play("sonidos/asteroidedestruido.wav");
+
 				}
 			}
 		}
@@ -411,7 +414,7 @@ void Mundo::teclaEspecial(int key)
 	{
 	case GLUT_KEY_LEFT:
 	{
-		if (personaje.getPos().x>(caja.pared_izq.getLim1().x+0.05))
+		if (personaje.getPos().x>(caja.pared_izq.getLim1().x+2.0f))
 		{
 			personaje.setVel(-VELOCIDAD_PERSONAJE, 0.0f);
 		}
@@ -420,7 +423,7 @@ void Mundo::teclaEspecial(int key)
 	}
 	case GLUT_KEY_RIGHT:
 	{
-		if ((personaje.getPos().x) < (caja.pared_dcha.getLim1().x - 0.05))
+		if ((personaje.getPos().x) < (caja.pared_dcha.getLim1().x - 2.0f))
 		{
 			personaje.setVel(VELOCIDAD_PERSONAJE, 0.0f);
 		}
@@ -429,7 +432,7 @@ void Mundo::teclaEspecial(int key)
 	}
 	case GLUT_KEY_UP:
 	{
-		if (personaje.getPos().y < (caja.techo.getLim1().y - 0.05))
+		if (personaje.getPos().y < (caja.techo.getLim1().y - 2.0f))
 		{
 			personaje.setVel(0.0f, VELOCIDAD_PERSONAJE);
 		}
@@ -438,7 +441,7 @@ void Mundo::teclaEspecial(int key)
 	}
 	case GLUT_KEY_DOWN:
 	{
-		if ((personaje.getPos().y) > (caja.suelo.getLim1().y + 0.05))
+		if ((personaje.getPos().y) > (caja.suelo.getLim1().y + 2.0f))
 		{
 			personaje.setVel(0.0f, -VELOCIDAD_PERSONAJE);
 		}
@@ -551,11 +554,11 @@ void Mundo::bonus_aleatorio(NaveEnemiga n,int lim)
 }
 
 
-void Mundo::bonus_aleatorio(Obstaculo n, int lim)
+void Mundo::bonus_aleatorio(Obstaculo n, int limRand)
 {
 	int nrandom1;
 	int nrandom2;
-	nrandom1 = 1 + rand() % lim;
+	nrandom1 = 1 + rand() % limRand;
 	if (nrandom1 == 1)
 	{
 		nrandom2 = 1 + rand() % 4;

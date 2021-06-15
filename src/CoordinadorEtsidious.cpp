@@ -51,7 +51,7 @@ void CoordinadorEtsidious::dibuja()
 		mundo->dibuja();
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-		ETSIDI::printxy("ENHORABUENA, has salvado el mundo", -5, 10);
+		ETSIDI::printxy("ENHORABUENA, has salvado el mundo!", -10, 10);
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 9);
 	}
 	else if (estado == Estado::PAUSA)
@@ -87,14 +87,14 @@ void CoordinadorEtsidious::dibuja()
 		ETSIDI::printxy("Te apuntas?", -12, 8);
 
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/espadas.png").id);
+		glBindTexture(GL_TEXTURE_2D, ETSIDI::getTexture("imagenes/Collage.png").id);
 		glDisable(GL_LIGHTING);
 		glBegin(GL_POLYGON);
 		glColor3f(1, 1, 1);
-		glTexCoord2d(0, 1); glVertex2f(4 , 4);
-		glTexCoord2d(1, 1); glVertex2f(9, 4);
-		glTexCoord2d(1, 0); glVertex2f(9 , 9);
-		glTexCoord2d(0, 0); glVertex2f(4, 9);
+		glTexCoord2d(0, 1); glVertex2f(6 , 0);
+		glTexCoord2d(1, 1); glVertex2f(14, 0);
+		glTexCoord2d(1, 0); glVertex2f(14 , 9);
+		glTexCoord2d(0, 0); glVertex2f(6, 9);
 		glEnd();
 		glEnable(GL_LIGHTING);
 		glDisable(GL_TEXTURE_2D);
@@ -149,6 +149,7 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 			{
 				delete mundo;
 				flag_mundo = false;
+				ETSIDI::playMusica("sonidos/Title_Screen_Them.mp3", true);
 			}
 		}
 	}
@@ -208,9 +209,11 @@ void CoordinadorEtsidious::mueve(float t)
 		if (mundo->getNumEnemigos() == 0) {	//si los enemigos se reducen a 0
 			if (!mundo->cargarNivel())		//se carga nivel
 				estado = Estado::FIN;		//si nivel>3, WIN!
+			ETSIDI::play("sonidos/victoria.wav");
 		}
 		if (mundo->personaje.getVida() == 0) {
 			estado = Estado::GAMEOVER;
+			ETSIDI::play("sonidos/derrota.wav");
 		}
 	}
 }

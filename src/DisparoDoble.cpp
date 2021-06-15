@@ -2,11 +2,11 @@
 
 DisparoDoble::DisparoDoble() :DisparoAliado(40, DISPARO_DOBLE)
 {
-	radio = 0.375f;
-	altura = 1.5f;
+	radio = 0.1875f; //0.375
+	altura = 0.75f; //1.5
 	velocidad.y = 35.0f;
-	sprite_doble.setCenter(radio,altura/2);
-	sprite_doble.setSize(radio*2, altura);
+	sprite_doble.setCenter(radio*2,altura);
+	sprite_doble.setSize(radio*4, altura*2);
 }
 DisparoDoble::~DisparoDoble()
 {
