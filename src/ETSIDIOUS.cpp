@@ -39,6 +39,7 @@ int main(int argc, char* argv[])
 	glutTimerFunc(2500, OnTime, 0); //Cada dos segundos y medio llama a la funcion OnTime()
 
 	etsidious.inicializa();
+	ETSIDI::playMusica("sonidos/intro.mp3", true);
 
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();
