@@ -15,7 +15,6 @@ void CoordinadorEtsidious::dibuja()
 {
 	if (estado == Estado::INICIO)
 	{
-		ETSIDI::playMusica("sonidos/Title_Screen_Them.mp3", true);
 		gluLookAt(0, 7.5, 30, // posicion del ojo
 			0.0, 7.5, 0.0, // hacia que punto mira (0,7.5,0)
 			0.0, 1.0, 0.0); // definimos hacia arriba (eje Y)
@@ -52,7 +51,7 @@ void CoordinadorEtsidious::dibuja()
 		mundo->dibuja();
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-		ETSIDI::printxy("ENHORABUENA, has salvado el mundo", -5, 10);
+		ETSIDI::printxy("ENHORABUENA, has salvado el mundo!!", -10, 10);
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 9);
 	}
 	else if (estado == Estado::PAUSA)
@@ -188,10 +187,10 @@ void CoordinadorEtsidious::teclaEspecial(int key)
 void CoordinadorEtsidious::inicializa()
 {
 	mundo->inicializa();
-	/*if (estado == Estado::INICIO)
+	if (estado == Estado::INICIO)
 	{
 		ETSIDI::playMusica("sonidos/Title_Screen_Them.mp3", true);
-	}*/
+	}
 }
 void CoordinadorEtsidious::aleatorio()
 {
