@@ -165,6 +165,10 @@ void Mundo::mueve(float t)
 	bonus.Mueve(t);
 	bonus.colision(caja.suelo);
 
+	//GESTION DISPARO NEGATIVO
+	if (puntuacion < 0)
+		puntuacion = 0;
+
 	//GESTIÓN DEL TIEMPO DEL DISPARO DOBLE
 	if (personaje.get_t_DisparoDoble() > 0)
 	{
@@ -192,6 +196,7 @@ void Mundo::mueve(float t)
 						enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
 						if (enemigos[n]->getVida() <= 0.0f)
 						{
+							puntuacion += 100;
 							bonus_aleatorio(*enemigos[n],2);
 							enemigos.eliminar(enemigos[n]);
 						}
@@ -208,6 +213,7 @@ void Mundo::mueve(float t)
 				if (Interaccion::colision(*d, personaje))
 				{
 					personaje.setVida(personaje.getVida() - disparos[i]->getDano());
+					puntuacion = puntuacion - 30;
 					disparos.eliminar(disparos[i]);
 				}
 			}
@@ -221,6 +227,7 @@ void Mundo::mueve(float t)
 		if (Interaccion::colision(*o, personaje))
 		{
 			personaje.setVida(personaje.getVida() - asteroides[i]->getDano());
+			puntuacion = puntuacion - 50;
 			asteroides.eliminar(asteroides[i]);
 		}
 	}
