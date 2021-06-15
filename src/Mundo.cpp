@@ -180,7 +180,7 @@ void Mundo::mueve(float t)
 						enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
 						if (enemigos[n]->getVida() <= 0.0f)
 						{
-							Bonus_aleatorio(n);
+							bonus_aleatorio(*enemigos[n],2);
 							enemigos.eliminar(enemigos[n]);
 						}
 						disparos.eliminar(disparos[i]);
@@ -276,6 +276,7 @@ void Mundo::mueve(float t)
 				Misil* m = (Misil*)disparos[i];
 				if (Interaccion::colision(*asteroides[n], *m))
 				{
+					bonus_aleatorio(*asteroides[n], 1);
 					asteroides.eliminar(asteroides[n]);
 					disparos.eliminar(disparos[i]);
 				}
@@ -530,36 +531,72 @@ void Mundo::aleatorio()
 	}
 }
 
-void Mundo::Bonus_aleatorio(int n)
+void Mundo::bonus_aleatorio(NaveEnemiga n,int lim)
 {
 	int nrandom1;
 	int nrandom2;
-	nrandom1 = 1 + rand() % 2;
+	nrandom1 = 1 + rand() % lim;
 	if (nrandom1 == 1)
 	{
 		nrandom2 = 1 + rand() % 4;
 		if (nrandom2 == 1)
 		{
 			Bonus* d = new BonusMisiles;
-			d->setPos(enemigos[n]->getPos());
+			d->setPos(n.getPos());
 			bonus.agregar(d);
 		}
 		else if (nrandom2 == 2)
 		{
 			Bonus* c = new BonusDisparoDoble;
-			c->setPos(enemigos[n]->getPos());
+			c->setPos(n.getPos());
 			bonus.agregar(c);
 		}
 		else if (nrandom2 == 3)
 		{
 			Bonus* b = new BonusVidas;
-			b->setPos(enemigos[n]->getPos());
+			b->setPos(n.getPos());
 			bonus.agregar(b);
 		}
 		else if (nrandom2 == 4)
 		{
 			Bonus* a = new BonusPuntExtras;
-			a->setPos(enemigos[n]->getPos());
+			a->setPos(n.getPos());
+			bonus.agregar(a);
+		}
+	}
+}
+
+
+void Mundo::bonus_aleatorio(Obstaculo n, int lim)
+{
+	int nrandom1;
+	int nrandom2;
+	nrandom1 = 1 + rand() % lim;
+	if (nrandom1 == 1)
+	{
+		nrandom2 = 1 + rand() % 4;
+		if (nrandom2 == 1)
+		{
+			Bonus* d = new BonusMisiles;
+			d->setPos(n.getPos());
+			bonus.agregar(d);
+		}
+		else if (nrandom2 == 2)
+		{
+			Bonus* c = new BonusDisparoDoble;
+			c->setPos(n.getPos());
+			bonus.agregar(c);
+		}
+		else if (nrandom2 == 3)
+		{
+			Bonus* b = new BonusVidas;
+			b->setPos(n.getPos());
+			bonus.agregar(b);
+		}
+		else if (nrandom2 == 4)
+		{
+			Bonus* a = new BonusPuntExtras;
+			a->setPos(n.getPos());
 			bonus.agregar(a);
 		}
 	}

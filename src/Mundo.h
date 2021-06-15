@@ -45,7 +45,8 @@ public:
 	void mueve(float t);
 	void dibuja();
 	void aleatorio();
-	void Bonus_aleatorio(int n);
+	void bonus_aleatorio(NaveEnemiga n,int lim);
+	void bonus_aleatorio(Obstaculo n, int lim);
 	int getNumEnemigos();
 	bool cargarNivel();
 	float getPuntos() { return puntuacion; }
