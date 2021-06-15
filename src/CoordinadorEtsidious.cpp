@@ -51,7 +51,7 @@ void CoordinadorEtsidious::dibuja()
 		mundo->dibuja();
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-		ETSIDI::printxy("ENHORABUENA, has salvado el mundo!!", -10, 10);
+		ETSIDI::printxy("ENHORABUENA, has salvado el mundo!", -10, 10);
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 9);
 	}
 	else if (estado == Estado::PAUSA)
