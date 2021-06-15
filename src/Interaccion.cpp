@@ -14,26 +14,26 @@ void Interaccion::rebote(NavePersonaje& nave, Caja caja)
 	bool flag_pared_izq = false, flag_pared_dcha = false, flag_techo = false, flag_suelo = 0;
 	Vector2D pos = nave.getPos();
 
-	if (pos.x <= caja.pared_izq.getLim1().x)flag_pared_izq = true;
+	if (pos.x <= caja.pared_izq.getLim1().x+1.95f)flag_pared_izq = true;
 	else flag_pared_izq = false;
 
-	if (pos.x >= caja.pared_dcha.getLim1().x)flag_pared_dcha = true;
+	if (pos.x >= caja.pared_dcha.getLim1().x-1.95f)flag_pared_dcha = true;
 	else flag_pared_dcha = false;
 
-	if (pos.y <= caja.suelo.getLim1().y)flag_suelo = true;
+	if (pos.y <= caja.suelo.getLim1().y+1.95f)flag_suelo = true;
 	else flag_suelo = false;
 
-	if (pos.y >= caja.techo.getLim1().y)flag_techo = true;
+	if (pos.y >= caja.techo.getLim1().y-1.95f)flag_techo = true;
 	else flag_techo = false;
 
 	if (flag_suelo)
-	nave.setPos(nave.posicion.x, caja.suelo.limite1.y+0.05);
+	nave.setPos(nave.posicion.x, caja.suelo.limite1.y+2.0f);
 	else if (flag_pared_izq)
-		nave.setPos(caja.pared_izq.limite1.x+0.05, nave.posicion.y);
+		nave.setPos(caja.pared_izq.limite1.x+2.0f, nave.posicion.y);
 	else if (flag_pared_dcha)
-		nave.setPos(caja.pared_dcha.limite1.x-0.05, nave.posicion.y);
+		nave.setPos(caja.pared_dcha.limite1.x-2.0f, nave.posicion.y);
 	else if (flag_techo)
-		nave.setPos(nave.posicion.x, caja.techo.limite1.y-0.05);
+		nave.setPos(nave.posicion.x, caja.techo.limite1.y-2.0f);
 }
 
 bool Interaccion::colision(Obstaculo o, DisparoAliado d)
