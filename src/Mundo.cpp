@@ -180,8 +180,6 @@ void Mundo::mueve(float t)
 						enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
 						if (enemigos[n]->getVida() <= 0.0f)
 						{
-							enemigos.eliminar(enemigos[n]);
-
 							int nrandom1;
 							int nrandom2;
 							nrandom1 = 1 + rand() % 2;
@@ -191,28 +189,29 @@ void Mundo::mueve(float t)
 								if (nrandom2 == 1)
 								{
 									Bonus* d = new BonusMisiles;
-									d->setPos(6, 12);
+									d->setPos(enemigos[n]->getPos());
 									bonus.agregar(d);
 								}
 								else if (nrandom2 == 2)
 								{
 									Bonus* c = new BonusDisparoDoble;
-									c->setPos(-6, 15);
+									c->setPos(enemigos[n]->getPos());
 									bonus.agregar(c);
 								}
 								else if (nrandom2 == 3)
 								{
 									Bonus* b = new BonusVidas;
-									b->setPos(6, 15);
+									b->setPos(enemigos[n]->getPos());
 									bonus.agregar(b);
 								}
 								else if (nrandom2 == 4)
 								{
 									Bonus* a = new BonusPuntExtras;
-									a->setPos(-6, 12);
+									a->setPos(enemigos[n]->getPos());
 									bonus.agregar(a);
 								}
 							}
+							enemigos.eliminar(enemigos[n]);
 						}
 						disparos.eliminar(disparos[i]);
 					}
@@ -466,7 +465,7 @@ void Mundo::teclaEspecial(int key)
 	}
 	case GLUT_KEY_RIGHT:
 	{
-		if (personaje.getPos().x < (caja.pared_dcha.getLim1().x - 0.05))
+		if ((personaje.getPos().x) < (caja.pared_dcha.getLim1().x - 0.05))
 		{
 			personaje.setVel(VELOCIDAD_PERSONAJE, 0.0f);
 		}
@@ -484,7 +483,7 @@ void Mundo::teclaEspecial(int key)
 	}
 	case GLUT_KEY_DOWN:
 	{
-		if (personaje.getPos().y > (caja.suelo.getLim1().y + 0.05))
+		if ((personaje.getPos().y) > (caja.suelo.getLim1().y + 0.05))
 		{
 			personaje.setVel(0.0f, -VELOCIDAD_PERSONAJE);
 		}
@@ -516,6 +515,12 @@ bool Mundo::cargarNivel()
 		NaveEnemiga* n3 = new NaveEnemiga();
 		enemigos.agregar(n3);
 		enemigos[2]->setPos(-5.0f, 14.0f);
+		NaveEnemiga* n4 = new NaveEnemiga();
+		enemigos.agregar(n4);
+		enemigos[3]->setPos(0.0f, 10.0f);
+		NaveEnemiga* n5 = new NaveEnemiga();
+		enemigos.agregar(n5);
+		enemigos[4]->setPos(5.0f, 10.0f);
 	}
 	if (nivel == 2) {
 		for (int i = 0; i < 5; i++) {
