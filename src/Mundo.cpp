@@ -165,10 +165,6 @@ void Mundo::mueve(float t)
 	bonus.Mueve(t);
 	bonus.colision(caja.suelo);
 
-	//GESTION DISPARO NEGATIVO
-	if (puntuacion < 0)
-		puntuacion = 0;
-
 	//GESTIÓN DEL TIEMPO DEL DISPARO DOBLE
 	if (personaje.get_t_DisparoDoble() > 0)
 	{
@@ -196,7 +192,7 @@ void Mundo::mueve(float t)
 						enemigos[n]->setVida((enemigos[n]->getVida()) - (disparos[i]->getDano()));
 						if (enemigos[n]->getVida() <= 0.0f)
 						{
-							puntuacion += 100;
+							incrementa(100);
 							bonus_aleatorio(*enemigos[n],2);
 							enemigos.eliminar(enemigos[n]);
 						}
@@ -213,7 +209,7 @@ void Mundo::mueve(float t)
 				if (Interaccion::colision(*d, personaje))
 				{
 					personaje.setVida(personaje.getVida() - disparos[i]->getDano());
-					puntuacion = puntuacion - 30;
+					incrementa(-30);
 					disparos.eliminar(disparos[i]);
 				}
 			}
@@ -227,7 +223,7 @@ void Mundo::mueve(float t)
 		if (Interaccion::colision(*o, personaje))
 		{
 			personaje.setVida(personaje.getVida() - asteroides[i]->getDano());
-			puntuacion = puntuacion - 50;
+			incrementa(-50);
 			asteroides.eliminar(asteroides[i]);
 		}
 	}
@@ -269,7 +265,7 @@ void Mundo::mueve(float t)
 			BonusPuntExtras *b = (BonusPuntExtras*)bonus[i];
 			if (Interaccion::colision(*b, personaje))
 			{
-				puntuacion += bonus[i]->getExtra();
+				incrementa(bonus[i]->getExtra());
 				bonus.eliminar(bonus[i]);
 			}
 		}
@@ -619,4 +615,13 @@ void Mundo::bonus_aleatorio(Obstaculo n, int lim)
 			bonus.agregar(a);
 		}
 	}
+}
+
+void Mundo::incrementa(float p)
+{
+	puntuacion += p;
+
+	//GESTION DISPARO NEGATIVO
+	if (puntuacion < 0)
+		puntuacion = 0;
 }
