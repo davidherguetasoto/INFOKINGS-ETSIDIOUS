@@ -25,7 +25,6 @@ void Mundo::inicializa()
 
 	nivel = 0;
 	cargarNivel();
-	/*ETSIDI::playMusica("sonidos/intro.mp3", true);*/
 
 	/*Bonus* d = new BonusMisiles;
 	d->setPos(6, 12);
@@ -116,6 +115,18 @@ void Mundo::dibuja()
 	else
 		ETSIDI::printxy("NORMAL", 12, 17);
 	
+	//TEXTO PUNTUACIÓN
+	ETSIDI::setTextColor(1, 1, 0);
+	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
+	ETSIDI::printxy("PUNTOS:", -18, 18);	
+	//PASO DEL VALOR DE LA PUNTUACIÓN
+	//A STRING PARA PODERLO IMPRIMIR
+	string puntos_tot;
+	stringstream sstrp;
+	const char* p = puntos_tot.c_str();
+	sstrp << puntuacion;
+	sstrp >> puntos_tot;
+	ETSIDI::printxy(p, -16, 17);
 
 	//DIBUJO DE LA VIDA
 	ETSIDI::setTextColor(1, 0, 0);
