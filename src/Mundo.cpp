@@ -445,7 +445,7 @@ void Mundo::teclaEspecial(int key)
 	{
 	case GLUT_KEY_LEFT:
 	{
-		if (personaje.getPos().x>(caja.pared_izq.getLim1().x+0.05))
+		if (personaje.getPos().x>(caja.pared_izq.getLim1().x+2.0f))
 		{
 			personaje.setVel(-VELOCIDAD_PERSONAJE, 0.0f);
 		}
@@ -454,7 +454,7 @@ void Mundo::teclaEspecial(int key)
 	}
 	case GLUT_KEY_RIGHT:
 	{
-		if ((personaje.getPos().x) < (caja.pared_dcha.getLim1().x - 0.05))
+		if ((personaje.getPos().x) < (caja.pared_dcha.getLim1().x - 2.0f))
 		{
 			personaje.setVel(VELOCIDAD_PERSONAJE, 0.0f);
 		}
@@ -463,7 +463,7 @@ void Mundo::teclaEspecial(int key)
 	}
 	case GLUT_KEY_UP:
 	{
-		if (personaje.getPos().y < (caja.techo.getLim1().y - 0.05))
+		if (personaje.getPos().y < (caja.techo.getLim1().y - 2.0f))
 		{
 			personaje.setVel(0.0f, VELOCIDAD_PERSONAJE);
 		}
@@ -472,7 +472,7 @@ void Mundo::teclaEspecial(int key)
 	}
 	case GLUT_KEY_DOWN:
 	{
-		if ((personaje.getPos().y) > (caja.suelo.getLim1().y + 0.05))
+		if ((personaje.getPos().y) > (caja.suelo.getLim1().y + 2.0f))
 		{
 			personaje.setVel(0.0f, -VELOCIDAD_PERSONAJE);
 		}
