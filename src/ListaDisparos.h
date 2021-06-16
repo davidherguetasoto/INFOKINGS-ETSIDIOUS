@@ -12,7 +12,6 @@ private:
 	int numero;
 public:
 	ListaDisparos();
-	//virtual ~ListaDisparos();
 
 	bool agregar(Disparo* d);
 	void destruirContenido();

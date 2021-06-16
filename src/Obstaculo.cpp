@@ -8,7 +8,7 @@ Obstaculo::Obstaculo()
 	velocidad.y = -15.0f;
 	daño = 40.0f;
 	sprite_obstaculo.setCenter(radio, radio);
-	sprite_obstaculo.setSize(radio*2, radio*2); //1.5
+	sprite_obstaculo.setSize(radio*2, radio*2);
 }
 
 
@@ -17,8 +17,6 @@ void Obstaculo::dibuja()
 	glPushMatrix();
 	glColor3f(0, 255, 0);
 	glTranslatef(posicion.x, posicion.y, 1);
-	//glutSolidSphere(radio, 20, 20);
-	//glTranslatef(-posicion.x, -posicion.y, 1);
 
 	//gestion de direccion y animacion
 	sprite_obstaculo.setState(0);

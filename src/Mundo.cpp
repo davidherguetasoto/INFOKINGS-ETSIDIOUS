@@ -51,7 +51,6 @@ void Mundo::dibuja()
 	enemigos.dibuja();
 	disparos.dibuja();
 	bonus.Dibuja();
-	//disparosenemigos.dibuja();
 
 	//DIBUJO DEL LETRERO DEL JUEGO
 	ETSIDI::setTextColor(1, 1, 0);
@@ -103,6 +102,7 @@ void Mundo::dibuja()
 	ETSIDI::setTextColor(1, 1, 0);
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 	ETSIDI::printxy("PUNTOS:", -18, 18);	
+
 	//PASO DEL VALOR DE LA PUNTUACIÓN
 	//A STRING PARA PODERLO IMPRIMIR
 	string puntos_tot;
@@ -148,7 +148,7 @@ void Mundo::mueve(float t)
 	bonus.Mueve(t);
 	bonus.colision(caja.suelo);
 	
-	//Nivel 1 llegada medianta función matematica a modo de presentación
+	//Nivel 1 llegada mediante función matematica a modo de presentación
 	if(nivel==1){
 		for (int i = 0; i < enemigos.getNumero();i++) {
  			if (enemigos[i]->getPos().y <=(abs( enemigos[i]->getPos().x)+24)/2)
@@ -479,12 +479,12 @@ bool Mundo::cargarNivel()
 		NaveEnemiga* n = new NaveEnemiga();
 		enemigos.agregar(n);
 		}
-											 //Añadimos el número de enemigos del nivel	
-		enemigos[0]->setPos(0.0f, 26.0f);    //16
-		enemigos[1]->setPos(5.0f, 30.0f);    //14
-		enemigos[2]->setPos(-5.0f, 30.0f);   //14
-		enemigos[3]->setPos(-9.0f, 34.0f);    //10
-		enemigos[4]->setPos(9.0f, 34.0f);    //10
+											 
+		enemigos[0]->setPos(0.0f, 26.0f);   
+		enemigos[1]->setPos(5.0f, 30.0f);   
+		enemigos[2]->setPos(-5.0f, 30.0f);   
+		enemigos[3]->setPos(-9.0f, 34.0f);    
+		enemigos[4]->setPos(9.0f, 34.0f);   
 	}
 	if (nivel == 2) {
 

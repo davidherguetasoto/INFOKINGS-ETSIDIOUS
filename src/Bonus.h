@@ -13,8 +13,6 @@ protected:
 	int tipo; //tipo de bonus(0,1,2 o 3)
 
 public:
-	//Tipos de Bonus
-	//Bonus();
 	Bonus(float extra, int tipo);
 	virtual ~Bonus();
 	virtual void dibuja() = 0;

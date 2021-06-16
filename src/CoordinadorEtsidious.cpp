@@ -92,7 +92,7 @@ void CoordinadorEtsidious::dibuja()
 		ETSIDI::printxy("humanidad. Evita ser golpeado por los disparos enemigos y los", -12, 13);
 		ETSIDI::printxy("asteroides, o tu vida se vera mermada.", -12, 12);
 		ETSIDI::printxy("Solo podras destruir los asteroides con ayuda de tus misiles", -12, 11);
-		ETSIDI::printxy(" Obten las diferentes bonificaciones y acaba con todos los enemigos", -12, 10);
+		ETSIDI::printxy(" Obten las diferentes bonificaciones y acabar con todos los enemigos", -12, 10);
 		ETSIDI::printxy("para conseguir la mayor puntuacion posible.", -12, 9);
 		ETSIDI::printxy("Te apuntas?", -12, 8);
 
@@ -131,6 +131,7 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 				flag_mundo = true;
 			}
 			mundo->inicializa();
+			ETSIDI::playMusica("sonidos/juego.mp3", true);
 			estado = Estado::JUEGO;
 		}
 		if (key == 's' || key == 'S')
@@ -209,7 +210,6 @@ void CoordinadorEtsidious::mueve(float t)
 {
 	if (estado == Estado::JUEGO)
 	{
-		ETSIDI::stopMusica();
 		mundo->mueve(t);
 		if (mundo->getNumEnemigos() == 0) {	//si los enemigos se reducen a 0
 			if (!mundo->cargarNivel())
@@ -223,6 +223,7 @@ void CoordinadorEtsidious::mueve(float t)
 			estado = Estado::GAMEOVER;
 			puntuacion = mundo->getPuntos();
 			ETSIDI::play("sonidos/derrota.wav");
+			ETSIDI::stopMusica();
 		}
 	}
 }

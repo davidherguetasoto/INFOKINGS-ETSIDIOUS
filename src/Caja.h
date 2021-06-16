@@ -8,7 +8,6 @@ public:
 	Pared techo;
 	Pared pared_izq;
 	Pared pared_dcha;
-//public:
 	Caja();
 	virtual ~Caja();
 	
