@@ -162,7 +162,41 @@ void Mundo::mueve(float t)
 
 	bonus.Mueve(t);
 	bonus.colision(caja.suelo);
-
+	
+	//Nivel 1 llegada medianta función matematica a modo de presentación
+	if(nivel==1){
+		for (int i = 0; i < 5;i++) {
+ 			if (enemigos[i] != NULL && enemigos[i]->getPos().y <=(abs( enemigos[i]->getPos().x)+24)/2)
+				enemigos[i]->setVel(0.0f, 0.0f);
+		}
+	}
+	// Nivel 2 llegada en bloque como en Space Defenders
+	if (nivel == 2) {
+		for (int i = 0; i < 5; i++) {
+			if (enemigos[i] != NULL && enemigos[i]->getPos().y <= 16)
+					enemigos[i]->setVel(0.0f, 0.0f);
+		}
+		for (int i = 5; i < 10; i++) {
+			if (enemigos[i] != NULL && enemigos[i]->getPos().y <= 13)
+				enemigos[i]->setVel(0.0f, 0.0f);
+		}
+	}
+	//Nivel 3 Secuencia en cuadrado
+	if (nivel == 3) {
+		
+		for (int i = 0; i < 7; i++) {
+		//	enemigos[i]->setVel(0.0,-8.0);
+			if (enemigos[i] != NULL && enemigos[i]->getVel().y < 0.01 && enemigos[i]->getPos().y <= 2.0 ) //abajo a la derecha
+				enemigos[i]->setVel(-8.0f, 0.0f);
+			if (enemigos[i] != NULL && enemigos[i]->getVel().x < 0.01 && enemigos[i]->getPos().x <= -8.0 )//abajo a la izquierda
+				enemigos[i]->setVel(0.0f, 8.0f);
+			if (enemigos[i] != NULL && enemigos[i]->getVel().y > 0.01 && enemigos[i]->getPos().y >= 17.0) //arriba a la izquierda
+				enemigos[i]->setVel(8.0f, 0.0f);
+			if (enemigos[i] != NULL && enemigos[i]->getVel().x > 0.01 && enemigos[i]->getPos().x >= 8.0) //arriba a la derecha
+				enemigos[i]->setVel(0.0f, -8.0f);
+		}
+	}
+	
 	//GESTIÓN DEL TIEMPO DEL DISPARO DOBLE
 	if (personaje.get_t_DisparoDoble() > 0)
 	{
@@ -463,30 +497,50 @@ bool Mundo::cargarNivel()
 	enemigos.destruirContenido();
 	disparos.destruirContenido();
 
-	if (nivel == 1) {
-		NaveEnemiga* n1 = new NaveEnemiga();
-		enemigos.agregar(n1);
-		enemigos[0]->setPos(0.0f, 16.0f);
-		NaveEnemiga* n2 = new NaveEnemiga();
-		enemigos.agregar(n2);
-		enemigos[1]->setPos(5.0f, 14.0f);
-		NaveEnemiga* n3 = new NaveEnemiga();
-		enemigos.agregar(n3);
-		enemigos[2]->setPos(-5.0f, 14.0f);
-		NaveEnemiga* n4 = new NaveEnemiga();
-		enemigos.agregar(n4);
-		enemigos[3]->setPos(0.0f, 10.0f);
-		NaveEnemiga* n5 = new NaveEnemiga();
-		enemigos.agregar(n5);
-		enemigos[4]->setPos(5.0f, 10.0f);
+	if (nivel == 1) {                        //Añadimos el número de enemigos del nivel
+		for (int i = 0; i < 5; i++) {
+		NaveEnemiga* n = new NaveEnemiga();
+		enemigos.agregar(n);
+		}
+											 //Añadimos el número de enemigos del nivel	
+		enemigos[0]->setPos(0.0f, 26.0f);    //16
+		enemigos[1]->setPos(5.0f, 30.0f);    //14
+		enemigos[2]->setPos(-5.0f, 30.0f);   //14
+		enemigos[3]->setPos(-9.0f, 34.0f);    //10
+		enemigos[4]->setPos(9.0f, 34.0f);    //10
 	}
 	if (nivel == 2) {
-		for (int i = 0; i < 5; i++) {
-			//agregar muchos enemigos
+
+		for (int i = 0; i < 10; i++) {
+			NaveEnemiga* n = new NaveEnemiga();
+			enemigos.agregar(n);
 		}
+		//Añadimos el número de enemigos del nivel	
+		enemigos[0]->setPos(0.0f, 32.0f);
+		enemigos[1]->setPos(2.0f, 32.0f);
+		enemigos[2]->setPos(4.0f, 32.0f);
+		enemigos[3]->setPos(-2.0f, 32.0f);
+		enemigos[4]->setPos(-4.0f, 32.0f);
+		enemigos[5]->setPos(0.0f, 29.0f);
+		enemigos[6]->setPos(2.0f, 29.0f);
+		enemigos[7]->setPos(4.0f, 29.0f);
+		enemigos[8]->setPos(-2.0f, 29.0f);
+		enemigos[9]->setPos(-4.0f, 29.0f);
 	}
+
 	if (nivel == 3) {
-			//agregar el jefe
+		for (int i = 0; i < 7; i++) {
+			NaveEnemiga* n = new NaveEnemiga();
+			enemigos.agregar(n);
+			enemigos[i]->setVel(0.0, -10.0);
+		}
+		enemigos[0]->setPos(8.0f, 46.0f);
+		enemigos[1]->setPos(8.0f, 43.0f);
+		enemigos[2]->setPos(8.0f, 40.0f);
+		enemigos[3]->setPos(-1.0f, 40.0f);
+		enemigos[4]->setPos(2.0f, 40.0f);
+		enemigos[5]->setPos(5.0f, 40.0f);
+		enemigos[6]->setPos(8.0f, 40.0f);
 	}
 	if (nivel <= 3)
 		return true;

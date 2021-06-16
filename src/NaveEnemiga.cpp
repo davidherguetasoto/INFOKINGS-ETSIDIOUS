@@ -7,6 +7,7 @@ NaveEnemiga::NaveEnemiga():Nave(100.0F)
 	daño = 20.0f;
 	altura = 1.5f; //3
 	radio =0.75f; //1.5
+	velocidad.y = -4.0f;
 	sprite_nave.setCenter(radio * 2, altura); //radio, altura/2
 	sprite_nave.setSize(radio * 4, altura * 2); //2*radio, altura
 	sprite_nave.setAngle(180.0f);
@@ -22,4 +23,3 @@ void NaveEnemiga::dibuja()
 	sprite_nave.draw();
 	glPopMatrix();
 }
-
