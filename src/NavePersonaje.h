@@ -1,6 +1,5 @@
 #pragma once
 #include "Nave.h"
-#include "ColorRGB.h"
 
 #define VELOCIDAD_PERSONAJE 15.0f //Macro para decidir el valor de la velocidad a la que irá el personaje
 #define MISILES_MAX 6 //Número máximo de misiles que puede llevar la nave
@@ -11,8 +10,6 @@ private:
 	SpriteSequence sprite_nave{ "imagenes/NavePersonaje.png",1 };
 protected:
 	float t_DisparoDoble; //tiempo restante del disparo doble
-	//prueba bonus
-	int num_bonus;
 	bool disparo_doble; //Modo de disparo doble
 	bool disparo_misiles; //Modo de disparo con misiles
 	int num_misiles; //Contador de los misiles que podemos disparar
@@ -32,10 +29,6 @@ public:
 	void setDisparoDoble(bool modo) { disparo_doble = modo; }
 	bool getModoDoble() { return disparo_doble; }
 
-	
-	void IncrementaNumBonus();
-	void SetNumBonuns(int num);
-	int GetNumBonus();
 	void setVida(float vida);
 	float get_t_DisparoDoble() { return t_DisparoDoble; }
 	void set_t_DisparoDoble(float t);

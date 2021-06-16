@@ -1,5 +1,4 @@
 #include "Nave.h"
-#include "freeglut.h"
 
 Nave::Nave(float vida) : vida(vida)
 {

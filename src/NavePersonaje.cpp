@@ -1,5 +1,4 @@
 #include "NavePersonaje.h"
-#include "freeglut.h"
 
 NavePersonaje::NavePersonaje():Nave(VIDA_MAX)//poner vida_max luego
 {
@@ -7,7 +6,6 @@ NavePersonaje::NavePersonaje():Nave(VIDA_MAX)//poner vida_max luego
 	altura = 2.5f; //5
 	radio = 0.875f; //1.75
 
-	num_bonus = 0;//num_bonus para inicializarlo a 0 prueba
 	num_misiles = 3;
 	disparo_misiles = false;
 	disparo_doble = false;
@@ -23,22 +21,6 @@ void NavePersonaje::dibuja()
 	sprite_nave.setState(0);
 	sprite_nave.draw();
 	glPopMatrix();
-}
-
-//prueba
-void NavePersonaje::IncrementaNumBonus()
-{
-
-}
-
-void NavePersonaje::SetNumBonuns(int num)
-{
-
-}
-
-int NavePersonaje::GetNumBonus()
-{
-	return num_bonus;
 }
 void NavePersonaje::setNumMisiles(int misiles)
 {
