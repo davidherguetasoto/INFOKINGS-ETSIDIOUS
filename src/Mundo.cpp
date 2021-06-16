@@ -32,6 +32,8 @@ void Mundo::dibuja()
 	//A STRING PARA PODERLO IMPRIMIR
 	string tiempo_disparo_doble;
 	stringstream sstr;
+	sstr.str(std::string());
+	sstr.clear();
 	sstr<<static_cast<int>(personaje.get_t_DisparoDoble()*0.025);
 	sstr >> tiempo_disparo_doble;
 
@@ -104,17 +106,16 @@ void Mundo::dibuja()
 	//PASO DEL VALOR DE LA PUNTUACIÓN
 	//A STRING PARA PODERLO IMPRIMIR
 	string puntos_tot;
-	stringstream sstrp;
-	const char* p = puntos_tot.c_str();
-	sstrp << puntuacion;
-	sstrp >> puntos_tot;
-	ETSIDI::printxy(p, -16, 17);
+	sstr.str(std::string());
+	sstr.clear();
+	sstr << puntuacion;
+	sstr >> puntos_tot;
+	ETSIDI::printxy(puntos_tot.c_str(), -16, 17);
 
 	//DIBUJO DE LA VIDA
 	ETSIDI::setTextColor(1, 0, 0);
 	ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 	ETSIDI::printxy("VIDA:", -12, -6);
-
 	for (int i = 0; i < 5; i++) {
 		if (personaje.getVida() > 20 * i) {
 			glEnable(GL_TEXTURE_2D);
