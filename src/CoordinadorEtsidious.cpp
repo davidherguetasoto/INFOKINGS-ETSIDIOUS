@@ -131,7 +131,7 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 				flag_mundo = true;
 			}
 			mundo->inicializa();
-			ETSIDI::playMusica("sonidos/juegobajo.mp3", true);
+			ETSIDI::playMusica("sonidos/juego.mp3", true);
 			estado = Estado::JUEGO;
 		}
 		if (key == 's' || key == 'S')
