@@ -6,7 +6,6 @@ private:
 	SpriteSequence sprite_doble{ "imagenes/laser.png",1 };
 public:
 	DisparoDoble();
-	virtual ~DisparoDoble();
 	void dibuja();
 	friend class Interaccion;
 };

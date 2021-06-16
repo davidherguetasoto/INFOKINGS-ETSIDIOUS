@@ -1,6 +1,6 @@
 #pragma once
 #include "ListaDisparos.h"
-#define MAX_DISPAROS 100
+#define MAX_DISPAROS 200
 #include "Disparo.h"
 #include "Caja.h"
 
