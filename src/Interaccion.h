@@ -56,8 +56,5 @@ public:
 	static bool colision(BonusMisiles, NavePersonaje n);
 	static bool colision(BonusPuntExtras, NavePersonaje n);
 	static bool colision(BonusVidas, NavePersonaje n);
-
-	//CHOQUE DEL PESONAJE CON UNA NAVE ENEMIGA
-	static bool colision(NaveEnemiga b, NavePersonaje& n); //merma salud de personaje al tocarlo
 };
 

@@ -242,16 +242,3 @@ bool Interaccion::colision(BonusVidas b, NavePersonaje n)
 	}
 	return false;
 }
-
-
-
-//CHOQUE PERSONAJE CON NAVE ENEMIGA
-bool Interaccion::colision(NaveEnemiga b, NavePersonaje& n)
-{
-	Vector2D distancia = b.getPos() - n.getPos();
-	if (distancia.modulo() < (b.getRadio() + n.getRadio()))
-	{
-		return true;
-	}
-	return false;
-}
