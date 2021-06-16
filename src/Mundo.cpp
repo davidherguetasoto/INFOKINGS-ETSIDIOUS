@@ -165,8 +165,8 @@ void Mundo::mueve(float t)
 	
 	//Nivel 1 llegada medianta función matematica a modo de presentación
 	if(nivel==1){
-		for (int i = 0; i < 5;i++) {
- 			if (enemigos[i] != NULL && enemigos[i]->getPos().y <=(abs( enemigos[i]->getPos().x)+24)/2)
+		for (int i = 0; i < enemigos.getNumero();i++) {
+ 			if (enemigos[i]->getPos().y <=(abs( enemigos[i]->getPos().x)+24)/2)
 				enemigos[i]->setVel(0.0f, 0.0f);
 		}
 	}
@@ -184,7 +184,7 @@ void Mundo::mueve(float t)
 	//Nivel 3 Secuencia en cuadrado
 	if (nivel == 3) {
 		
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < enemigos.getNumero(); i++) {
 		//	enemigos[i]->setVel(0.0,-8.0);
 			if (enemigos[i] != NULL && enemigos[i]->getVel().y < 0.01 && enemigos[i]->getPos().y <= 2.0 ) //abajo a la derecha
 				enemigos[i]->setVel(-8.0f, 0.0f);
