@@ -62,10 +62,6 @@ void CoordinadorEtsidious::dibuja()
 		ETSIDI::printxy("PAUSA", -5, 10);
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 5);
 	}
-	else if (estado == Estado::RANKING)
-	{
-
-	}
 	else if (estado == Estado::CONTROLES)
 	{
 		gluLookAt(0, 7.5, 30, // posicion del ojo
@@ -162,10 +158,6 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 	{
 		if (key == 's' || key == 'S')
 			estado = Estado::INICIO;
-	}
-	else if (estado == Estado::RANKING)
-	{
-
 	}
 }
 void CoordinadorEtsidious::teclaUp(unsigned char key)
