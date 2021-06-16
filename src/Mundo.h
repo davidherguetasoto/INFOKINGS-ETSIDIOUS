@@ -45,7 +45,7 @@ public:
 	void aleatorio();
 	void bonus_aleatorio(NaveEnemiga n,int limRand);
 	void bonus_aleatorio(Obstaculo n, int limRand);
-	int getNumEnemigos();
+	int getNumEnemigos(){return enemigos.getNumero(); }
 	bool cargarNivel();
 	float getPuntos() { return puntuacion; }
 	friend class CoordinadorEtsidious;

@@ -469,12 +469,6 @@ void Mundo::teclaEspecial(int key)
 	}	
 	}
 }
-
-int Mundo::getNumEnemigos()
-{
-	return enemigos.getNumero();
-}
-
 bool Mundo::cargarNivel()
 {
 	nivel++;
