@@ -1,5 +1,6 @@
 #pragma once
 #include "ObjetoMovil.h"
+#include "freeglut.h"
 class Nave : public ObjetoMovil
 {
 protected:
@@ -13,6 +14,5 @@ public:
 	virtual	void setVida(float vida);
 	float getRadio() { return radio; }
 	float getAltura() { return radio; }
-	//añadir funcion para disparo (?)
 };
 
