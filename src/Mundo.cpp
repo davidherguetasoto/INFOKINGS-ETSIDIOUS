@@ -190,7 +190,7 @@ void Mundo::mueve(float t)
 			if (enemigos[i] != NULL && enemigos[i]->getVel().x < 0.01 && enemigos[i]->getPos().x <= -8.0 )//abajo a la izquierda
 				enemigos[i]->setVel(0.0f, 10.0f);
 			if (enemigos[i] != NULL && enemigos[i]->getVel().y > 0.01 && enemigos[i]->getPos().y >= 17.0) //arriba a la izquierda
-				enemigos[i]->setVel(8.0f, 10.0f);
+				enemigos[i]->setVel(10.0f, 0.0f);
 			if (enemigos[i] != NULL && enemigos[i]->getVel().x > 0.01 && enemigos[i]->getPos().x >= 8.0) //arriba a la derecha
 				enemigos[i]->setVel(0.0f, -10.0);
 		}
