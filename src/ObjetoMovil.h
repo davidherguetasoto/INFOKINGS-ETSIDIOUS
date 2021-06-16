@@ -7,7 +7,7 @@ class ObjetoMovil
 protected:
 	Vector2D posicion, velocidad;
 public:
-	virtual void mueve(float t);
+	void mueve(float t);
 	void setPos(Vector2D pos) { posicion = pos; }
 	void setPos(float ix, float iy) { posicion.x = ix; posicion.y = iy; }
 	void setVel(Vector2D vel) { velocidad = vel; }
