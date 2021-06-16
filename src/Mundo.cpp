@@ -492,9 +492,7 @@ int Mundo::getNumEnemigos()
 bool Mundo::cargarNivel()
 {
 	nivel++;
-	personaje.setPos(0, 0);
 	enemigos.destruirContenido();
-	disparos.destruirContenido();
 
 	if (nivel == 1) {                        //Añadimos el número de enemigos del nivel
 		for (int i = 0; i < 5; i++) {
