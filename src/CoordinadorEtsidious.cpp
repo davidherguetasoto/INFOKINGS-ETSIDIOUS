@@ -131,6 +131,7 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 				flag_mundo = true;
 			}
 			mundo->inicializa();
+			ETSIDI::playMusica("sonidos/juego.mp3", true);
 			estado = Estado::JUEGO;
 		}
 		if (key == 's' || key == 'S')
@@ -209,7 +210,6 @@ void CoordinadorEtsidious::mueve(float t)
 {
 	if (estado == Estado::JUEGO)
 	{
-		ETSIDI::stopMusica();
 		mundo->mueve(t);
 		if (mundo->getNumEnemigos() == 0) {	//si los enemigos se reducen a 0
 			if (!mundo->cargarNivel())
@@ -223,6 +223,7 @@ void CoordinadorEtsidious::mueve(float t)
 			estado = Estado::GAMEOVER;
 			puntuacion = mundo->getPuntos();
 			ETSIDI::play("sonidos/derrota.wav");
+			ETSIDI::stopMusica();
 		}
 	}
 }
