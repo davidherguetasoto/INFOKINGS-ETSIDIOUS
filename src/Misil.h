@@ -7,7 +7,6 @@ private:
 	SpriteSequence sprite_misil{ "imagenes/misil.png",1 };
 public:
 	Misil();
-	virtual ~Misil();
 	void dibuja();
 	friend class Interaccion;
 };

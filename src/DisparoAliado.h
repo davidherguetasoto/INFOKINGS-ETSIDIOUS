@@ -8,8 +8,7 @@ public:
 	friend class Interaccion;
 	DisparoAliado();
 	//Constructor sobrecargado para especificar el daño y tipo de los derivados.
-	//Si no se especifica el tipo, será disparo aliado estándar
-	DisparoAliado(float daño,int tipo=DISPARO_ALIADO);
+	DisparoAliado(float daño,int tipo);
 	void dibuja();
 };
 

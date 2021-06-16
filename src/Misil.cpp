@@ -9,10 +9,6 @@ Misil::Misil():DisparoAliado(100,MISIL)
 	sprite_misil.setCenter(radio, altura/2);
 	sprite_misil.setSize(radio*2, altura);
 }
-Misil::~Misil()
-{
-
-}
 void Misil::dibuja()
 {
 	glPushMatrix();
