@@ -180,31 +180,6 @@ bool Interaccion::colision(BonusVidas b, Pared p)
 	}
 	return false;
 }
-
-
-/*bool Interaccion::colision(Bonus &b, Pared p)
-{
-	Vector2D dir;
-	float dif = p.distancia(b.getPos(),&dir) - b.getLado();
-	if (dif <= 0.0f)
-	{
-		Vector2D v_inicial = b.getVel();
-		b.getVel() = v_inicial - dir.unitario() * 2.0 * (v_inicial * dir);
-		b.getPos() = b.getPos() - dir.unitario() * dif;
-		return true;
-	}
-	return false;
-}*/
-/*bool Interaccion::colision(Bonus b, NavePersonaje n)
-{
-	Vector2D distancia = n.getPos() - b.getPos();
-	if (distancia.modulo() < (b.getLado()))
-	{
-		return true;
-	}
-	return false;
-}*/
-
 //Interacción  para que la nave coja el bonus que sale
 bool Interaccion::colision(BonusDisparoDoble b, NavePersonaje n)
 {
