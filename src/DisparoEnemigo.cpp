@@ -2,8 +2,8 @@
 
 DisparoEnemigo::DisparoEnemigo() :Disparo(20, DISPARO_ENEMIGO)
 {
-	radio = 0.325f; //0.65
-	altura = 0.875f; //1.75
+	radio = 0.325f;
+	altura = 0.875f;
 	velocidad.y = -30.0f;
 	sprite_DisparoEnemigo.setCenter(radio*2,altura);
 	sprite_DisparoEnemigo.setSize(radio*4,altura*2);
