@@ -9,15 +9,6 @@ DisparoEnemigo::DisparoEnemigo() :Disparo(20, DISPARO_ENEMIGO)
 	sprite_DisparoEnemigo.setSize(radio*4,altura*2);
 	sprite_DisparoEnemigo.setAngle(180.0f);
 }
-DisparoEnemigo::DisparoEnemigo(float daño, int tipo) : Disparo(daño, tipo)
-{
-	radio = 0.65f;
-	altura = 1.75f;
-	velocidad.y = -30.0f;
-	sprite_DisparoEnemigo.setCenter(radio, altura / 2);
-	sprite_DisparoEnemigo.setSize(radio * 2, altura);
-	sprite_DisparoEnemigo.setAngle(180.0f);
-}
 void DisparoEnemigo::dibuja()
 {
 	glPushMatrix();
