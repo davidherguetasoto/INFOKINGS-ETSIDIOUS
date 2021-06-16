@@ -51,7 +51,6 @@ public:
 	static bool colision(BonusVidas b, Pared p);
 
 	//EL JUGADOR RECOGE EL BONUS
-	//static bool colision(Bonus b, NavePersonaje n); //recogida del bonus
 	static bool colision(BonusDisparoDoble b,NavePersonaje n);
 	static bool colision(BonusMisiles, NavePersonaje n);
 	static bool colision(BonusPuntExtras, NavePersonaje n);
