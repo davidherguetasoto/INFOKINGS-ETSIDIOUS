@@ -553,7 +553,7 @@ void Mundo::aleatorio()
 	int num= 1 + rand() % (11 - 1);
 	if (num < 5)
 	{
-		float x = (lim1+0.05f) + rand() % (int)((lim2 - lim1)-0.05f);
+		float x = (lim1+0.05f) + rand() % (int)(lim2 - lim1);
 		Obstaculo* o2 = new Obstaculo();
 		o2->setPos(x, caja.techo.getLim1().y);
 		asteroides.agregar(o2);
