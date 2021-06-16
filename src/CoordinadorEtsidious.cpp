@@ -1,4 +1,7 @@
 #include "CoordinadorEtsidious.h"
+#include<string>
+#include<sstream>
+using namespace std;
 CoordinadorEtsidious::CoordinadorEtsidious()
 {
 	estado = Estado::INICIO;
@@ -13,6 +16,13 @@ CoordinadorEtsidious::~CoordinadorEtsidious()
 }
 void CoordinadorEtsidious::dibuja()
 {
+	//PASO DE LA PUNTUACIÓN OBTENIDA A UN STRING, PARA PODERLA IMPRIMIR
+	string puntos;
+	stringstream sstr;
+	sstr << puntuacion;
+	sstr >> puntos;
+
+	//DIBUJOS QUE APARECERÁN EN CADA ESTADO DEL JUEGO
 	if (estado == Estado::INICIO)
 	{
 		gluLookAt(0, 7.5, 30, // posicion del ojo
@@ -43,7 +53,9 @@ void CoordinadorEtsidious::dibuja()
 		mundo->dibuja();
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-		ETSIDI::printxy("GAMEOVER: Has perdido", -5, 10);
+		ETSIDI::printxy("GAMEOVER: Has perdido", -10, 10);
+		ETSIDI::printxy("Tu puntuacion: ", -10, 7);
+		ETSIDI::printxy(puntos.c_str(), -1, 7);
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 3);
 	}
 	else if (estado == Estado::FIN)
@@ -52,7 +64,9 @@ void CoordinadorEtsidious::dibuja()
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 		ETSIDI::printxy("ENHORABUENA, has salvado el mundo!", -10, 10);
-		ETSIDI::printxy("Pulsa -C- para continuar", -5, 9);
+		ETSIDI::printxy("Tu puntuacion: ", -10, 7);
+		ETSIDI::printxy(puntos.c_str(), -1, 7);
+		ETSIDI::printxy("Pulsa -C- para continuar", -5, 3);
 	}
 	else if (estado == Estado::PAUSA)
 	{
@@ -140,7 +154,6 @@ void CoordinadorEtsidious::tecla(unsigned char key)
 		if (key == 'c' || key == 'C')
 		{
 			estado = Estado::INICIO;
-			puntuacion=mundo->getPuntos();
 			if (flag_mundo)
 			{
 				delete mundo;
@@ -202,9 +215,11 @@ void CoordinadorEtsidious::mueve(float t)
 			if (!mundo->cargarNivel())		//se carga nivel
 				estado = Estado::FIN;		//si nivel>3, WIN!
 			ETSIDI::play("sonidos/victoria.wav");
+			puntuacion = mundo->getPuntos();
 		}
 		if (mundo->personaje.getVida() == 0) {
 			estado = Estado::GAMEOVER;
+			puntuacion = mundo->getPuntos();
 			ETSIDI::play("sonidos/derrota.wav");
 		}
 	}
