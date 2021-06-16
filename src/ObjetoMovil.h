@@ -5,7 +5,7 @@ using ETSIDI::SpriteSequence;
 class ObjetoMovil
 {
 protected:
-	Vector2D posicion, velocidad, aceleracion;
+	Vector2D posicion, velocidad;
 public:
 	virtual void mueve(float t);
 	void setPos(Vector2D pos) { posicion = pos; }
