@@ -20,4 +20,3 @@ public:
 	friend class Interaccion;
 	friend class Caja;
 };
-

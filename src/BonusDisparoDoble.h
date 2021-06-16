@@ -1,6 +1,5 @@
 #pragma once
 #include"Bonus.h"
-#include"ColorRGB.h"
 
 class BonusDisparoDoble :public Bonus
 {
@@ -13,6 +12,3 @@ public:
 	BonusDisparoDoble();
 	//BonusDisparoDoble(float extra, int tipo);
 };
-
-
-

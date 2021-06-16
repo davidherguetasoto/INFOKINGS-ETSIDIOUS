@@ -181,7 +181,6 @@
     <ClInclude Include="src\BonusPuntExtras.h" />
     <ClInclude Include="src\BonusVidas.h" />
     <ClInclude Include="src\Caja.h" />
-    <ClInclude Include="src\ColorRGB.h" />
     <ClInclude Include="src\CoordinadorEtsidious.h" />
     <ClInclude Include="src\Disparo.h" />
     <ClInclude Include="src\DisparoAliado.h" />

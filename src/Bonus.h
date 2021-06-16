@@ -1,6 +1,5 @@
 #pragma once
 #include "ObjetoMovil.h"
-#include"ColorRGB.h"
 #define BONUS_DISPARO_DOBLE 0
 #define BONUS_MISILES 1
 #define BONUS_PUNT_EXTRAS 2
