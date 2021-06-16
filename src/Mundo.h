@@ -31,6 +31,7 @@ class Mundo
 	int nivel;
 	int puntuacion; //Puntuación del jugador
 	bool pressed_spacebar; //Variable auxiliar para gestionar flancos negativos en tecla espacio
+	void incrementa(float p); //Método para incrementar la puntuación del jugador
 
 public:
 	Mundo();
@@ -49,5 +50,4 @@ public:
 	bool cargarNivel();
 	float getPuntos() { return puntuacion; }
 	friend class CoordinadorEtsidious;
-	void incrementa(float p);
 };
