@@ -28,12 +28,6 @@ public:
 	void eliminar(int index);
 	void eliminar(Bonus* b);
 	void colision(Pared p);
-
-	//Bonus* colision(NavePersonaje& n);
-	//BonusDisparoDoble* colision(NavePersonaje &n);
-	//BonusMisiles* colision(NavePersonaje& n);
-	//BonusPuntExtras* colision(NavePersonaje& n);
-	//BonusVidas* colision(NavePersonaje& n);
 	void destruirContenido();
 	Bonus* operator[](int i);
 	int getNumero();

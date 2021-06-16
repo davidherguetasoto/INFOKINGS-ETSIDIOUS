@@ -84,18 +84,6 @@ void ListaBonus::colision(Pared p)
 	}
 }
 
-
-
-/*Bonus* ListaBonus::colision(NavePersonaje& n)
-{
-	for (int i = 0; i < numero; i++)
-	{
-		if (Interaccion::colision(*lista[i], n))
-			return lista[i];
-	}
-	return 0;
-}*/
-
 void ListaBonus::destruirContenido()
 {
 	for (int i = 0; i < numero; i++)
