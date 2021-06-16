@@ -14,6 +14,7 @@ void DisparoEnemigo::dibuja()
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 1);
 	glColor3f(1.0f, 0.0f, 0.0f);
+
 	//gestion de direccion y animacion
 	sprite_DisparoEnemigo.setState(0);
 	sprite_DisparoEnemigo.draw();

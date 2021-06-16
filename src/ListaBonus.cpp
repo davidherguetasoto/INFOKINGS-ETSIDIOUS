@@ -40,6 +40,7 @@ void ListaBonus::eliminar(int index)
 		return;
 	delete lista[index];
 	numero--;
+
 	//Recolocar los disparos después de borrar uno para que no haya huecos en la lista
 	for (int i = index; i < numero; i++)
 		lista[i] = lista[i + 1];

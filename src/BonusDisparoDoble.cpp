@@ -12,11 +12,9 @@ void BonusDisparoDoble::dibuja()
 {
 	glPushMatrix();
 	glTranslatef(posicion.x, posicion.y, 0);
-	//glRotatef(30, 1, 1, 1);
 	glColor3f(rand() / (float)RAND_MAX,
 		rand() / (float)RAND_MAX,
 		rand() / (float)RAND_MAX);//color aleatorio
-	//glutSolidCube(lado);
 	sprite_DispDoble.setState(0);
 	sprite_DispDoble.draw();
 	glTranslatef(1.0f, 0.0f, 0.0f);

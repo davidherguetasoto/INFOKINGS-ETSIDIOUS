@@ -14,10 +14,6 @@ class ListaBonus
 	friend class Bonus;
 private:
 	Bonus *lista[MAX_BONUS];
-	//BonusDisparoDoble* lista[MAX_BONUS];
-	//BonusMisiles* lista[MAX_BONUS];
-	//BonusPuntExtras* lista[MAX_BONUS];
-	//BonusVidas* lista[MAX_BONUS];
 	int numero;
 public:
 	ListaBonus(); 

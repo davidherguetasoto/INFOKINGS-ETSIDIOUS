@@ -84,17 +84,10 @@ bool Interaccion::colision(DisparoEnemigo d, Pared p)
 }
 bool Interaccion::colision(DisparoAliado d, Caja c)
 {
-	//En principio solo chocarán contra el suelo y el techo
 
 	bool flag_pared_izq=false, flag_pared_dcha=false, flag_techo=false, flag_suelo=0;
 	Vector2D pos = d.getPos();
 	
-	/*if (pos.x <= c.pared_izq.getLim1().x)flag_pared_izq = true;
-	else flag_pared_izq = false;*/
-
-	/*if (pos.x >= c.pared_dcha.getLim1().x)flag_pared_dcha = true;
-	else flag_pared_dcha = false;*/
-
 	if (pos.y <= c.suelo.getLim1().y)flag_suelo = true;
 	else flag_suelo = false;
 
@@ -109,12 +102,6 @@ bool Interaccion::colision(DisparoEnemigo d, Caja c)
 {
 	bool flag_pared_izq = false, flag_pared_dcha = false, flag_techo = false, flag_suelo = 0;
 	Vector2D pos = d.getPos();
-
-	/*if (pos.x <= c.pared_izq.getLim1().x)flag_pared_izq = true;
-	else flag_pared_izq = false;
-
-	if (pos.x >= c.pared_dcha.getLim1().x)flag_pared_dcha = true;
-	else flag_pared_dcha = false;*/
 
 	if (pos.y <= c.suelo.getLim1().y)flag_suelo = true;
 	else flag_suelo = false;
@@ -180,6 +167,7 @@ bool Interaccion::colision(BonusVidas b, Pared p)
 	}
 	return false;
 }
+
 //Interacción  para que la nave coja el bonus que sale
 bool Interaccion::colision(BonusDisparoDoble b, NavePersonaje n)
 {

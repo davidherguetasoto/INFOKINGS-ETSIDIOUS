@@ -92,7 +92,7 @@ void CoordinadorEtsidious::dibuja()
 		ETSIDI::printxy("humanidad. Evita ser golpeado por los disparos enemigos y los", -12, 13);
 		ETSIDI::printxy("asteroides, o tu vida se vera mermada.", -12, 12);
 		ETSIDI::printxy("Solo podras destruir los asteroides con ayuda de tus misiles", -12, 11);
-		ETSIDI::printxy(" Obten las diferentes bonificaciones y acaba con todos los enemigos", -12, 10);
+		ETSIDI::printxy(" Obten las diferentes bonificaciones y acabar con todos los enemigos", -12, 10);
 		ETSIDI::printxy("para conseguir la mayor puntuacion posible.", -12, 9);
 		ETSIDI::printxy("Te apuntas?", -12, 8);
 
