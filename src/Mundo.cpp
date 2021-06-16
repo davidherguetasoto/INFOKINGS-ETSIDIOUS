@@ -25,21 +25,6 @@ void Mundo::inicializa()
 
 	nivel = 0;
 	cargarNivel();
-
-	/*Bonus* d = new BonusMisiles;
-	d->setPos(6, 12);
-	bonus.agregar(d);
-	Bonus* c = new BonusDisparoDoble;
-	c->setPos(-6, 15);
-	bonus.agregar(c);
-	Bonus* a = new BonusPuntExtras;
-	a->setPos(-6, 12);
-	bonus.agregar(a);
-	Bonus* b = new BonusVidas;
-	b->setPos(6, 15);
-	bonus.agregar(b);*/
-
-
 }
 void Mundo::dibuja()
 {
@@ -52,7 +37,7 @@ void Mundo::dibuja()
 
 
 	//PUNTO DE VISTA DE LA CÁMARA
-	gluLookAt(/*x, y, z,*/
+	gluLookAt(
 		x_ojo, y_ojo, z_ojo, // posicion del ojo
 		0.0, y_ojo, 0.0, // hacia que punto mira
 		0.0, 1.0, 0.0); // definimos hacia arriba (eje Z)

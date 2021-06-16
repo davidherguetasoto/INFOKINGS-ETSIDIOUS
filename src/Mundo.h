@@ -4,7 +4,6 @@ de pedirles que se muevan, o tambiénde hacer otras acciones
 dependiendo de entradas del usuario por teclado*/
 
 #pragma once
-//#include "Bonus.h"
 #include "Caja.h"
 #include "Interaccion.h"
 #include "ListaObstaculos.h"
@@ -22,7 +21,6 @@ class Mundo
 	float y_ojo;
 	float z_ojo;
 
-	//Bonus bonus;
 	Caja caja;
 	NavePersonaje personaje;
 	ListaObstaculos asteroides;
