@@ -549,7 +549,7 @@ void Mundo::aleatorio()
 	float lim1 = caja.pared_izq.getLim1().x;
 	float lim2 = caja.pared_dcha.getLim1().x;
 	int num= 1 + rand() % (11 - 1);
-	if (num < 5)
+	if (num < 3+nivel)
 	{
 		float x = (lim1+0.05f) + rand() % (int)(lim2 - lim1);
 		Obstaculo* o2 = new Obstaculo();
