@@ -47,7 +47,6 @@ void Mundo::dibuja()
 	//A STRING PARA PODERLO IMPRIMIR
 	string tiempo_disparo_doble;
 	stringstream sstr;
-	const char* c = tiempo_disparo_doble.c_str();
 	sstr<<static_cast<int>(personaje.get_t_DisparoDoble()*0.025);
 	sstr >> tiempo_disparo_doble;
 
@@ -108,7 +107,7 @@ void Mundo::dibuja()
 	{
 		ETSIDI::printxy("DOBLE", 12, 17);
 		ETSIDI::printxy("TIEMPO:", 12, 15);
-		ETSIDI::printxy(c, 12, 14);
+		ETSIDI::printxy(tiempo_disparo_doble.c_str(), 12, 14);
 	}
 	else
 		ETSIDI::printxy("NORMAL", 12, 17);
