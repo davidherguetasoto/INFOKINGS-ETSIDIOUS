@@ -217,6 +217,7 @@ void CoordinadorEtsidious::mueve(float t)
 				estado = Estado::FIN;		//si nivel>3, WIN!
 				ETSIDI::play("sonidos/victoria.wav");
 				puntuacion = mundo->getPuntos();
+				ETSIDI::stopMusica();
 			}
 		}
 		if (mundo->personaje.getVida() == 0) {
